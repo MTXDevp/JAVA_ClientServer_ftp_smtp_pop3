@@ -22,8 +22,8 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class Main {
 
-	private static NimRODLookAndFeel nimRODLookAndFeel;
-	private static Properties properties;
+	private NimRODLookAndFeel nimRODLookAndFeel;
+	private Properties properties;
 
 	/**
 	 * @param args the command line arguments
@@ -39,12 +39,12 @@ public class Main {
 		establecerTema(nimRODLookAndFeel);
 	}
 
-	public static void initVar() {
+	public void initVar() {
 		properties = new Properties();
 		nimRODLookAndFeel = new NimRODLookAndFeel();
 	}
 
-	public static void establecerTema(LookAndFeel laf) {
+	public void establecerTema(LookAndFeel laf) {
 		try {
 			JFrame.setDefaultLookAndFeelDecorated(true);
 			JDialog.setDefaultLookAndFeelDecorated(true);
