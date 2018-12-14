@@ -1,0 +1,1 @@
+java -Dfile.encoding=UTF-8 -classpath ../lib/jxbrowser-6.22.1.jar:../lib/jxbrowser-mac-6.22.1.jar:../lib/jxbrowser-linux32-6.22.1.jar:../lib/jxbrowser-linux64-6.22.1.jar:../lib/license.jar:jxbrowserdemo.jar com.teamdev.jxbrowser.chromium.demo.JxBrowserDemo
