@@ -63,6 +63,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "DiseñoErvo/SubirArch.html",
+			"settings":
+			{
+				"buffer_size": 1083,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -175,10 +183,18 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Usuario/Desktop/ClienteServidor-ftp-smtp-pop3"
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP",
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/Archivos HTML",
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/DiseñoErvo",
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/filedrop-1.1"
 	],
 	"file_history":
 	[
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/Archivos HTML Ervo/boton.html",
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/Archivos HTML Ervo/DragDrop.html",
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/Archivos HTML Ervo/SubirArch.html",
+		"/C/Users/usuario/AppData/Roaming/Sublime Text 3/Packages/User/SyncSettings.sublime-settings",
+		"/C/Users/usuario/AppData/Roaming/Sublime Text 3/Packages/Sync Settings/SyncSettings.sublime-settings",
 		"/C/Users/Usuario/Desktop/Servidor.java",
 		"/C/Users/Usuario/Google Drive/trabajos compartidos/Sharing Clase/listviewDentroDeOtro/MainActivity.java",
 		"/C/Users/Usuario/Google Drive/trabajos compartidos/Sharing Clase/listviewDentroDeOtro/Jugadores.java",
@@ -301,16 +317,11 @@
 		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67238_2_1/package-lock.json",
 		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67238_2_0/package.json",
 		"/C/Users/Usuario/Documents/AngularProjects/cash-flow/StartAngularProject.bat",
-		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67130_5_6/package-lock.json",
-		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67130_5_5/package-lock.json",
-		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67130_5_4/package-lock.json",
-		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67130_5_2/package-lock.json",
-		"/C/Users/Usuario/Desktop/WebDeWIKOS/html/global_media/css/mainStyle.css",
-		"/C/Users/Usuario/Desktop/WebDeWIKOS/html/global_media/globalStyle.css"
+		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67130_5_6/package-lock.json"
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
@@ -341,14 +352,47 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "DiseñoErvo/SubirArch.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1083,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1083,
+								1083
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"git_gutter_is_enabled": true,
+							"markdonw_live_preview_last_run": 1545034665.32,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -385,11 +429,15 @@
 	{
 		"height": 112.0
 	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
 	"pinned_build_system": "",
 	"project": "ClienteServidor-ftp-smtp-pop3.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
