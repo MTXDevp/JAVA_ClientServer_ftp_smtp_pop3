@@ -64,30 +64,10 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/usuario/AppData/Roaming/Sublime Text 3/Packages/User/SyncSettings.sublime-settings",
+			"file": "DiseñoErvo/SubirArch.html",
 			"settings":
 			{
-				"buffer_size": 111,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Package Control Messages\n========================\n\nAngularJS\n---------\n\n  AngularJS 1.0.0\n  --------------------\n  \n  This version of AngularJS is now a merge of the following two packages:\n  AngularJS - http://deansofer.com/projects/view/74/AngularJs_tmbundle\n  AngularJS Attributes Completion - http://subhaze.github.io/angularjs-attributes\n  \n  This new package provides similar functionality of the two but with added features and options.\n  \n  Some of the added features are:\n  - Quick Panel search of directives/controllers/filters/etc...\n  - GoTo definition for directives\n  - GoToDocs for core AngularJS directives\n  - Directive completions for your custom defined directives\n  \n  To find out more checkout the readme at https://github.com/angular-ui/AngularJS-sublime-package\n  \n  Report issues at https://github.com/angular-ui/AngularJS-sublime-package/issues\n\n\nColor Highlighter\n-----------------\n\n  \n  Color Highlighter v8.0 is released!\n  \n  For more info about the plugin visit https://github.com/Monnoroch/ColorHighlighter.\n  \n  Color Highlighter was developed for many years and features were added without consideration.\n  As a result it has plenty of bugs and code is completely unmaintainable.\n  Because of it, I've decided to rewrite the plugin from scratch using all the good programming practices I learned\n  over the years.\n  \n  This is the first release of the new version and it might have some subtle bugs, especially on Windows and Mac, as I\n  don't have machines with these systems. If you find any bugs, please file them in\n  the bug tracker here: https://github.com/Monnoroch/ColorHighlighter/issues. I always appreciate your help and try to fix\n  problems as soon as possible.\n  \n  The plugin is being developed by me alone in my spare time, so if you want to encourage me to build it\n  better and faster, donations as always welcome.\n  \n  Thank you guys for your support, every little bit helps!\n\n\nLaravel Blade Highlighter\n-------------------------\n\n  Laravel Blade Highlighter\n  \n  This package adds syntax definitions for the Laravel 4 & 5 Blade engine.\n  \n  Works with Sublime Text 3.\n\n\nDart\n----\n\n  //////////////////////////////////////////////////////////////////////////////////////////////////\n  //////////////////////////////////////////////////////////////////////////////////////////////////\n  //////////////////////////////////////////////////////////////////////////////////////////////////\n  //////////////////////////////////////////////////////////////////////////////////////////////////\n  //////////////////////////////////////////////////////////////////////////////////////////////////\n  //////////////////////////////////////////////////////////////////////////////////////////////////\n  \t\t ____             _\n  \t\t|  _ \\  __ _ _ __| |_\n  \t\t| | | |/ _` | '__| __|\n  \t\t| |_| | (_| | |  | |_\n  \t\t|____/ \\__,_|_|   \\__|\n  \n  //////////////////////////////////////////////////////////////////////////////////////////////////\n  //////////////////////////////////////////////////////////////////////////////////////////////////\n  //////////////////////////////////////////////////////////////////////////////////////////////////\n  \n  \n  Thank you for installing the Dart package for Sublime Text!\n  \n  Let's get set up!\n  \n  2 min configuration:\n  \n  Put this in User/Preferences.sublime-settings:\n  \n  \t{\n  \t  \"dart_sdk_path\": \"/path/to/dart-sdk\"\n  \t}\n  \n  That should enable the core development tools included in this package.\n  \n  But if you need more guidance or want to check out all available settings,\n  head over to:\n  \n  * https://github.com/guillermooo/dart-sublime-bundle/wiki/Installation%20and%20Basic%20Configuration\n  \n  \n  Please report any bugs or request features here:\n  \n  * https://github.com/guillermooo/dart-sublime-bundle/issues\n  \n  \n  Happy coding! :-)\n  \n  Guillermo\n\n\nPlainTasks\n----------\n\n  Thank you for installing PlainTasks.\n  \n  For quick start you probably would like to go through a short tutorial:\n  Preferences → Package Settings → PlainTasks → Tutorial\n\n\nIcon Fonts\n----------\n\n  Deprecated Icon Fonts\n  =====================\n  \n  This is a reminder that as of v3.0.0 several icon fonts have been removed from\n  this package:\n  \n  - Elegant Theme Line Icons\n  - Foundation Icons 1.0\n  - Glyphicons Filetypes\n  - Glyphicons Halflings\n  - Glyphicons Pro\n  - Glyphicons Social\n  \n  If you need support for any of the removed icons, you can install the separate\n  \"Icon Fonts (Legacy)\" package.\n  \n  Details at the \"Icon Fonts (Legacy)\" repository on GitHub:\n  \n  https://github.com/idleberg/sublime-icon-fonts-legacy\n\n\nGitGutter\n---------\n\n  Thanks for installing Git Gutter!!!\n  \n  👣 Follow me: @jisaacks\n  \n  \n  💛 Git Gutter? Want to support development?\n  \n  I've teamed up with Wes Bos to offer the following discounts:\n  \n  +------------------------------------------------+\n  |                                                |\n  |   Use the coupon code GITGUTTER for $10 off    |\n  |                                                |\n  +------------------------------------------------+\n  \n  🏅 ⭐ ES6 ⭐\n  \n  👉 ES6.io/friend/GITGUTTER\n  \n  🏅 ⭐ Sublime Text Book ⭐\n  \n  👉 SublimeTextBook.com/friend/GITGUTTER\n  \n  🏅 ⭐ React For Beginners ⭐\n  \n  👉 ReactForBeginners.com/friend/GITGUTTER\n  \n  \n  Join 15,000 other developers already learning with Wes Bos.\n  \n  These are fantastic resources - 100% money back guarantee! 🌟\n\n\nnpm\n---\n\n  sublime-text-npm\n  ================\n  \n  npm commands within Sublime Text (v3)\n  \n  [Git integration](https://github.com/kemayo/sublime-text-git) is handy, so why not [npm](https://www.npmjs.org/) too?\n  \n  Installation\n  ============\n  \n  1. Install [node and npm](http://nodejs.org/) on your machine\n  2. Install [Package Control](https://sublime.wbond.net/installation) in Sublime Text\n  3. Open the \"[Command Pallet](http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/extensibility/command_palette.html#command-palette)\" (<kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd> or <kbd>⌘</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd>)\n  4. type \"pkgctlinspkg\" (for \"Package Control: Install Package\" ;-)\n  5. type \"[npm](https://sublime.wbond.net/packages/npm)\"\n  6. Tah-dah!\n  \n  Usage\n  =====\n  \n  1. Open a file (usually a *.js or *.coffee) in your npm project/package\n  2. <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd> or <kbd>⌘</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd>\n  3. Type `npm: ` to see all npm commands\n  4. Press <kbd>Enter</kbd> to invoke the selected command. The npm command will be run in the directory of your focused file.\n  \n  Commands Implemented\n  ====================\n  \n  If you don't see your favorite here, please [file an issue](https://github.com/PixnBits/sublime-text-npm/issues).\n  \n  [Install](https://www.npmjs.org/doc/cli/npm-install.html):\n  \n  * Install Saved Packages: `npm install`\n  * Install Package: `npm install <pkg name>`\n  * Install and Save Package: `npm install <pkg name> --save`\n  * Install and Save Development Package: `npm install <pkg name> --save-dev`\n  \n  [Uninstall]():\n  \n  * Remove/Uninstall Package: `npm rm`\n  * Remove/Uninstall Saved Package: `npm rm --save --save-dev -save-optional`\n  \n  [List](https://www.npmjs.org/doc/cli/npm-ls.html):\n  \n  * List Installed Packages: `npm list --depth 0`\n  * List Installed Packages, Deep: `npm list`\n  \n  [Outdated](https://docs.npmjs.com/cli/outdated):\n  \n  * Check for outdated packages: `npm outdated`\n  \n  [Run](https://docs.npmjs.com/cli/run-script):\n  \n  * Run Script: `npm run <script>`\n  \n  [Update](https://www.npmjs.org/doc/cli/npm-update.html):\n  \n  * Update Local Packages: `npm update` or `npm update <name>`\n  \n  [Search](https://www.npmjs.org/doc/cli/npm-search.html):\n  \n  * Search Packages: `npm search <name>`\n  \n  [Link](https://www.npmjs.org/doc/cli/npm-link.html):\n  \n  * Register this Package for Linking: `npm link`\n  * Link Package Here: `npm link <name>`\n  \n  [Test](https://docs.npmjs.com/cli/test):\n  \n  * Test a package: `npm test`\n  \n  Run Arbitrary:\n  \n  * Run something not covered here (basically, `npm <whatever your input was>`)\n\n\nStylus\n------\n\n  ///////////////////////////////////////\n  //                                   //\n  //      Stylus for Sublime Text      //\n  //                                   //\n  ///////////////////////////////////////\n  \n  \n  IMPORTANT: Snippets for CSS properties\n  --------------------------------------\n  \n  Snippets for CSS properties are not provided as part of this package and Emmet or Hayaku packages should be used instead to provide this (and much more) functionality. Both choices are available via Package Control.\n  \n  If you rather use regular Sublime Text snippets for some reason, then snippets that were previously a part of Stylus package can be installed as new Sublime-Snippets package, which is also available via Package Control.\n  \n  You can learn more about packages mentioned above by following these links:\n  \n  https://github.com/sergeche/emmet-sublime\n  https://github.com/hayaku/hayaku\n  https://github.com/billymoon/Stylus-Snippets\n  \n  \n  \n  Build System Requirements\n  -------------------------\n  \n  In order for build system to work you will need stylus installed via npm and available in your PATH.\n  \n  ------------------------------------------------\n  Please report any issues with this package here:\n  https://github.com/billymoon/Stylus/issues\n  ------------------------------------------------\n\n\nLessImproved\n------------\n\n  LessImproved - Final version\n  ============================\n  \n  This is the final release of LessImproved. The repo has been merged back into\n  LESS and we'll continue supporting and improving it there.\n  \n  We're currently testing the new version of LESS. You can switch over now by:\n  \n  1.\n  Add LESS to package control's prerelease list:\n  \n  \"install_prereleases\":\n  [\n    \"LESS\"\n  ]\n  \n  2.\n  Uninstall LessImproved\n  \n  3.\n  Install LESS\n  \n  I hope to see everyone back at LESS and if you have questions, bugs or pull\n  requests please send them here: https://github.com/danro/LESS-sublime\n\n\nOmniSharp\n---------\n\n  Welcome to OmniSharpSublime!\n  \n  You can now edit C#, build your projects, run your tests, get intellisense, refactor like a pro, be shown syntax errors and lots more!\n  \n  For more information see the README and Wiki here: https://github.com/OmniSharp/omnisharp-sublime\n\n\nMarkdownLivePreview\n-------------------\n\n   __  __            _       _                     _      _           _____                _\n  |  \\/  |          | |     | |                   | |    (_)         |  __ \\              (_)\n  | \\  / | __ _ _ __| | ____| | _____      ___ __ | |     ___   _____| |__) | __ _____   ___  _____      __\n  | |\\/| |/ _` | '__| |/ / _` |/ _ \\ \\ /\\ / / '_ \\| |    | \\ \\ / / _ \\  ___/ '__/ _ \\ \\ / / |/ _ \\ \\ /\\ / /\n  | |  | | (_| | |  |   < (_| | (_) \\ V  V /| | | | |____| |\\ V /  __/ |   | | |  __/\\ V /| |  __/\\ V  V /\n  |_|  |_|\\__,_|_|  |_|\\_\\__,_|\\___/ \\_/\\_/ |_| |_|______|_| \\_/ \\___|_|   |_|  \\___| \\_/ |_|\\___| \\_/\\_/\n  \n  Thanks for installing MarkdownLivePreview! I hope you'll enjoy using it!\n  \n  Quick Start:\n  ~~~~~~~~~~~~\n  \n  To enable MarkdownLivePreview, you need to be on a markdown view (works with\n  Markdown Extended). Then just press `alt+m`, or search up in the command\n  palette: 'MarkdownLivePreview: Toggle'. Hit enter and you're done. As soon as\n  you type anything in, it'll show up with the preview in a new group.\n  \n  Say thanks:\n  ~~~~~~~~~~~\n  \n  Just letting me know you're enjoying this plugin is a great way to say thanks!\n  \n  You can do so by staring the GitHub repo, or sending a tweet (@_math2001) for\n  example!\n  \n  Troubles?\n  ~~~~~~~~~\n  \n  If you have any kind of trouble with it, just let me now by raising an issue on\n  the GitHub issue tracker here:\n  \n  https://github.com/math2001/MarkdownLivePreview/issues\n  \n  Tip of the day: Right click on a URL and choose 'Open <the url>' to open it in\n                  your default browser.\n  \n  Credits:\n  ~~~~~~~~\n  \n  The ASCII MLP has been generated using the ASCII Decorator.\n  \n  https://github.com/viisual/ASCII-Decorator\n\n\nJSX\n---\n\n  JSX - Syntax & Autocomplete\n  ===========================\n  \n  Be sure to make issues (or shout at me) for broken things:\n  https://github.com/allanhortle/JSX/issues\n\n\nSass\n----\n\n  Sass 2.0\n  ======================\n  \n  Thank you for installing Sass for Sublime Text.\n  \n  2.0 supports things like flex-box syntax, custom properties, function snippets\n  and more for both Sass and SCSS.\n  It is now also in line with the scope naming guidelines for Sublime Text 3.0,\n  highlighting should be very similar to CSS and LESS.\n  \n  If something doesn't work for you let us know at:\n  https://github.com/braver/SublimeSass\n  \n  1.x is still available as a different package: \"Syntax Highlighting for Sass\":\n  https://github.com/P233/Syntax-highlighting-for-Sass\n",
-			"settings":
-			{
-				"buffer_size": 12875,
-				"line_ending": "Windows",
-				"name": "Package Control Messages",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 273,
+				"buffer_size": 1083,
 				"line_ending": "Windows"
 			}
 		}
@@ -204,10 +184,16 @@
 	"expanded_folders":
 	[
 		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP",
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/Archivos HTML",
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/DiseñoErvo",
 		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/filedrop-1.1"
 	],
 	"file_history":
 	[
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/Archivos HTML Ervo/boton.html",
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/Archivos HTML Ervo/DragDrop.html",
+		"/C/Users/usuario/Documents/NetBeansProjects/ClienteServidorFTP/Archivos HTML Ervo/SubirArch.html",
+		"/C/Users/usuario/AppData/Roaming/Sublime Text 3/Packages/User/SyncSettings.sublime-settings",
 		"/C/Users/usuario/AppData/Roaming/Sublime Text 3/Packages/Sync Settings/SyncSettings.sublime-settings",
 		"/C/Users/Usuario/Desktop/Servidor.java",
 		"/C/Users/Usuario/Google Drive/trabajos compartidos/Sharing Clase/listviewDentroDeOtro/MainActivity.java",
@@ -331,11 +317,7 @@
 		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67238_2_1/package-lock.json",
 		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67238_2_0/package.json",
 		"/C/Users/Usuario/Documents/AngularProjects/cash-flow/StartAngularProject.bat",
-		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67130_5_6/package-lock.json",
-		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67130_5_5/package-lock.json",
-		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67130_5_4/package-lock.json",
-		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67130_5_2/package-lock.json",
-		"/C/Users/Usuario/Desktop/WebDeWIKOS/html/global_media/css/mainStyle.css"
+		"/C/Users/Usuario/Documents/MobaXterm/slash/RemoteFiles/67130_5_6/package-lock.json"
 	],
 	"find":
 	{
@@ -370,100 +352,39 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/usuario/AppData/Roaming/Sublime Text 3/Packages/User/SyncSettings.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 111,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								111,
-								111
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"git_gutter_is_enabled": false,
-							"syntax": "Packages/zzz A File Icon zzz/aliases/JSON (Sublime).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12875,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								71,
-								71
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"auto_indent": false,
-							"git_gutter_is_enabled": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_width": 2,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": ".gitignore",
+					"file": "DiseñoErvo/SubirArch.html",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 273,
+						"buffer_size": 1083,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								49,
-								49
+								1083,
+								1083
 							]
 						],
 						"settings":
 						{
 							"apply_syntax_touched": true,
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1545034074.7,
-							"syntax": "Packages/zzz A File Icon zzz/aliases/Shell Script (Git).sublime-syntax"
+							"markdonw_live_preview_last_run": 1545034665.32,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -507,6 +428,10 @@
 	"output.git":
 	{
 		"height": 112.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
 	},
 	"pinned_build_system": "",
 	"project": "ClienteServidor-ftp-smtp-pop3.sublime-project",
