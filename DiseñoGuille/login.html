@@ -5,28 +5,37 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	 crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="estilos.css" />
+
+	<script type="text/javascript">
+		function sendFormData() {
+			var usuario = myForm.elements['usuario'].value;
+			var contraseña = myForm.elements['contraseña'].value;
+			Account.save(usuario, contraseña);
+		}
+	</script>
 </head>
 
 <body>
 	<div id="contenedor">
 		<div id="form">
-			<form>
+			<form name="myForm">
 				<div id="form-bx form-group">
 					<label for="usuario">Nombre de Usuario:</label>
-					<input type="text" class="bx form-control" id="usuario" />
+					<input type="text" class="bx form-control" id="usuario" name="usuario" />
 					<label for="contraseña">Contraseña:</label>
-					<input type="password" class="bx form-control" id="contraseña" />
+					<input type="password" class="bx form-control" id="contraseña" name="contraseña" />
 				</div>
 				<div id="form-btn form-group">
 					<!--
 <button class="btn btn-primary" id="iniciarSesion">
 							<span>Iniciar Sesión</span>
 						</button>
-						-->
-					<a href="pruebaMenu.html" class="btn btn-primary" role="button"><span>Sesión</span> </a>
-					<button class="btn btn-primary" id="registrarse">
+						<button class="btn btn-primary" id="registrarse">
 						<span>Registrarse</span>
 					</button>
+						-->
+					<a href="pruebaMenu.html" class="btn btn-primary" role="button" onclick="sendFormData();"><span>Sesión</span> </a>
+					<a href="Registrarse.html" class="btn btn-primary" role="button"><span>Registrarse</span> </a>
 				</div>
 			</form>
 		</div>
