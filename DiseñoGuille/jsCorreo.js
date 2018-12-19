@@ -2,26 +2,6 @@ window.addEventListener('load', inicio, false);
 
 function inicio() {
     genera_tabla();
-    genera_btnSalir();
-}
-
-function genera_btnSalir() {
-    // Obtener la referencia del elemento body
-    var body = document.getElementsByTagName("body")[0];
-    var div = document.getElementById("segundario");
-    // Crea un elemento <table>, un elemento <thead> y un elemento <tbody>
-    var boton = document.createElement("button");
-    //Crear texto del elemento y añadiro al elemento
-    var texto = document.createTextNode("Salir");
-    boton.appendChild(texto);
-    //Añadir la <table> al <div> correspondiente
-    div.appendChild(boton);
-    // appends <div> into <body>
-    body.appendChild(div);
-    //Añadir propiedades al boton
-    boton.onclick = function () { location.href = 'pruebaMenu.html'; };
-    boton.setAttribute("id", "salir");
-    document.getElementById("salir").className = "btn btn-primary";
 }
 function genera_tabla() {
     // Obtener la referencia del elemento body
@@ -37,7 +17,7 @@ function genera_tabla() {
     var cabecera = document.createElement("tr");
     //Crear elemenro <th> y un nodo texto
     var titulo = document.createElement("th");
-    var nomTitulo = document.createTextNode("Archivos");
+    var nomTitulo = document.createTextNode("Correos");
     titulo.appendChild(nomTitulo);
 
     //Añadir la cabecera a la tabla
