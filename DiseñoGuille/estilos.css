@@ -1,33 +1,34 @@
-#contenedor{
+#contenedor {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width:600px;
-	height: 300px;
+    width: 600px;
+    height: 300px;
 }
 
 #form {
     font-weight: bolder;
     font-size: 16px;
     width: 400px;
-	height: 300px;
-	margin: 0 auto; 
+    height: 300px;
+    margin: 0 auto;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
 }
 
-#form-bx{
+/*
+#form-bx {
     width: 200px;
-	height: 150px;
+    height: 150px;
     margin: 0 auto;
 }
 
-#form-btn{
+#form-btn {
     width: 200px;
-	height: 150px;
+    height: 150px;
     margin: 0 auto;
 }
 
-.bx{
+.bx {
     display: block;
     width: 100%;
     height: 30px;
@@ -39,7 +40,7 @@
     box-sizing: border-box;
 }
 
-.btn{
+.btn {
     font-size: 16px;
     display: block;
     width: 100%;
@@ -53,7 +54,7 @@
     cursor: pointer;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #5fd3f0;
 }
 
@@ -62,23 +63,23 @@
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
-  
-  .btn span:after {
+}
+
+.btn span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.5s;
-  }
-  
-  .btn:hover span {
+}
+
+.btn:hover span {
     padding-right: 25px;
-  }
-  
-  .btn:hover span:after {
+}
+
+.btn:hover span:after {
     opacity: 1;
     right: 0;
-  }
-  
+}
+*/
