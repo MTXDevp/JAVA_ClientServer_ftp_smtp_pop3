@@ -22,6 +22,8 @@ import java.util.logging.Level;
 
 public class ControladorLogin {
 
+    //xd
+
     static Conexion conexion;
 
     VistaLogin vloging;
@@ -51,7 +53,7 @@ public class ControladorLogin {
         frame.setSize(800, 500);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        String ruta = "C:\\Users\\USUARIO\\Desktop\\ClienteServidor_Ftp_Smtp_Pop3\\public\\login.html";
+        String ruta = "C:\\Users\\USUARIO\\Desktop\\ClienteServidor-ftp-smtp-pop3\\IntelliJ version\\PROYECTO ENRIQUE INTELLIJ\\src\\login.html";
         browser.loadURL(ruta);
 
         browser.addLoadListener(new LoadAdapter() {
