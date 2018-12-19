@@ -9,8 +9,6 @@ import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
 import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
-import org.hibernate.tool.schema.internal.exec.ScriptTargetOutputToFile;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
