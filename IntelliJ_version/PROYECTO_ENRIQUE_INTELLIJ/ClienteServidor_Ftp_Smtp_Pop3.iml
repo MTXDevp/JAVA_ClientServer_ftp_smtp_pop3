@@ -13,5 +13,8 @@
     <orderEntry type="library" name="jxbrowser-win64-6.22.1" level="project" />
     <orderEntry type="library" name="hibernate_dependencias" level="project" />
     <orderEntry type="library" name="h2-1.4.197" level="project" />
+    <orderEntry type="library" name="commons-net-3.6" level="project" />
+    <orderEntry type="library" name="commons-net-3.6-sources" level="project" />
+    <orderEntry type="library" name="commons-net-examples-3.6" level="project" />
   </component>
 </module>

@@ -62,14 +62,15 @@ public class ControladorLogin {
 
                 String url = event.getValidatedURL();
                 System.out.println("la url es : " + url);
-                if(url.equals("C:\\Users\\USUARIO\\Desktop\\ClienteServidor-ftp-smtp-pop3\\IntelliJ_version\\PROYECTO_ENRIQUE_INTELLIJ\\src\\html\\Registrarse.html")){
+
+                if(url.equals("file:///C:/Users/USUARIO/Desktop/ClienteServidor-ftp-smtp-pop3/IntelliJ_version/PROYECTO_ENRIQUE_INTELLIJ/src/html/Registrarse.html")){
 
                     System.out.println("Estas en la ventana registrarse");
                                 Browser browser = event.getBrowser();
                                 JSValue value = browser.executeJavaScriptAndReturnValue("window");
                                 value.asObject().setProperty("Account", new getDatosRegistro());
 
-                }else if(url.equals("C:\\Users\\USUARIO\\Desktop\\ClienteServidor-ftp-smtp-pop3\\IntelliJ_version\\PROYECTO_ENRIQUE_INTELLIJ\\src\\html\\pruebaMenu.html")) {
+                }else if(url.equals("file:///C:/Users/USUARIO/Desktop/ClienteServidor-ftp-smtp-pop3/IntelliJ_version/PROYECTO_ENRIQUE_INTELLIJ/src/html/pruebaMenu.html")) {
 
                     System.out.println("Estas en la ventana pruebaMenu");
                     DOMDocument document = browser.getDocument();
@@ -82,10 +83,14 @@ public class ControladorLogin {
                             }, false);
 
 
-                }else if(url.equals("C:\\Users\\USUARIO\\Desktop\\ClienteServidor-ftp-smtp-pop3\\IntelliJ_version\\PROYECTO_ENRIQUE_INTELLIJ\\src\\html\\sever-FTP.html")){
+                }else if(url.equals("file:///C:/Users/USUARIO/Desktop/ClienteServidor-ftp-smtp-pop3/IntelliJ_version/PROYECTO_ENRIQUE_INTELLIJ/src/html/server-FTP.html")){
 
                     System.out.println("Estas en la ventana server-FTP");
+                    //ControladorFTP cftp = new ControladorFTP(browser, event);
 
+                    Browser browser = event.getBrowser();
+                    JSValue value = browser.executeJavaScriptAndReturnValue("window");
+                    value.asObject().setProperty("Account", new getDireccionFTP());
 
                 }else{
 
@@ -125,7 +130,6 @@ public class ControladorLogin {
 
                     browser.loadURL("C:\\Users\\USUARIO\\Desktop\\ClienteServidor-ftp-smtp-pop3\\IntelliJ_version\\PROYECTO_ENRIQUE_INTELLIJ\\src\\html\\pruebaMenu.html");
                     //ControladorMenu cm = new ControladorMenu(browser);
-
                     }else{
                     JOptionPane.showMessageDialog(null, "CREDENCIALES ERRONEAS", "ERROR", JOptionPane.WARNING_MESSAGE);
                 }
@@ -154,6 +158,14 @@ public class ControladorLogin {
             }else{
                 conexion.InsertNewUsuario(usuario, contraseña, correo);
             }
+        }
+    }
+    public static class getDireccionFTP {
+        public void save(String direccionFTP) {
+
+            System.out.println("FTP : " + direccionFTP);
+            ControladorFTP cFTP = new ControladorFTP(direccionFTP);
+
         }
     }
 }
