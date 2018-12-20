@@ -24,3 +24,6 @@ hs_err_pid*
 # Sublime project
 *.sublime-workspace
 *.sublime-project
+
+# Open office autosave files
+*lock.*

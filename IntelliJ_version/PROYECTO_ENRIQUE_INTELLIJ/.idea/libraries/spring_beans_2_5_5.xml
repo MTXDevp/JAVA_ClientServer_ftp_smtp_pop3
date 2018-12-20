@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="spring-beans-2.5.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/libs/apache-ftpserver-1.1.1/common/lib/spring-beans-2.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,19 +9,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous" />
+
+    <script type="text/javascript">
+		function SentDatosFTP() {
+			var direccionFTP = formFTP.elements['direccionFTP'].value;
+			Account.save(direccionFTP);
+		}
+	</script>
 </head>
 
 <body>
 
     <div class="container">
-        <form>
+        <form name="formFTP">
             <div class="form-group">
                 <label for="protocolo">Protocolo:</label>
                 <input type="text" class="form-control" id="protocolo" placeholder="FTP" readonly>
             </div>
             <div class="form-group">
                 <label for="direccion">Dirección FTP:</label>
-                <input type="text" class="form-control" id="direccion">
+                <input type="text" class="form-control" id="direccion" name="direccionFTP">
             </div>
             <div class="form-group">
                 <label for="puerto">Puerto:</label>
@@ -28,7 +37,7 @@
             <div class="form-group">
                 <input type="file" class="form-control-file" id="archivo">
             </div>
-            <a href="#" class="btn btn-primary" role="button">Enviar</a>
+            <a href="#" class="btn btn-primary" role="button" onclick="SentDatosFTP();">Enviar</a>
             <a href="pruebaMenu.html" class="btn btn-primary" role="button">Cancelar</a>
         </form>
     </div>

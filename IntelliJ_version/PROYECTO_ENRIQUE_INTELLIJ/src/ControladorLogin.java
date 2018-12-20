@@ -19,15 +19,13 @@ import java.util.Map;
 import java.util.logging.Level;
 
 //https://jxbrowser.support.teamdev.com/support/solutions/
-
+//pusheo
 public class ControladorLogin {
 
     //xd
 
     static Conexion conexion;
-
     VistaLogin vloging;
-
     DOMDocument document;
     DOMElement botonIniciarSesion;
     DOMElement cajaIniciarSesion;
@@ -53,7 +51,7 @@ public class ControladorLogin {
         frame.setSize(800, 500);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        String ruta = "C:\\Users\\USUARIO\\Desktop\\ClienteServidor-ftp-smtp-pop3\\IntelliJ version\\PROYECTO ENRIQUE INTELLIJ\\src\\login.html";
+        String ruta = "C:\\Users\\USUARIO\\Desktop\\ClienteServidor-ftp-smtp-pop3\\IntelliJ_version\\PROYECTO_ENRIQUE_INTELLIJ\\src\\html\\login.html";
         browser.loadURL(ruta);
 
         browser.addLoadListener(new LoadAdapter() {
@@ -64,22 +62,35 @@ public class ControladorLogin {
 
                 String url = event.getValidatedURL();
                 System.out.println("la url es : " + url);
-                if(url.equals("file:///C:/Users/USUARIO/Desktop/ClienteServidor_Ftp_Smtp_Pop3/public/Registrarse.html")){
 
+                if(url.equals("file:///C:/Users/USUARIO/Desktop/ClienteServidor-ftp-smtp-pop3/IntelliJ_version/PROYECTO_ENRIQUE_INTELLIJ/src/html/Registrarse.html")){
+
+                    System.out.println("Estas en la ventana registrarse");
                                 Browser browser = event.getBrowser();
                                 JSValue value = browser.executeJavaScriptAndReturnValue("window");
                                 value.asObject().setProperty("Account", new getDatosRegistro());
 
-                }else if(url.equals("file:///C:/Users/USUARIO/Desktop/ClienteServidor_Ftp_Smtp_Pop3/public/pruebaMenu.html")) {
+                }else if(url.equals("file:///C:/Users/USUARIO/Desktop/ClienteServidor-ftp-smtp-pop3/IntelliJ_version/PROYECTO_ENRIQUE_INTELLIJ/src/html/pruebaMenu.html")) {
 
+                    System.out.println("Estas en la ventana pruebaMenu");
                     DOMDocument document = browser.getDocument();
-                    DOMElement linkCerrar  = document.findElement(By.id("salir"));
+                    DOMElement linkCerrar = document.findElement(By.id("salir"));
                     System.out.println("el link es : " + linkCerrar);
 
                     linkCerrar.addEventListener(DOMEventType.OnClick,
-                       (DOMEvent dome) -> {
-                          System.exit(0);
-                       }, false);
+                            (DOMEvent dome) -> {
+                                System.exit(0);
+                            }, false);
+
+
+                }else if(url.equals("file:///C:/Users/USUARIO/Desktop/ClienteServidor-ftp-smtp-pop3/IntelliJ_version/PROYECTO_ENRIQUE_INTELLIJ/src/html/server-FTP.html")){
+
+                    System.out.println("Estas en la ventana server-FTP");
+                    //ControladorFTP cftp = new ControladorFTP(browser, event);
+
+                    Browser browser = event.getBrowser();
+                    JSValue value = browser.executeJavaScriptAndReturnValue("window");
+                    value.asObject().setProperty("Account", new getDireccionFTP());
 
                 }else{
 
@@ -117,10 +128,9 @@ public class ControladorLogin {
             try {
                 if(conexion.getRs().next()){
 
-                    //browser.dispose();
-                    browser.loadURL("C:\\Users\\USUARIO\\Desktop\\ClienteServidor_Ftp_Smtp_Pop3\\public\\pruebaMenu.html");
-
-                }else{
+                    browser.loadURL("C:\\Users\\USUARIO\\Desktop\\ClienteServidor-ftp-smtp-pop3\\IntelliJ_version\\PROYECTO_ENRIQUE_INTELLIJ\\src\\html\\pruebaMenu.html");
+                    //ControladorMenu cm = new ControladorMenu(browser);
+                    }else{
                     JOptionPane.showMessageDialog(null, "CREDENCIALES ERRONEAS", "ERROR", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (SQLException e) {
@@ -146,13 +156,15 @@ public class ControladorLogin {
                 JOptionPane.showMessageDialog(null, "LAS CONTRASEÑAS NO COINCIDEN", "ERROR", JOptionPane.WARNING_MESSAGE);
 
             }else{
-
                 conexion.InsertNewUsuario(usuario, contraseña, correo);
-
             }
+        }
+    }
+    public static class getDireccionFTP {
+        public void save(String direccionFTP) {
 
-
-
+            System.out.println("FTP : " + direccionFTP);
+            ControladorFTP cFTP = new ControladorFTP(direccionFTP);
 
         }
     }

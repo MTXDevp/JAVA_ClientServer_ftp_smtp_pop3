@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="slf4j-api-1.7.21">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/libs/apache-ftpserver-1.1.1/common/lib/slf4j-api-1.7.21.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
