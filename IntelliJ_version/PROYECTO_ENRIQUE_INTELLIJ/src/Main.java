@@ -18,8 +18,8 @@ public class Main {
     public static void main(String[] args) {
 
 
-        ServidorFTP ftp = new ServidorFTP();
-        //ControladorLogin cl = new ControladorLogin();
+        //ServidorFTP ftp = new ServidorFTP();
+        ControladorLogin cl = new ControladorLogin();
 
     }
 
