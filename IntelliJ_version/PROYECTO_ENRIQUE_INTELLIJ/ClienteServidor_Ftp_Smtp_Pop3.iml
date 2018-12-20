@@ -27,5 +27,7 @@
     <orderEntry type="library" name="spring-beans-2.5.5" level="project" />
     <orderEntry type="library" name="spring-context-2.5.5" level="project" />
     <orderEntry type="library" name="spring-core-2.5.5" level="project" />
+    <orderEntry type="library" name="Disenio" level="project" />
+    <orderEntry type="library" name="Disenio1" level="project" />
   </component>
 </module>
