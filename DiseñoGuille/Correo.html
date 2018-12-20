@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-		<link rel="stylesheet" type="text/css" href="lib/lib.css"/>
-		<script language="javascript" src="jsCorreo.js"></script>
-	</head>
-	<body>
-		<div class="container">
-			<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-between">
-				<ul class="navbar-nav">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" title="Inicio">
-							<img src="Imagenes/opciones.png" width="30" height="30"/>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" type="text/css" href="lib/lib.css" />
+	<script language="javascript" src="jsCorreo.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-between" id="barraNavegacion">
+			<ul class="navbar-nav">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" title="Inicio">
+						<img src="Imagenes/opciones.png" width="30" height="30" />
+					</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#" onclick="cambiarBrillo()">
+							<img src="Imagenes/modoBrillo.png" width="20" height="20" />
+							Modo Nocturno
 						</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="#">
-								<img src="Imagenes/actualizar.png" width="20" height="20"/>
-								Actualizar
-							</a>
-							<a class="dropdown-item" href="#">
-								<img src="Imagenes/salida.png" width="20" height="20"/>
-								Salir
-							</a>
-						</div>
-					</li>
-				</ul>
-				<form class="form-inline">
-					<input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search"/>
-					<button class="btn btn-primary">
-						<img src="Imagenes/busqueda.png" width="20" height="20"/>
-					</button>
-				</form>
-			</nav>
-			<div id="principal" class="container"></div>
+						<a class="dropdown-item" href="#">
+							<img src="Imagenes/actualizar.png" width="20" height="20" />
+							Actualizar
+						</a>
+						<a class="dropdown-item" href="pruebaMenu.html">
+							<img src="Imagenes/salida.png" width="20" height="20" />
+							Salir
+						</a>
+					</div>
+				</li>
+			</ul>
+			<form class="form-inline">
+				<input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search" />
+				<button class="btn btn-primary">
+					<img src="Imagenes/busqueda.png" width="20" height="20" />
+				</button>
+			</form>
+		</nav>
+		<div id="principal" class="container">
+			<table class="table table-hover" id="tablaCorreos">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Correos</th>
+						<th scope="col">Fecha</th>
+					</tr>
+				</thead>
+				<tbody id="contenidoTabla">
+
+				</tbody>
+			</table>
 		</div>
-		<script src="lib/jQuery/jquery-3.3.1.min.js"></script>
-		<script src="lib/popperjs/popper.min.js"></script>
-		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-	</body>
+	</div>
+	<script src="lib/jQuery/jquery-3.3.1.min.js"></script>
+	<script src="lib/popperjs/popper.min.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
 </html>

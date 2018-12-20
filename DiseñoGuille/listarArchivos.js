@@ -8,7 +8,7 @@ function inicio() {
 function genera_btnSalir() {
     // Obtener la referencia del elemento body
     var body = document.getElementsByTagName("body")[0];
-    var div = document.getElementById("segundario");
+    var div = document.getElementById("principal");
     // Crea un elemento <table>, un elemento <thead> y un elemento <tbody>
     var boton = document.createElement("button");
     //Crear texto del elemento y añadiro al elemento
@@ -53,12 +53,12 @@ function genera_tabla() {
             var opcion = confirm("¿ Descargar Archivo?");
             if (opcion == true) {
                 console.log("You pressed OK!");
-                var divBarra = document.getElementById("tercero");
+                var divBarra = document.getElementById("segundario");
                 divBarra.innerHTML = document.getElementById("barraDescarga").innerHTML;
                 body.appendChild(divBarra);
             } else {
                 console.log("You pressed Cancel!");
-                var divBarra = document.getElementById("tercero");
+                var divBarra = document.getElementById("segundario");
                 divBarra.innerHTML = " ";
                 body.appendChild(divBarra);
             }
