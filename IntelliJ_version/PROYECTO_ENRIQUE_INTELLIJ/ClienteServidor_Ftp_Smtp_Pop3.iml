@@ -16,5 +16,16 @@
     <orderEntry type="library" name="commons-net-3.6" level="project" />
     <orderEntry type="library" name="commons-net-3.6-sources" level="project" />
     <orderEntry type="library" name="commons-net-examples-3.6" level="project" />
+    <orderEntry type="library" name="aopalliance-1.0" level="project" />
+    <orderEntry type="library" name="ftplet-api-1.1.1" level="project" />
+    <orderEntry type="library" name="ftpserver-core-1.1.1" level="project" />
+    <orderEntry type="library" name="jcl-over-slf4j-1.7.21" level="project" />
+    <orderEntry type="library" name="log4j-1.2.17" level="project" />
+    <orderEntry type="library" name="mina-core-2.0.16" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.7.21" level="project" />
+    <orderEntry type="library" name="slf4j-log4j12-1.7.21" level="project" />
+    <orderEntry type="library" name="spring-beans-2.5.5" level="project" />
+    <orderEntry type="library" name="spring-context-2.5.5" level="project" />
+    <orderEntry type="library" name="spring-core-2.5.5" level="project" />
   </component>
 </module>
