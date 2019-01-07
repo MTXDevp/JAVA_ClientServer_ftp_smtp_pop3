@@ -29,5 +29,7 @@
     <orderEntry type="library" name="spring-core-2.5.5" level="project" />
     <orderEntry type="library" name="Disenio" level="project" />
     <orderEntry type="library" name="Disenio1" level="project" />
+    <orderEntry type="library" name="activation" level="project" />
+    <orderEntry type="library" name="mail" level="project" />
   </component>
 </module>

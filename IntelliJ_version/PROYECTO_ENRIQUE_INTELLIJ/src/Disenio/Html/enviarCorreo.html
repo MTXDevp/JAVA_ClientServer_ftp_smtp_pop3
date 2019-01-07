@@ -6,11 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="lib/lib.css" />
+
+    <script type="text/javascript">
+		function datosMensaje() {
+			var destinatario = formEnviarMensaje.elements['destinatario'].value;
+			var asunto = formEnviarMensaje.elements['asunto'].value;
+			var contenidoCorreo = formEnviarMensaje.elements['contenidoCorreo'].value;
+			Account.save(destinatario, asunto, contenidoCorreo);
+		}
+	</script>
 </head>
 
 <body>
     <div class="container">
-        <form action="" name="formRegistro">
+        <form name="formEnviarMensaje">
             <div class="form-group">
                 <label for="destinatario">Para</label>
                 <input type="text" class="form-control" id="destinatario" name="destinatario" required />
@@ -23,10 +32,10 @@
                 <textarea class="form-control" rows="5" id="contenidoCorreo" name="contenidoCorreo" required></textarea>
             </div>
             <div class="form-group">
-                <a href="visualizarCorreo.html" class="btn btn-primary" role="button">Enviar</a>
-                <a href="visualizarCorreo.html" class="btn btn-primary" role="button" id="registrarse">Cancelar</a>
+
             </div>
         </form>
+        <button class="btn btn-primary" role="button" onclick="datosMensaje();" name="enviar" id="enviar">FUNCTIONAL</button>
     </div>
     <script src="lib/jQuery/jquery-3.3.1.min.js"></script>
     <script src="lib/popperjs/popper.min.js"></script>

@@ -1,30 +1,26 @@
-import com.sun.java.browser.plugin2.DOM;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import com.teamdev.jxbrowser.chromium.*;
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
 import com.teamdev.jxbrowser.chromium.dom.DOMElement;
-import com.teamdev.jxbrowser.chromium.dom.events.DOMEvent;
-import com.teamdev.jxbrowser.chromium.dom.events.DOMEventListener;
-import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
 import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
+import javax.mail.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
+
+//USAR LOCAL STORAGE PARA GUARDAR USUARIO Y ONTRASEÑA ES MAS SEGURO QUE USAR COOKIES?
+//https://jxbrowser.support.teamdev.com/support/solutions/articles/9000035453-html5-local-session-storages
+//https://platzi.com/blog/local-storage-html5/
 
 //https://jxbrowser.support.teamdev.com/support/solutions/
 //pusheo
 public class ControladorLogin {
 
-    //xd
 
     static Conexion conexion;
     VistaLogin vloging;
@@ -35,8 +31,9 @@ public class ControladorLogin {
     static Browser browser;
     BrowserView view;
     DOMElement cajaRegistrarse;
-    String usuario;
-    String contraseña;
+    String extUsuario;
+    String extContraseña;
+
 
     ControladorLogin(){
 
@@ -67,79 +64,91 @@ public class ControladorLogin {
                 if (event.isMainFrame()) {
 
 
-                String url = event.getValidatedURL();
-                System.out.println("LA URL ES " + url);
+                    String url = event.getValidatedURL();
+                    browser = event.getBrowser();
+
+                    if(url.endsWith("login.html")){
+
+                        //Metodo que nos permite interactuar con el html y en concreto con el bloque js que coje las credenciales del formulario login
+                        //la clase a la que nos lleva contiene la consulta a la base de datos la cual comprueba la existencia del usuario en concreto
+                        JSValue value = browser.executeJavaScriptAndReturnValue("window");
+                        getUsuarioContraseña uc = new getUsuarioContraseña();
+                        value.asObject().setProperty("Account", uc);
+
+                    }else if(url.endsWith("registrar.html")){
+
+                        JSValue value = browser.executeJavaScriptAndReturnValue("window");
+                        getDatosRegistro dr = new getDatosRegistro();
+                        value.asObject().setProperty("Account", dr);
+
+                    }else if(url.endsWith("visualizarCorreo.html")){
+
+                        System.out.println("Estas en la ventana de visualizacion de correos");
+
+                    }else if(url.endsWith("enviarCorreo.html")){
 
 
-                    if(url.endsWith("registrar.html")){
+                        DOMDocument document = browser.getDocument();
+                        DOMElement boton = document.findElement(By.name("enviar"));
+                        DOMElement cajaDestinatario = document.findElement(By.name("destinatario"));
+                        DOMElement cajaAsunto = document.findElement(By.name("asunto"));
+                        DOMElement cajaContenido = document.findElement(By.name("contenidoCorreo"));
 
-                    System.out.println("Estas en la ventana registrarse");
-                                Browser browser = event.getBrowser();
-                                JSValue value = browser.executeJavaScriptAndReturnValue("window");
-                                value.asObject().setProperty("Account", new getDatosRegistro());
-
-                }else if(url.endsWith("menu.html")) {
-
-                    System.out.println("Estas en la ventana pruebaMenu");
-                    DOMDocument document = browser.getDocument();
-                    DOMElement linkCerrar = document.findElement(By.id("salir"));
-                    System.out.println("el link es : " + linkCerrar);
-
-                    linkCerrar.addEventListener(DOMEventType.OnClick,
-                            (DOMEvent dome) -> {
-                                System.exit(0);
-                            }, false);
-
-
-                }else if(url.endsWith("erver-FTP.html")){
-
-                    System.out.println("Estas en la ventana server-FTP");
-                    //ControladorFTP cftp = new ControladorFTP(browser, event);
-
-                    Browser browser = event.getBrowser();
-                    JSValue value = browser.executeJavaScriptAndReturnValue("window");
-                    value.asObject().setProperty("Account", new getDireccionFTP());
-
-                }else{
-
-                    Browser browser = event.getBrowser();
-                    JSValue value = browser.executeJavaScriptAndReturnValue("window");
-                    value.asObject().setProperty("Account", new getUsuarioContraseña());
-
-                     }// final si es el main frame
+                            System.out.println("Estas en la ventana de enviar correo");
+                            JSValue value = browser.executeJavaScriptAndReturnValue("window");//Cojemos la ventana completa con todos sus elementos
+                            getDatosCorreo dc= new getDatosCorreo();
+                            value.asObject().setProperty("Account", dc);
+                        }
+                    }// final si es el main frame
                 }
-            }
+
+
+
         });
     }
 
-
-    //AÑADIR RUTAS
-    public void Eventos(Conexion c){
-
-        botonIniciarSesion.addEventListener(DOMEventType.OnClick,
-                        (DOMEvent dome) -> {
-                        }, false);
-
-        botonRegistrarse.addEventListener(DOMEventType.OnClick,
-                (DOMEvent dome)-> {
-                  String ruta= "https://www.google.com/";
-                  vloging.getBrowser().loadURL(ruta);
-                }, false);
-    }
+    //CLASE ENCARGADA DE RESCATAR LOS DATOS USUARIO/CONTRASEÑA DESDE EL HTML
     public static class getUsuarioContraseña {
+
+        String externalUsuario;
+        String externalContraseña;
+
+        public String getExternalUsuario() {
+            return externalUsuario;
+        }
+
+        public String getExternalContraseña() {
+            return externalContraseña;
+        }
+
         public void save(String usuario, String contraseña) {
             System.out.println("Usuario    = " + usuario);
             System.out.println("Contraseña = " + contraseña);
 
             conexion.CheckLogin(usuario, contraseña);
-
             try {
+
+                //si el usuario y la contraseña coinciden
                 if(conexion.getRs().next()){
 
-                    browser.loadURL("..\\Disenio\\Html\\pruebaMenu.html");
-                    //ControladorMenu cm = new ControladorMenu(browser);
-                    }else{
+                    externalUsuario = usuario;
+                    externalContraseña = contraseña;
+
+                    File file = new File(
+                            ControladorLogin.class.getResource("Disenio/Html/menu.html").getFile()
+                    );
+                    browser.loadURL(file.toString());
+
+                    //cargar controlador menu para una mayor encapsulacion
+
+                }else{
                     JOptionPane.showMessageDialog(null, "CREDENCIALES ERRONEAS", "ERROR", JOptionPane.WARNING_MESSAGE);
+
+                    //en el caso de que las crecenciales no sean correctas volvemos a cargar la ventana de login
+                    File file = new File(
+                            ControladorLogin.class.getResource("Disenio/Html/login.html").getFile()
+                    );
+                    browser.loadURL(file.toString());
                 }
             } catch (SQLException e) {
                 System.out.println("SE HA PRODUCIDO UN ERROR CONSULTANDO LA BASE DE DATOS");
@@ -147,7 +156,32 @@ public class ControladorLogin {
                 System.out.println(e.getMessage());
             }
         }
+    }// FINAL CLASE GET USUARIO Y CONTRASEÑA
+
+
+    //CALSE GET DATOS MENSAJE ----------------> AÑADIR TRY CATCH
+    public class getDatosCorreo{
+
+        public void save(String destinatario, String asunto, String contenido) throws MessagingException {
+
+            System.out.println("Destinatario : " + destinatario);
+            System.out.println("Asunto : " + asunto);
+            System.out.println("Contenido : " + contenido);
+
+
+            EnviarMail em = new EnviarMail();
+            em.EnviarMail(destinatario, "esperanzamillan93@gmail.com", "esperanzamillan93@gmail.com",
+                    "tkzfjiwgxlqalpbw", "smtp.gmail.com", asunto, contenido);
+        }
     }
+
+
+
+
+
+
+    //IMPLEMENTAR RESCATADO DE DATOS ARRIBA COMO CON EL LOGIN
+    //CLASE ENCARGADA DE RESCATAR LOS DATOS DE REGISTRO DESDE EL HTML
     public static class getDatosRegistro{
 
         public getDatosRegistro(){
@@ -165,9 +199,11 @@ public class ControladorLogin {
 
             }else{
                 conexion.InsertNewUsuario(usuario, contraseña, correo);
+                System.out.println("Nuevo usuario insertado con exito");
             }
         }
     }
+    //ESTA CLASE?
     public static class getDireccionFTP {
         public void save(String direccionFTP) {
 
@@ -175,9 +211,6 @@ public class ControladorLogin {
             ControladorFTP cFTP = new ControladorFTP(direccionFTP);
 
         }
-    }
-    public void test(String nombreArchivo){
-        //System.out.println("El nombre del archivo es " + nombreArchivo);
     }
 }
 
