@@ -21,9 +21,9 @@ public class Conexion {
             System.out.println("BASE DE DATOS CREADA!");
             stm = con.createStatement();
             String sentencia = "CREATE TABLE IF NOT EXISTS USUARIOS "
-                    + "(usuario VARCHAR(20), "
-                    + " contraseña VARCHAR(20),"
-                    + " correo VARCHAR(20))";
+                    + "(usuario VARCHAR(30), "
+                    + " contraseña VARCHAR(30),"
+                    + " correo VARCHAR(30))";
             stm.executeUpdate(sentencia);
             System.out.println("Tabla creada con exito");
 

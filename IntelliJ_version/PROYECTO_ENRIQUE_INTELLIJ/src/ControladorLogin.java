@@ -5,6 +5,7 @@ import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
 import com.teamdev.jxbrowser.chromium.dom.DOMElement;
 import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
 import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
+import com.teamdev.jxbrowser.chromium.events.LoadEvent;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 import javax.mail.*;
 import javax.swing.*;
@@ -20,7 +21,6 @@ import java.util.logging.Level;
 //https://jxbrowser.support.teamdev.com/support/solutions/
 //pusheo
 public class ControladorLogin {
-
 
     static Conexion conexion;
     VistaLogin vloging;
@@ -54,7 +54,6 @@ public class ControladorLogin {
         File file = new File(
                 ControladorLogin.class.getResource("Disenio/Html/login.html").getFile()
         );
-
         browser.loadURL(file.toString());
 
         browser.addLoadListener(new LoadAdapter() {
@@ -62,7 +61,6 @@ public class ControladorLogin {
             public void onFinishLoadingFrame(FinishLoadingEvent event) {
 
                 if (event.isMainFrame()) {
-
 
                     String url = event.getValidatedURL();
                     browser = event.getBrowser();
@@ -87,7 +85,6 @@ public class ControladorLogin {
 
                     }else if(url.endsWith("enviarCorreo.html")){
 
-
                         DOMDocument document = browser.getDocument();
                         DOMElement boton = document.findElement(By.name("enviar"));
                         DOMElement cajaDestinatario = document.findElement(By.name("destinatario"));
@@ -96,14 +93,11 @@ public class ControladorLogin {
 
                             System.out.println("Estas en la ventana de enviar correo");
                             JSValue value = browser.executeJavaScriptAndReturnValue("window");//Cojemos la ventana completa con todos sus elementos
-                            getDatosCorreo dc= new getDatosCorreo();
+                            getDatosCorreo dc= new getDatosCorreo(browser);
                             value.asObject().setProperty("Account", dc);
                         }
                     }// final si es el main frame
                 }
-
-
-
         });
     }
 
@@ -162,6 +156,26 @@ public class ControladorLogin {
     //CALSE GET DATOS MENSAJE ----------------> AÑADIR TRY CATCH
     public class getDatosCorreo{
 
+        String usuario;
+        String contraseña;
+
+        public String getUsuario() {
+            return usuario;
+        }
+        public String getContraseña() {
+            return contraseña;
+        }
+        /**
+         * @param b variable de tipo Browser que nos permitira acceder al javascript del html para hacer uso
+         *          del local storage y recuperar los datos de inicio de sesion
+         */
+        public getDatosCorreo(Browser b){
+
+            b.executeJavaScript("localStorage");
+            WebStorage webStorage = b.getLocalWebStorage();
+            usuario = webStorage.getItem("usuario");
+            contraseña = webStorage.getItem("contraseña");
+        }
         public void save(String destinatario, String asunto, String contenido) throws MessagingException {
 
             System.out.println("Destinatario : " + destinatario);
@@ -170,15 +184,11 @@ public class ControladorLogin {
 
 
             EnviarMail em = new EnviarMail();
-            em.EnviarMail(destinatario, "esperanzamillan93@gmail.com", "esperanzamillan93@gmail.com",
-                    "tkzfjiwgxlqalpbw", "smtp.gmail.com", asunto, contenido);
+            em.EnviarMail(destinatario, getUsuario(), getUsuario(),
+                  getContraseña(), asunto, contenido);
+
         }
     }
-
-
-
-
-
 
     //IMPLEMENTAR RESCATADO DE DATOS ARRIBA COMO CON EL LOGIN
     //CLASE ENCARGADA DE RESCATAR LOS DATOS DE REGISTRO DESDE EL HTML
@@ -196,7 +206,6 @@ public class ControladorLogin {
             if(!contraseña.equals(contraseña2)){
 
                 JOptionPane.showMessageDialog(null, "LAS CONTRASEÑAS NO COINCIDEN", "ERROR", JOptionPane.WARNING_MESSAGE);
-
             }else{
                 conexion.InsertNewUsuario(usuario, contraseña, correo);
                 System.out.println("Nuevo usuario insertado con exito");

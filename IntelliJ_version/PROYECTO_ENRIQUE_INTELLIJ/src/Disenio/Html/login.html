@@ -8,6 +8,8 @@
 		function SentLogin() {
 			var usuario = myForm.elements['usuario'].value;
 			var contraseña = myForm.elements['contraseña'].value;
+			localStorage.setItem("usuario", usuario);
+			localStorage.setItem("contraseña", contraseña);
 			Account.save(usuario, contraseña);
 		}
 	</script>
