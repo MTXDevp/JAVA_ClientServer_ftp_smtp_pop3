@@ -3,15 +3,14 @@ import com.teamdev.jxbrowser.chromium.*;
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
 import com.teamdev.jxbrowser.chromium.dom.DOMElement;
-import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
-import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
-import com.teamdev.jxbrowser.chromium.events.LoadEvent;
+import com.teamdev.jxbrowser.chromium.events.*;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 import javax.mail.*;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.logging.Level;
 
 //USAR LOCAL STORAGE PARA GUARDAR USUARIO Y ONTRASEÑA ES MAS SEGURO QUE USAR COOKIES?
@@ -19,7 +18,6 @@ import java.util.logging.Level;
 //https://platzi.com/blog/local-storage-html5/
 
 //https://jxbrowser.support.teamdev.com/support/solutions/
-//pusheo
 public class ControladorLogin {
 
     static Conexion conexion;
@@ -81,7 +79,21 @@ public class ControladorLogin {
 
                     }else if(url.endsWith("visualizarCorreo.html")){
 
+                        //CAMPTAMOS LOS DATOS DE SESION DESDE EL LOCAL STORAGE DEPENDIENDO DEL DOMINIO MANDAREMOS UNOS DATOS U OTROS
                         System.out.println("Estas en la ventana de visualizacion de correos");
+                        browser.executeJavaScript("localStorage");
+                        WebStorage webStorage = browser.getLocalWebStorage();
+                        String usuario = webStorage.getItem("usuario");
+                        String contraseña = webStorage.getItem("contraseña");
+
+                        if(usuario.endsWith("@hotmail.es")|| usuario.endsWith("@hotmail.com")){
+
+                            new controladorMostrarCorreos(browser, usuario, contraseña, "pop3.live.com");
+
+                        }else if(usuario.endsWith("@gmail.es")|| usuario.endsWith("@gmail.com")){
+
+                            new controladorMostrarCorreos(browser, usuario, contraseña, "pop.gmail.com");
+                        }
 
                     }else if(url.endsWith("enviarCorreo.html")){
 
@@ -100,7 +112,7 @@ public class ControladorLogin {
                 }
         });
     }
-
+    //EL LOGIN FALLAAAAAAAAAAAAA USUARIO NO ERRONEO CUANDO ES FALSO
     //CLASE ENCARGADA DE RESCATAR LOS DATOS USUARIO/CONTRASEÑA DESDE EL HTML
     public static class getUsuarioContraseña {
 
@@ -119,12 +131,17 @@ public class ControladorLogin {
             System.out.println("Usuario    = " + usuario);
             System.out.println("Contraseña = " + contraseña);
 
+            File file = new File(
+                    ControladorLogin.class.getResource("Disenio/Html/menu.html").getFile()
+            );
+            browser.loadURL(file.toString());
+            /*
             conexion.CheckLogin(usuario, contraseña);
             try {
-
                 //si el usuario y la contraseña coinciden
-                if(conexion.getRs().next()){
+               if(!conexion.getRs().next()){
 
+                    System.out.println("EL RESULTADO DE LA CONSULTA ES : " + conexion.getRs().next());
                     externalUsuario = usuario;
                     externalContraseña = contraseña;
 
@@ -136,6 +153,7 @@ public class ControladorLogin {
                     //cargar controlador menu para una mayor encapsulacion
 
                 }else{
+                    System.out.println("EL RESULTADO DE LA CONSULTA ES : " + conexion.getRs().next());
                     JOptionPane.showMessageDialog(null, "CREDENCIALES ERRONEAS", "ERROR", JOptionPane.WARNING_MESSAGE);
 
                     //en el caso de que las crecenciales no sean correctas volvemos a cargar la ventana de login
@@ -149,7 +167,9 @@ public class ControladorLogin {
                 System.out.println("DETALLES : ");
                 System.out.println(e.getMessage());
             }
+             */
         }
+
     }// FINAL CLASE GET USUARIO Y CONTRASEÑA
 
 

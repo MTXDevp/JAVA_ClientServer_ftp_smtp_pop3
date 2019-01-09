@@ -20,21 +20,34 @@ function cambiarBrillo() {
 
 function genera_tabla() {
 	// Obtener la referencia del elemento body
+
+
+	//alert('entro en la function genera_tabla JS');
+
 	var body = document.getElementsByTagName("body")[0];
 	var div = document.getElementById("principal");
 	var tabla = document.getElementById("tablaCorreos");
 	var tblBody = document.getElementById("contenidoTabla");
+
+
+
+
 
 	// Crea las celdas (Tantas celdas como archivos contenga el servidor) 
 	for (var i = 0; i < 4; i++) {
 		// Crea las hileras de la tabla
 		var correos = document.createElement("tr");
 		correos.onclick = function () {
-			// TODO: Rellenar aquí
+
+
 		};
+
+
 		for (var x = 0; x < 3; x++) {
+
 			//Crear elemento <td>
 			var celda = document.createElement("td");
+			celda.setAttribute("name", "td"+x);
 			if (x == 0) {
 				//Crear contenido de la tabla
 				var idCorreo = document.createTextNode("" + (i + 1));

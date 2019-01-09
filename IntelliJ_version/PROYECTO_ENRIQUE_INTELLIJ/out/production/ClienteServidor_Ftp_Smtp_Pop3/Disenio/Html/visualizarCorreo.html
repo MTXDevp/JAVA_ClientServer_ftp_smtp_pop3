@@ -39,11 +39,20 @@
 			</ul>
 			<form class="form-inline">
 				<input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search" />
-				<button class="btn btn-primary">
+				<button class="btn btn-primary" onclick="evento();">
 					<img src="../Imagenes/busqueda.png" width="20" height="20" />
 				</button>
+
 			</form>
+
 		</nav>
+
+		<!--<button onclick="evento();">Close</button>-->
+		<script>
+      			function evento(){
+             		 window.java.Close();
+      			}
+    		 </script>
 		<div id="principal" class="container">
 			<table class="table table-hover" id="tablaCorreos">
 				<thead>
