@@ -17,6 +17,26 @@
 			<type>pom</type>
 			<version>6.22</version>
 		</dependency>
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-win32</artifactId>
+			<version>6.22</version>
+		</dependency>
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-win64</artifactId>
+			<version>6.22</version>
+		</dependency>
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-mac</artifactId>
+			<version>6.22</version>
+		</dependency>
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-linux64</artifactId>
+			<version>6.22</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
