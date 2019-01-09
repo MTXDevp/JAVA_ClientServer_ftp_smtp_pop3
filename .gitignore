@@ -27,3 +27,4 @@ hs_err_pid*
 
 # Open office autosave files
 *lock.*
+/ClienteServidorFtpSmtpPop3Maven/target/
