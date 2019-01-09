@@ -1,8 +1,9 @@
+import com.teamdev.jxbrowser.chromium.JSValue;
+
 public class Events {
+    public void Close(int numCorreo) {
 
-    public void Close() {
-
-        System.out.println("close button clicked");
+        System.out.println("Numero de correos " + numCorreo);
 
     }
 

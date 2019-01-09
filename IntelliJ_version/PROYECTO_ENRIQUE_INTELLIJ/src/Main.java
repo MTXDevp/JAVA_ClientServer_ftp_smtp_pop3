@@ -19,7 +19,6 @@ public class Main {
 
 
         //ServidorFTP ftp = new ServidorFTP();
-
         ControladorLogin cl = new ControladorLogin();
     }
 

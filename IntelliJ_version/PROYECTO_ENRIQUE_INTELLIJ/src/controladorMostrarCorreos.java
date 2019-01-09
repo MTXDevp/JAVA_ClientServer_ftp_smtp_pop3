@@ -16,6 +16,16 @@ public class controladorMostrarCorreos {
     public controladorMostrarCorreos(Browser browser, String usuario, String contraseña, String host) {
 
         this.browserAux = browser;
+/*
+        JSValue document = browser.executeJavaScriptAndReturnValue("numCorreos");
+        document.asObject().setProperty("cantidad", 8);
+        JSValue titleValue = document.asObject().getProperty("cantidad");
+*/
+        JSValue window = browser.executeJavaScriptAndReturnValue("window");
+        window.asObject().setProperty("java", new Events());
+
+        /*
+        this.browserAux = browser;
 
         Folder folder = null;
         Properties prop = new Properties();
@@ -64,6 +74,9 @@ public class controladorMostrarCorreos {
             System.out.println("SE HA PRODUCIDO UN ERROR OBTENIENDOS LOS MENSAJES DEL SERVIDOR DE CORREO");
         }
     }//FINAL IF IS GMAIL
+    */
+
+    }
 
 }
 

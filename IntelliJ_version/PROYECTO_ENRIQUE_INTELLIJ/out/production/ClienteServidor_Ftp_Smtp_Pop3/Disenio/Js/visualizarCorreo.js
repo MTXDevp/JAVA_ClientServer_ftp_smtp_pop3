@@ -1,8 +1,10 @@
 window.addEventListener('load', inicio, false);
 
+
 function inicio() {
 	genera_tabla();
 }
+
 
 function cambiarBrillo() {
 	
@@ -29,12 +31,8 @@ function genera_tabla() {
 	var tabla = document.getElementById("tablaCorreos");
 	var tblBody = document.getElementById("contenidoTabla");
 
-
-
-
-
 	// Crea las celdas (Tantas celdas como archivos contenga el servidor) 
-	for (var i = 0; i < 4; i++) {
+	for (var i = 0; i < numCorreos.cantidad; i++) {
 		// Crea las hileras de la tabla
 		var correos = document.createElement("tr");
 		correos.onclick = function () {
