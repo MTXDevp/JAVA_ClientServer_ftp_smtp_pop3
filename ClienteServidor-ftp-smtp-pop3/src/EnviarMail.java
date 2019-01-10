@@ -1,82 +1,80 @@
+
+import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.util.Properties;
 
 public class EnviarMail {
 
+	public void EnviarMail(String toAddress, String fromAddress, String userName, String userPassword, String emailSubject, String emailBody) {
 
-    public void EnviarMail(String toAddress, String fromAddress, String userName, String userPassword, String emailSubject,String emailBody) {
+		System.out.println("Constructor enviar mail");
+		String to = toAddress;
+		String from = fromAddress;
+		final String username = userName;
+		final String password = userPassword;
+		//String host = smtpHost;
 
-        System.out.println("Constructor enviar mail");
-        String to = toAddress;
-        String from = fromAddress;
-        final String username = userName;
-        final String password = userPassword;
-        //String host = smtpHost;
+		Properties props = new Properties();
 
+		//DEPENDIENDO DEL DOMINIO DE CORREO LO ENVIAREMO A UN HOST U OTRO
+		if(from.endsWith("@gmail.com") || from.endsWith("gmail.es")) {
 
-        Properties props = new Properties();
+			props.put("mail.smtp.host", "smtp.gmail.com");
+			System.out.println("entro en gmail");
 
-        //DEPENDIENDO DEL DOMINIO DE CORREO LO ENVIAREMO A UN HOST U OTRO
+		} else if(from.endsWith("@hotmail.com") || from.endsWith("@hotmail.es")) {
 
-        if(from.endsWith("@gmail.com") || from.endsWith("gmail.es")){
+			props.put("mail.smtp.host", "smtp.live.com");
+			System.out.println("entro en hotmail");
+		}
 
-            props.put("mail.smtp.host", "smtp.gmail.com");
-            System.out.println("entro en gmail");
+		props.put("mail.smtp.starttls.enable", true);
+		props.put("mail.smtp.auth", true);
+		props.put("mail.smtp.port", 587);
 
-        }else if(from.endsWith("@hotmail.com") || from.endsWith("@hotmail.es")){
+		SimpleMailAuthenticator authenticator = new SimpleMailAuthenticator(username, password);
+		Session session = Session.getInstance(props, authenticator);
+		session.setDebug(true);
 
-            props.put("mail.smtp.host", "smtp.live.com");
-            System.out.println("entro en hotmail");
-        }
+		try {
+			Message message = new MimeMessage(session);
 
-        props.put("mail.smtp.starttls.enable",true);
-        props.put("mail.smtp.auth",true);
-        props.put("mail.smtp.port", 587);
+			message.setFrom(new InternetAddress(from));
 
-        SimpleMailAuthenticator authenticator = new SimpleMailAuthenticator(username, password);
-        Session session = Session.getInstance(props, authenticator);
-        session.setDebug(true);
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 
-        try {
-            Message message = new MimeMessage(session);
+			message.setSubject(emailSubject);
 
-            message.setFrom(new InternetAddress(from));
+			message.setText(emailBody);
 
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+			Transport.send(message);
 
-            message.setSubject(emailSubject);
+			System.out.println("Mensaje enviado con exito....");
 
-            message.setText(emailBody);
+		} catch(MessagingException e) {
 
-            Transport.send(message);
+			System.out.println("Se ha producido un error mandando el correo");
+			throw new RuntimeException(e);
+		}
+	}
 
-            System.out.println("Mensaje enviado con exito....");
+	static class SimpleMailAuthenticator extends Authenticator {
 
-        } catch (MessagingException e) {
+		String userName;
+		String password;
+		PasswordAuthentication authentication;
 
-            System.out.println("Se ha producido un error mandando el correo");
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-    }
+		public SimpleMailAuthenticator(String userName, String password) {
+			super();
+			this.userName = userName;
+			this.password = password;
+			authentication = new PasswordAuthentication(userName, password);
+		}
 
-    static class SimpleMailAuthenticator extends Authenticator {
-        String userName;
-        String password;
-        PasswordAuthentication authentication;
-
-        public SimpleMailAuthenticator(String userName,String password) {
-            super();
-            this.userName = userName;
-            this.password = password;
-            authentication = new PasswordAuthentication(userName, password);
-        }
-
-        @Override
-        public PasswordAuthentication getPasswordAuthentication() {
-            return authentication;
-        }
-    }
+		@Override
+		public PasswordAuthentication getPasswordAuthentication() {
+			return authentication;
+		}
+	}
 }

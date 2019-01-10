@@ -1,3 +1,4 @@
+
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.DownloadHandler;
 import com.teamdev.jxbrowser.chromium.DownloadItem;
@@ -8,57 +9,56 @@ import com.teamdev.jxbrowser.chromium.events.DownloadListener;
 import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
 import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
-
 import java.io.File;
 import java.util.ArrayList;
 
 public class DescargarArchivo {
 
-    static DOMElement boton ;
-    static DOMElement cajaTexto ;
-    static ArrayList<File> dropppedFiles;
-    static Browser browser;
-    static BrowserView view;
+	static DOMElement boton;
+	static DOMElement cajaTexto;
+	static ArrayList<File> dropppedFiles;
+	static Browser browser;
+	static BrowserView view;
 
+	public DescargarArchivo() {
 
-    public DescargarArchivo(){
+		browser.addLoadListener(new LoadAdapter() {
+			@Override
+			public void onFinishLoadingFrame(FinishLoadingEvent event) {
 
-        browser.addLoadListener(new LoadAdapter() {
-            @Override
-            public void onFinishLoadingFrame(FinishLoadingEvent event) {
+				if(event.isMainFrame()) {
 
-                if (event.isMainFrame()) {
+					DOMDocument document = event.getBrowser().getDocument();
+					//boton = document.findElement(By.id("boton"));
+					//cajaTexto = document.findElement(By.id("caja"));
 
-                    DOMDocument document = event.getBrowser().getDocument();
-                    //boton = document.findElement(By.id("boton"));
-                    //cajaTexto = document.findElement(By.id("caja"));
+				}
+			}
+		});
+	}
 
-                }
-            }
-        });
-    }
+	public void BajarArchivo() {
 
+		browser.setDownloadHandler(new DownloadHandler() {
 
-    public void BajarArchivo(){
+			@Override
+			public boolean allowDownload(DownloadItem download) {
 
-        browser.setDownloadHandler(new DownloadHandler() {
+				download.addDownloadListener(new DownloadListener() {
 
-            public boolean allowDownload(DownloadItem download) {
+					@Override
+					public void onDownloadUpdated(DownloadEvent event) {
 
-                download.addDownloadListener(new DownloadListener() {
+						DownloadItem download = event.getDownloadItem();
 
-                    public void onDownloadUpdated(DownloadEvent event) {
-
-                        DownloadItem download = event.getDownloadItem();
-
-                        if (download.isCompleted()) {
-                            System.out.println("Descarga Completada!");
-                        }
-                    }
-                });
-                System.out.println("Dest file: " + download.getDestinationFile().getAbsolutePath());
-                return true;
-            }
-        });
-    }
+						if(download.isCompleted()) {
+							System.out.println("Descarga Completada!");
+						}
+					}
+				});
+				System.out.println("Dest file: " + download.getDestinationFile().getAbsolutePath());
+				return true;
+			}
+		});
+	}
 }
