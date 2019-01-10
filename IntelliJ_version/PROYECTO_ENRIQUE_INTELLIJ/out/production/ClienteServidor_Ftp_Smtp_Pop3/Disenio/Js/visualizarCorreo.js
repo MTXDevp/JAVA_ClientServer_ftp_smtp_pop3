@@ -31,14 +31,31 @@ function genera_tabla() {
 	var tabla = document.getElementById("tablaCorreos");
 	var tblBody = document.getElementById("contenidoTabla");
 
+         //var numCorreos = window.numCorreos[1];
+         //alert(numCorreos);
+
+         //ACCEDEMOS AL NUMERO DE CORREOS EL CUAL ESTA ALMACENADO EN LOCAL STORAGE
+                var tamano = localStorage.numCorreos;
+
+
 	// Crea las celdas (Tantas celdas como archivos contenga el servidor) 
-	for (var i = 0; i < numCorreos.cantidad; i++) {
+	for (var i = 0; i < tamano; i++) {
 		// Crea las hileras de la tabla
 		var correos = document.createElement("tr");
 		correos.onclick = function () {
-
-
 		};
+
+	    //var length = window.myObject.length;
+        //var numberValue = window.myObject[0];
+        //var stringValue = window.myObject[1];
+
+        //alert(stringValue);
+
+        //RECIBIMOS EN TITULAR DE LOS CORREOS
+             var tCorreos = localStorage.titularCorreos;
+             var tSplitCorreos = tCorreos.split("aaa");
+              alert(tSplitCorreos[0]);
+               alert(tSplitCorreos[1]);
 
 
 		for (var x = 0; x < 3; x++) {
