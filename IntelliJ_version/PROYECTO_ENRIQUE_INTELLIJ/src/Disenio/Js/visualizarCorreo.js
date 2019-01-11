@@ -1,6 +1,5 @@
 window.addEventListener('load', inicio, false);
 
-
 function inicio() {
 	genera_tabla();
 }
@@ -33,7 +32,6 @@ function genera_tabla() {
 
          //var numCorreos = window.numCorreos[1];
          //alert(numCorreos);
-
          //ACCEDEMOS AL NUMERO DE CORREOS EL CUAL ESTA ALMACENADO EN LOCAL STORAGE
                 var tamano = localStorage.numCorreos;
 
@@ -65,12 +63,28 @@ function genera_tabla() {
 
               var h=0;
 
+
 	// Crea las celdas (Tantas celdas como archivos contenga el servidor) 
 	for (var i = 0; i < tamano; i++) {
 		// Crea las hileras de la tabla
 		var correos = document.createElement("tr");
-		correos.onclick = function () {
-		};
+		correos.setAttribute("id", ""+i);
+
+		correos.onclick = function(){
+
+        alert(this.id);
+        var cuerpos = localStorage.cuerpo;
+        var splitCuerpos = cuerpos.split("||");
+
+        localStorage.setItem("remitenteSeleccionado", splitFrom[this.id]);
+        localStorage.setItem("asuntoSeleccionado", splitSubject[this.id]);
+        localStorage.setItem("cuerpoSeleccionado", splitCuerpos[this.id]);
+
+        var win = window.open("../Html/verCorreo.html");
+
+		}
+
+
 		for (var x = 0; x < 3; x++) {
 			//Crear elemento <td> una celda de la tabla
 			var celda = document.createElement("td");
@@ -113,12 +127,14 @@ function genera_tabla() {
 	body.appendChild(div);
 
 	//LIMPIAMOS EL WEB STORAGE/LOCAL STORAGE
-    localStorage,clear();
-}
 
-function generar_fecha() {
-	var meses = new Array("Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.", "Jul.", "Ago.", "Sep.", "Oct.", "Nov.", "Dic.");
-	var f = new Date();
-	var fecha = f.getDate() + " " + meses[f.getMonth()];
-	return fecha;
+    //aplicarEventosCorreos(arrayCorreos, tamano);
+
+
+    //localStorage.clear();
+
+}//final llenar tabla
+
+
+function buscar(){
 }

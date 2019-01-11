@@ -7,7 +7,9 @@ import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
 import com.teamdev.jxbrowser.chromium.events.ScriptContextAdapter;
 import com.teamdev.jxbrowser.chromium.events.ScriptContextEvent;
 
+import javax.activation.DataHandler;
 import javax.mail.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -59,6 +61,8 @@ public class controladorMostrarCorreos {
             ArrayList<String> arrayFrom = new ArrayList<>();
             ArrayList<String> arraySubject = new ArrayList<>();
             ArrayList<String> arrayFecha = new ArrayList<>();
+            ArrayList<String> arrayCuerpo = new ArrayList<>();
+            String content ="";
 
             //RECOJEMOS TODOS LOS CABEZADOS DE CORREOS
             for (int i = 0; i < mensajes.length; i++) {
@@ -66,25 +70,45 @@ public class controladorMostrarCorreos {
                 System.out.println("Subject:" + mensajes[i].getSubject());
                 System.out.println("Date : " + mensajes[i].getSentDate());
 
-                arrayFrom.add(mensajes[i].getFrom()[0].toString() + "||");
-                arraySubject.add(mensajes[i].getSubject() + "||");
-                arrayFecha.add(mensajes[i].getSentDate().toString() + "||");
-            }
-            //ENVIAMOS UN CORREO CON LOS TITULARES DE LOS CORREOS
+                //String content = mensajes[i].getContent().toString();
+                Multipart multipart = (Multipart) mensajes[i].getContent();
 
-            WebStorage webStorage = browser.getLocalWebStorage();
-            webStorage.clear();
-            webStorage.setItem("numCorreos",  String.valueOf(mensajes.length));
-            webStorage.setItem("from",  arrayFrom.toString());
-            webStorage.setItem("subject",  arraySubject.toString());
-            webStorage.setItem("fecha", arrayFecha.toString());
+                for (int j = 0; j < 1; j++) {
 
-            System.out.println("Hay " + mensajes.length + " mensajes");
+                    BodyPart bodyPart = multipart.getBodyPart(j);
 
-            //MANDAR INFORMACION MEDIANTE JSON
+                    String disposition = bodyPart.getDisposition();
 
-            //JSValue window = browser.executeJavaScriptAndReturnValue("window");
-            //window.asObject().setProperty("numCorreos", new JSONString("[numCorreos, \""+mensajes.length +"\"]"));
+                    if (disposition != null && (disposition.equalsIgnoreCase("ATTACHMENT"))) { // BodyPart.ATTACHMENT doesn't work for gmail
+                        System.out.println("Mail have some attachment");
+
+                        DataHandler handler = bodyPart.getDataHandler();
+                        System.out.println("file name : " + handler.getName());
+                    } else {
+                        System.out.println("Body" + bodyPart.getContent());
+                        content = bodyPart.getContent().toString();
+                    }
+                    arrayCuerpo.add(content + "||");
+                    arrayFrom.add(mensajes[i].getFrom()[0].toString() + "||");
+                    arraySubject.add(mensajes[i].getSubject() + "||");
+                    arrayFecha.add(mensajes[i].getSentDate().toString() + "||");
+                }
+                //ENVIAMOS UN CORREO CON LOS TITULARES DE LOS CORREOS
+
+                WebStorage webStorage = browser.getLocalWebStorage();
+                webStorage.clear();
+                webStorage.setItem("numCorreos", String.valueOf(mensajes.length));
+                webStorage.setItem("from", arrayFrom.toString());
+                webStorage.setItem("subject", arraySubject.toString());
+                webStorage.setItem("fecha", arrayFecha.toString());
+                webStorage.setItem("cuerpo", arrayCuerpo.toString());
+
+                System.out.println("Hay " + mensajes.length + " mensajes");
+
+                //MANDAR INFORMACION MEDIANTE JSON
+
+                //JSValue window = browser.executeJavaScriptAndReturnValue("window");
+                //window.asObject().setProperty("numCorreos", new JSONString("[numCorreos, \""+mensajes.length +"\"]"));
             /*
             //MANDAR INFORMACION MEDIANTE EL WEB STORAGE
             WebStorage webStorage = browserAux.getLocalWebStorage();
@@ -98,16 +122,18 @@ public class controladorMostrarCorreos {
             webStorage.setItem("correos", jsonCorreos.getValue());
 */
 
-
-
-
-        } catch (MessagingException e) {
-            System.out.println("SE HA PRODUCIDO UN ERROR OBTENIENDOS LOS MENSAJES DEL SERVIDOR DE CORREO");
-        }
-    }//FINAL IF IS GMAIL
-
-
+            }
     }
+
+        catch (MessagingException e) {
+            System.out.println("SE HA PRODUCIDO UN ERROR ACCEDIENDO A LOS MENSAJES");
+        } catch (IOException e) {
+            System.out.println("ERROR ACCEDIENDO A LOS DATOS");
+        }}}
+
+
+
+
 
 
 

@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7471c53-6e4c-49d2-a856-39c8db5c2465" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ClienteSubirArchivo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pruebas/ClienteFTP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pruebas/MainClienteFTP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pruebas/MainServidorFTP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pruebas/ServidorFTP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Disenio/Html/verCorreo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Disenio/Js/verCorreo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorFTP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorFTP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorLogin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorLogin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorLogin$getDatosRegistro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorLogin$getDatosRegistro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorLogin$getDireccionFTP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorLogin$getUsuarioContraseña.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorLogin$getUsuarioContraseña.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ControladorLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/Disenio/Html/servidorFTP.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/Disenio/Html/servidorFTP.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/Disenio/Html/visualizarCorreo.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/Disenio/Html/visualizarCorreo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/Disenio/Js/visualizarCorreo.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/Disenio/Js/visualizarCorreo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ServidorFTP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClienteServidor_Ftp_Smtp_Pop3/ServidorFTP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ControladorFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ControladorFTP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ControladorLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Disenio/Html/servidorFTP.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Disenio/Html/servidorFTP.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Disenio/Html/visualizarCorreo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Disenio/Html/visualizarCorreo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Disenio/Js/visualizarCorreo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Disenio/Js/visualizarCorreo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServidorFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServidorFTP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controladorMostrarCorreos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controladorMostrarCorreos.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,10 +19,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Disenio/Js/visualizarCorreo.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controladorMostrarCorreos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="81" column="68" selection-start-line="81" selection-start-column="68" selection-end-line="81" selection-end-column="68" />
+            <state relative-caret-position="1279">
+              <caret line="103" column="38" selection-start-line="103" selection-start-column="38" selection-end-line="103" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,33 +40,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Disenio/Js/visualizarCorreo.js">
+        <entry file="file://$PROJECT_DIR$/src/Disenio/Js/verCorreo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Disenio/Html/visualizarCorreo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ControladorLogin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-39">
-              <caret line="126" column="27" lean-forward="true" selection-start-line="126" selection-start-column="27" selection-end-line="126" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1773#5296#0" expanded="true" />
-                <element signature="e#5295#5296#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="252">
+              <caret line="12" column="69" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -133,7 +102,6 @@
         <option value="$PROJECT_DIR$/src/Events.java" />
         <option value="$PROJECT_DIR$/src/Disenio/Html/menu.html" />
         <option value="$PROJECT_DIR$/src/Disenio/Html/visualizarCorreo.html" />
-        <option value="$PROJECT_DIR$/src/controladorMostrarCorreos.java" />
         <option value="$PROJECT_DIR$/src/ControladorLogin.java" />
         <option value="$PROJECT_DIR$/src/ControladorFTP.java" />
         <option value="$PROJECT_DIR$/src/Disenio/Html/servidorFTP.html" />
@@ -144,13 +112,15 @@
         <option value="$PROJECT_DIR$/src/pruebas/MainServidorFTP.java" />
         <option value="$PROJECT_DIR$/src/pruebas/ServidorFTP.java" />
         <option value="$PROJECT_DIR$/src/pruebas/ClienteFTP.java" />
+        <option value="$PROJECT_DIR$/src/controladorMostrarCorreos.java" />
         <option value="$PROJECT_DIR$/src/Disenio/Js/visualizarCorreo.js" />
+        <option value="$PROJECT_DIR$/src/Disenio/Js/verCorreo.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1992" />
-    <option name="y" value="57" />
+    <option name="x" value="-10" />
+    <option name="y" value="17" />
     <option name="width" value="1860" />
     <option name="height" value="1040" />
   </component>
@@ -183,6 +153,13 @@
               <item name="PROYECTO_ENRIQUE_INTELLIJ" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Disenio" type="462c0819:PsiDirectoryNode" />
+              <item name="Html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PROYECTO_ENRIQUE_INTELLIJ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PROYECTO_ENRIQUE_INTELLIJ" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Disenio" type="462c0819:PsiDirectoryNode" />
               <item name="Js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -202,7 +179,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547190327442" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547202639901" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -210,16 +187,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\USUARIO\Desktop\ClienteServidor_Ftp_Smtp_Pop3\src\html" />
-      <recent name="C:\Users\USUARIO\Desktop\ClienteServidor_Ftp_Smtp_Pop3\src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\USUARIO\Desktop\lol\ClienteServidor-ftp-smtp-pop3\IntelliJ_version\PROYECTO_ENRIQUE_INTELLIJ\src\Disenio" />
       <recent name="C:\Users\USUARIO\Desktop\lol\ClienteServidor-ftp-smtp-pop3\IntelliJ_version\PROYECTO_ENRIQUE_INTELLIJ\src" />
       <recent name="C:\Users\USUARIO\Desktop\lol\ClienteServidor-ftp-smtp-pop3\IntelliJ_version\PROYECTO_ENRIQUE_INTELLIJ\src\libs" />
       <recent name="C:\Users\USUARIO\Desktop\ClienteServidor-ftp-smtp-pop3\IntelliJ_version\PROYECTO_ENRIQUE_INTELLIJ\src\libs" />
       <recent name="C:\Users\USUARIO\Desktop\ClienteServidor-ftp-smtp-pop3\IntelliJ version\PROYECTO ENRIQUE INTELLIJ\src\html" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USUARIO\Desktop\lol\ClienteServidor-ftp-smtp-pop3\IntelliJ_version\PROYECTO_ENRIQUE_INTELLIJ\src\Disenio\Js" />
+      <recent name="C:\Users\USUARIO\Desktop\lol\ClienteServidor-ftp-smtp-pop3\IntelliJ_version\PROYECTO_ENRIQUE_INTELLIJ\src\Disenio\Html" />
+      <recent name="C:\Users\USUARIO\Desktop\ClienteServidor_Ftp_Smtp_Pop3\src\html" />
+      <recent name="C:\Users\USUARIO\Desktop\ClienteServidor_Ftp_Smtp_Pop3\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -379,13 +358,21 @@
       <option name="project" value="LOCAL" />
       <updated>1547108194200</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Version Intellij Update MTX">
+      <created>1547190365891</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1547190365891</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1978" y="46" width="1488" height="832" extended-state="0" />
+    <frame x="-8" y="14" width="1488" height="832" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.179972" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.078431375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -394,8 +381,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16428572" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5314286" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39857143" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -453,30 +440,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/h2 DataBase/h2-1.4.197.jar!/META-INF/versions/9/org/h2/util/Bits.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/h2 DataBase/h2-1.4.197.jar!/META-INF/services/java.sql.Driver">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/src/libs/jxbrowser-6.22.1.jar!/com/teamdev/jxbrowser/chromium/dom/events/DOMEventListener.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cuenta.java" />
-    <entry file="file://$PROJECT_DIR$/public/Registrarse.html" />
-    <entry file="file://$PROJECT_DIR$/public/pruebaMenu.html" />
     <entry file="file://$PROJECT_DIR$/public/login.html" />
     <entry file="file://$PROJECT_DIR$/hibernate-release-5.4.0.Final/project/hibernate-core/src/test/java/org/hibernate/test/compositeusertype/CompositeUserTypeTest.java" />
     <entry file="file://$PROJECT_DIR$/src/html/boton.html" />
@@ -609,13 +572,6 @@
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Todo.URL">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Disenio/Html/enviarCorreo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EnviarMail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -717,13 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Disenio/Html/visualizarCorreo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ControladorLogin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-39">
@@ -736,20 +685,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Disenio/Html/lib/bootstrap/css/bootstrap-reboot.min.css.map">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Disenio/Html/lib/bootstrap/css/bootstrap-reboot.css.map">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Disenio/Html/lib/bootstrap/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7878">
+          <caret line="5" column="59201" selection-start-line="5" selection-start-column="59201" selection-end-line="5" selection-end-column="59201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Disenio/Html/lib/bootstrap/css/bootstrap-reboot.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Disenio/Html/visualizarCorreo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Disenio/Html/verCorreo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-477" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Disenio/Html/enviarCorreo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Disenio/Js/visualizarCorreo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controladorMostrarCorreos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="81" column="68" selection-start-line="81" selection-start-column="68" selection-end-line="81" selection-end-column="68" />
+        <state relative-caret-position="1279">
+          <caret line="103" column="38" selection-start-line="103" selection-start-column="38" selection-end-line="103" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Disenio/Js/visualizarCorreo.js">
+    <entry file="file://$PROJECT_DIR$/src/Disenio/Js/verCorreo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+        <state relative-caret-position="252">
+          <caret line="12" column="69" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
         </state>
       </provider>
     </entry>
