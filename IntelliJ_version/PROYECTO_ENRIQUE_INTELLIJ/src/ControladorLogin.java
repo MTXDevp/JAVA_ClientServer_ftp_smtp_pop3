@@ -88,10 +88,12 @@ public class ControladorLogin {
 
                         if(usuario.endsWith("@hotmail.es")|| usuario.endsWith("@hotmail.com")){
 
+                            System.out.println("te conectas con una cuenta de hotmail");
                             new controladorMostrarCorreos(browser, usuario, contraseña, "pop3.live.com");
 
                         }else if(usuario.endsWith("@gmail.es")|| usuario.endsWith("@gmail.com")){
 
+                            System.out.println("te conectas con una cuenta de gmail");
                             new controladorMostrarCorreos(browser, usuario, contraseña, "pop.gmail.com");
                         }
 
@@ -107,7 +109,12 @@ public class ControladorLogin {
                             JSValue value = browser.executeJavaScriptAndReturnValue("window");//Cojemos la ventana completa con todos sus elementos
                             getDatosCorreo dc= new getDatosCorreo(browser);
                             value.asObject().setProperty("Account", dc);
-                        }
+
+                        }else if(url.endsWith("servidorFTP.html")){
+
+                            ControladorFTP cf = new ControladorFTP(browser,view, event);
+
+                         }
                     }// final si es el main frame
                 }
         });
@@ -135,6 +142,8 @@ public class ControladorLogin {
                     ControladorLogin.class.getResource("Disenio/Html/menu.html").getFile()
             );
             browser.loadURL(file.toString());
+
+            //IMPLEMENTAR CONSULTA A LA BASE
             /*
             conexion.CheckLogin(usuario, contraseña);
             try {
@@ -230,15 +239,6 @@ public class ControladorLogin {
                 conexion.InsertNewUsuario(usuario, contraseña, correo);
                 System.out.println("Nuevo usuario insertado con exito");
             }
-        }
-    }
-    //ESTA CLASE?
-    public static class getDireccionFTP {
-        public void save(String direccionFTP) {
-
-            System.out.println("FTP : " + direccionFTP);
-            ControladorFTP cFTP = new ControladorFTP(direccionFTP);
-
         }
     }
 }

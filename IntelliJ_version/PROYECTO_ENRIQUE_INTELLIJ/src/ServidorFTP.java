@@ -1,33 +1,48 @@
-import org.apache.ftpserver.FtpServer;
-import org.apache.ftpserver.FtpServerFactory;
-import org.apache.ftpserver.ftplet.FtpException;
-import org.apache.ftpserver.listener.ListenerFactory;
-import org.apache.ftpserver.ssl.SslConfigurationFactory;
-import org.apache.ftpserver.usermanager.PropertiesUserManagerFactory;
-
-import java.io.File;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class ServidorFTP {
 
-    FtpServerFactory serverFactory = new FtpServerFactory();
-    ListenerFactory factory;
-    FtpServer server = serverFactory.createServer();
+    ServerSocket server;
+    Socket connection;
+    DataOutputStream output;
+    BufferedInputStream bis;
+    BufferedOutputStream bos;
+    byte[] receivedData;
+    int in;
+    String file;
 
+    public static void main(String[] args) {
 
-
-    public ServidorFTP(){
-
-        serverFactory = new FtpServerFactory();
-        factory = new ListenerFactory();
-        factory.setPort(21);
-        serverFactory.addListener("default", factory.createListener());
-        server = serverFactory.createServer();
-        try {
-            server.start();
-            System.out.println("SERVIDOR FTP INICIALIZADO CON ÉXITO");
-        } catch (FtpException e) {
-            System.out.println("SE HA PRODUCIDO UN ERROR INICIALIZANDO EL SERVIDOR");
-        }
-
+        ServidorFTP sftp = new ServidorFTP();
     }
-}
+    public ServidorFTP() {
+
+        try{
+            //Servidor Socket en el puerto 5000
+            server = new ServerSocket( 5000 );
+            while ( true ) {
+                //Aceptar conexiones
+                connection = server.accept();
+                //Buffer de 1024 bytes
+                receivedData = new byte[1024];
+                bis = new BufferedInputStream(connection.getInputStream());
+                DataInputStream dis=new DataInputStream(connection.getInputStream());
+                //Recibimos el nombre del fichero
+                file = dis.readUTF();
+                //Para guardar fichero recibido
+                bos = new BufferedOutputStream(new FileOutputStream("C:\\Users\\USUARIO\\Desktop\\ArchivosServidorFTP\\" + file));
+                while ((in = bis.read(receivedData)) != -1){
+                    bos.write(receivedData,0,in);
+                }
+                bos.close();
+                dis.close();
+            }
+        }catch (Exception e ) {
+            e.printStackTrace();
+        }
+        }
+    }
+
+
