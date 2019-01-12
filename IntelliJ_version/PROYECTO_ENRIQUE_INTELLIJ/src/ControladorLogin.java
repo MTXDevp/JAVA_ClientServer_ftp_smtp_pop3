@@ -3,6 +3,9 @@ import com.teamdev.jxbrowser.chromium.*;
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
 import com.teamdev.jxbrowser.chromium.dom.DOMElement;
+import com.teamdev.jxbrowser.chromium.dom.events.DOMEvent;
+import com.teamdev.jxbrowser.chromium.dom.events.DOMEventListener;
+import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 import com.teamdev.jxbrowser.chromium.events.*;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 import javax.mail.*;
@@ -33,13 +36,13 @@ public class ControladorLogin {
     String extContraseña;
 
 
-    ControladorLogin(){
+    ControladorLogin(BrowserContext context){
 
         conexion = new Conexion();
 
         LoggerProvider.setLevel(Level.OFF);
 
-        browser = new Browser();
+        browser = new Browser(context);
         view = new BrowserView(browser);
 
         JFrame frame = new JFrame();
@@ -79,6 +82,7 @@ public class ControladorLogin {
 
                     }else if(url.endsWith("visualizarCorreo.html")){
 
+                        /*
                         //CAMPTAMOS LOS DATOS DE SESION DESDE EL LOCAL STORAGE DEPENDIENDO DEL DOMINIO MANDAREMOS UNOS DATOS U OTROS
                         System.out.println("Estas en la ventana de visualizacion de correos");
                         browser.executeJavaScript("localStorage");
@@ -96,7 +100,7 @@ public class ControladorLogin {
                             System.out.println("te conectas con una cuenta de gmail");
                             new controladorMostrarCorreos(browser, usuario, contraseña, "pop.gmail.com");
                         }
-
+                    */
                     }else if(url.endsWith("enviarCorreo.html")){
 
                         DOMDocument document = browser.getDocument();
@@ -114,7 +118,34 @@ public class ControladorLogin {
 
                             ControladorFTP cf = new ControladorFTP(browser,view, event);
 
-                         }
+                    } else if (url.endsWith("menu.html")) {
+
+                        DOMDocument document = browser.getDocument();
+                        DOMElement boton = document.findElement(By.name("botonVisualizarCorreos"));
+                        //DEBEMOS DE EJECUTAR UN EVENTO SOBRE EL BOTON PARA MOSTRAR LOS CORREOS PUESTO QUE SINO NO
+                        //PODREMOS CONTROLAR EL CICLO DE EJECION DEL PROGRAMA
+                        boton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
+                            public void handleEvent(DOMEvent event) {
+                                //CAMPTAMOS LOS DATOS DE SESION DESDE EL LOCAL STORAGE DEPENDIENDO DEL DOMINIO MANDAREMOS UNOS DATOS U OTROS
+                                System.out.println("Estas en la ventana de visualizacion de correos");
+                                browser.executeJavaScript("localStorage");
+                                WebStorage webStorage = browser.getLocalWebStorage();
+                                String usuario = webStorage.getItem("usuario");
+                                String contraseña = webStorage.getItem("contraseña");
+
+                                if(usuario.endsWith("@hotmail.es")|| usuario.endsWith("@hotmail.com")){
+
+                                    System.out.println("te conectas con una cuenta de hotmail");
+                                    new controladorMostrarCorreos(browser, usuario, contraseña, "pop3.live.com");
+
+                                }else if(usuario.endsWith("@gmail.es")|| usuario.endsWith("@gmail.com")){
+
+                                    System.out.println("te conectas con una cuenta de gmail");
+                                    new controladorMostrarCorreos(browser, usuario, contraseña, "pop.gmail.com");
+                                }
+                            }
+                        }, false);
+                    }
                     }// final si es el main frame
                 }
         });

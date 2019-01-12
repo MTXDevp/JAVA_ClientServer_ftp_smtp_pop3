@@ -7,6 +7,12 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<link rel="stylesheet" type="text/css" href="lib/lib.css" />
 	<script language="javascript" src="../Js/visualizarCorreo.js"></script>
+	<script type="text/javascript">
+	function mandaCajaBuscar(){
+			var contenidoCajaBuscar = formBuscar.elements['cajaBuscar'].value;
+			localStorage.setItem("contenidoCajaBuscar", contenidoCajaBuscar);
+	}
+</script>
 </head>
 
 <body>
@@ -37,11 +43,11 @@
 					</div>
 				</li>
 			</ul>
-			<form class="form-inline">
-				<input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search" />
-				<button class="btn btn-primary">
-					<img src="../Imagenes/busqueda.png" width="20" height="20" />
-				</button>
+			<form class="form-inline" name="formBuscar">
+				<input class="form-control mr-sm-2" type="text" placeholder="Buscar..." aria-label="Search" name="cajaBuscar" id="cajaBuscar"/>
+				<a href="" class="btn btn-primary" role="button" name="buscar" onclick="mandaCajaBuscar();">
+					<img src="../Imagenes/busqueda.png" width="20" height="20"/>
+				</a>
 			</form>
 		</nav>
 		<div id="principal" class="container">
@@ -62,7 +68,6 @@
 	<script src="lib/jQuery/jquery-3.3.1.min.js"></script>
 	<script src="lib/popperjs/popper.min.js"></script>
 	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

@@ -1,17 +1,23 @@
 import com.teamdev.jxbrowser.chromium.Browser;
-import com.teamdev.jxbrowser.chromium.JSONString;
-import com.teamdev.jxbrowser.chromium.JSValue;
 import com.teamdev.jxbrowser.chromium.WebStorage;
+import com.teamdev.jxbrowser.chromium.dom.By;
+import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
+import com.teamdev.jxbrowser.chromium.dom.DOMElement;
+import com.teamdev.jxbrowser.chromium.dom.events.DOMEvent;
+import com.teamdev.jxbrowser.chromium.dom.events.DOMEventListener;
+import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
 import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
-import com.teamdev.jxbrowser.chromium.events.ScriptContextAdapter;
-import com.teamdev.jxbrowser.chromium.events.ScriptContextEvent;
+import com.teamdev.jxbrowser.chromium.events.LoadEvent;
 
 import javax.activation.DataHandler;
 import javax.mail.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class controladorMostrarCorreos {
 
@@ -21,7 +27,7 @@ public class controladorMostrarCorreos {
 
         this.browserAux = browser;
 
-        this.browserAux = browser;
+        System.out.println("ESTOY EN EL CONTROLADOR MOSTRAR CORREOS");
 
         Folder folder = null;
         Properties prop = new Properties();
@@ -55,14 +61,13 @@ public class controladorMostrarCorreos {
             JSValue window = browser.executeJavaScriptAndReturnValue("window");
             window.asObject().setProperty("myObject", json);
             */
-
             Message[] mensajes = folder.getMessages();
 
             ArrayList<String> arrayFrom = new ArrayList<>();
             ArrayList<String> arraySubject = new ArrayList<>();
             ArrayList<String> arrayFecha = new ArrayList<>();
             ArrayList<String> arrayCuerpo = new ArrayList<>();
-            String content ="";
+            String content = "";
 
             //RECOJEMOS TODOS LOS CABEZADOS DE CORREOS
             for (int i = 0; i < mensajes.length; i++) {
@@ -70,40 +75,92 @@ public class controladorMostrarCorreos {
                 System.out.println("Subject:" + mensajes[i].getSubject());
                 System.out.println("Date : " + mensajes[i].getSentDate());
 
-                //String content = mensajes[i].getContent().toString();
-                Multipart multipart = (Multipart) mensajes[i].getContent();
-
-                for (int j = 0; j < 1; j++) {
-
-                    BodyPart bodyPart = multipart.getBodyPart(j);
-
-                    String disposition = bodyPart.getDisposition();
-
-                    if (disposition != null && (disposition.equalsIgnoreCase("ATTACHMENT"))) { // BodyPart.ATTACHMENT doesn't work for gmail
-                        System.out.println("Mail have some attachment");
-
-                        DataHandler handler = bodyPart.getDataHandler();
-                        System.out.println("file name : " + handler.getName());
-                    } else {
-                        System.out.println("Body" + bodyPart.getContent());
-                        content = bodyPart.getContent().toString();
-                    }
-                    arrayCuerpo.add(content + "||");
                     arrayFrom.add(mensajes[i].getFrom()[0].toString() + "||");
                     arraySubject.add(mensajes[i].getSubject() + "||");
                     arrayFecha.add(mensajes[i].getSentDate().toString() + "||");
                 }
                 //ENVIAMOS UN CORREO CON LOS TITULARES DE LOS CORREOS
 
-                WebStorage webStorage = browser.getLocalWebStorage();
+            File file = new File(
+                    ControladorLogin.class.getResource("Disenio/Html/visualizarCorreo.html").getFile()
+            );
+            browserAux.loadURL(file.toString());
+
+                browserAux.executeJavaScript("localStorage");
+                WebStorage webStorage = browserAux.getLocalWebStorage();
                 webStorage.clear();
                 webStorage.setItem("numCorreos", String.valueOf(mensajes.length));
                 webStorage.setItem("from", arrayFrom.toString());
                 webStorage.setItem("subject", arraySubject.toString());
                 webStorage.setItem("fecha", arrayFecha.toString());
-                webStorage.setItem("cuerpo", arrayCuerpo.toString());
+                //5webStorage.setItem("cuerpo", arrayCuerpo.toString());
 
                 System.out.println("Hay " + mensajes.length + " mensajes");
+
+                //YA SE CUAL ES EL ERROR LA VENTANA SE CARGA ANTES DE QUE SE EJECUTE ESTE CODIGO XD
+
+                //EVENTO DE LA LUPA para buscar correos
+
+
+            browserAux.addLoadListener(new LoadAdapter() {
+                                        @Override
+                                        public void onFinishLoadingFrame(FinishLoadingEvent event) {
+
+                                            if (event.isMainFrame()) {
+                                                DOMDocument document = browserAux.getDocument();
+                                                DOMElement boton = document.findElement(By.name("buscar"));
+                                                boton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
+                                                    public void handleEvent(DOMEvent event) {
+
+                                                        WebStorage webStorage = browserAux.getLocalWebStorage();
+                                                        String contenidoCajaBuscar = webStorage.getItem("contenidoCajaBuscar");
+
+                                                        if(contenidoCajaBuscar.equals("")){
+                                                            System.out.println("El contenido de la caja no puede estar vacio");
+                                                        }else{
+
+                                                            String findComas = ",";
+                                                            String findCorchetes1 = "\\[";
+                                                            String findCorchetes2 = "]";
+
+                                                            String arrayFromClear  = arrayFrom.toString().replaceAll(findComas,"");
+                                                            String arrayFromClear2  = arrayFromClear.replaceAll(findCorchetes1,"");
+                                                            String arrayFromClear3  = arrayFromClear2.replaceAll(findCorchetes2,"");
+                                                            String [] arrayFromClear4 = arrayFromClear3.split(Pattern.quote("||"));
+                                                            ArrayList coincidencias = new ArrayList();
+
+                                                            for (int i = 0; i < arrayFromClear4.length ; i++) {
+
+                                                                if(arrayFromClear4[i].contains(contenidoCajaBuscar)){
+
+
+                                                                    coincidencias.add(new CoincidenciasBuscar(arrayFromClear4[i], arraySubject.get(i)
+                                                                    , arrayFecha.get(i), arrayCuerpo.get(i)));
+
+                                                                    browserAux.executeJavaScript("localStorage");
+                                                                    webStorage.clear();
+                                                                    webStorage.setItem("fromBuscar", arrayFromClear4[i]);
+                                                                    webStorage.setItem("subjectBuscar", arraySubject.get(i));
+                                                                    webStorage.setItem("fechaBuscar", arrayFecha.get(i));
+                                                                    webStorage.setItem("cuerpoBuscar", arrayCuerpo.get(i));
+
+                                                                    File file = new File(
+                                                                            ControladorLogin.class.getResource("Disenio/Html/visualizarCorreo.html").getFile()
+                                                                    );
+                                                                    browserAux.loadURL(file.toString());
+                                                                }
+                                                            }
+
+
+                                                        }
+
+                                                    }
+                                                }, false);
+                                            }
+                                        }
+                                    });
+
+
 
                 //MANDAR INFORMACION MEDIANTE JSON
 
@@ -122,14 +179,67 @@ public class controladorMostrarCorreos {
             webStorage.setItem("correos", jsonCorreos.getValue());
 */
 
-            }
+            } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
 
-        catch (MessagingException e) {
-            System.out.println("SE HA PRODUCIDO UN ERROR ACCEDIENDO A LOS MENSAJES");
-        } catch (IOException e) {
-            System.out.println("ERROR ACCEDIENDO A LOS DATOS");
-        }}}
+    public class CoincidenciasBuscar{
+
+
+        String from;
+        String subject;
+        String fecha;
+        String contenido;
+
+        public CoincidenciasBuscar(String from, String subject, String fecha, String contenido){
+
+            this.from = from;
+            this.subject =subject;
+            this.fecha = fecha;
+            this.contenido = contenido;
+
+        }
+
+
+        public String getFrom() {
+            return from;
+        }
+
+        public void setFrom(String from) {
+            this.from = from;
+        }
+
+        public String getSubject() {
+            return subject;
+        }
+
+        public void setSubject(String subject) {
+            this.subject = subject;
+        }
+
+        public String getFecha() {
+            return fecha;
+        }
+
+        public void setFecha(String fecha) {
+            this.fecha = fecha;
+        }
+
+        public String getContenido() {
+            return contenido;
+        }
+
+        public void setContenido(String contenido) {
+            this.contenido = contenido;
+        }
+
+    }
+
+}
+
+
+
 
 
 

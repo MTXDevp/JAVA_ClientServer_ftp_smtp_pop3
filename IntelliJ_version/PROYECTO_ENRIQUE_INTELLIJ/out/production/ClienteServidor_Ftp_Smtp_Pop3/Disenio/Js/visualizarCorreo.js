@@ -40,12 +40,11 @@ function genera_tabla() {
               var aFrom = localStorage.from;
               var aSubject = localStorage.subject;
               var aFecha = localStorage.fecha;
-
+                //AKI NO LLEGAN LOS NUEVO MENSAJES PERO SON LEADOS EN EL CONTROLADOR MOSTRAR CORREOS DE JAVA LMAO
 
                var findComas = ',';
                var findCorchetes = "\\[";
                var re = new RegExp(findComas, 'g');// el parametro g indica que se deben de remplazar todas las coincidencias
-
                var re2 = new RegExp(findCorchetes, 'g');
 
                var aFromClear = aFrom.replace(re, '');
@@ -56,6 +55,7 @@ function genera_tabla() {
 
                var aFechaClear = aFecha.replace(re, '');
                var aFechaClear2 = aFechaClear.replace(re2, '');
+
 
               var splitFrom = aFromClear2.split("||");
               var splitSubject = aSubjectClear2.split("||");
@@ -70,19 +70,19 @@ function genera_tabla() {
 		var correos = document.createElement("tr");
 		correos.setAttribute("id", ""+i);
 
-		correos.onclick = function(){
+		//correos.onclick = function(){
 
-        alert(this.id);
-        var cuerpos = localStorage.cuerpo;
-        var splitCuerpos = cuerpos.split("||");
+        //alert(this.id);
+        //var cuerpos = localStorage.cuerpo;
+        //var splitCuerpos = cuerpos.split("||");
 
-        localStorage.setItem("remitenteSeleccionado", splitFrom[this.id]);
-        localStorage.setItem("asuntoSeleccionado", splitSubject[this.id]);
-        localStorage.setItem("cuerpoSeleccionado", splitCuerpos[this.id]);
+        //localStorage.setItem("remitenteSeleccionado", splitFrom[this.id]);
+        //localStorage.setItem("asuntoSeleccionado", splitSubject[this.id]);
+        //localStorage.setItem("cuerpoSeleccionado", splitCuerpos[this.id]);
 
-        var win = window.open("../Html/verCorreo.html");
+        //var win = window.open("../Html/verCorreo.html");
 
-		}
+		//}
 
 
 		for (var x = 0; x < 3; x++) {

@@ -31,5 +31,10 @@
     <orderEntry type="library" name="Disenio1" level="project" />
     <orderEntry type="library" name="activation" level="project" />
     <orderEntry type="library" name="mail" level="project" />
+    <orderEntry type="library" name="jxbrowser-6.22.2" level="project" />
+    <orderEntry type="library" name="jxbrowser-linux64-6.22.2" level="project" />
+    <orderEntry type="library" name="jxbrowser-mac-6.22.2" level="project" />
+    <orderEntry type="library" name="jxbrowser-win32-6.22.2" level="project" />
+    <orderEntry type="library" name="jxbrowser-win64-6.22.2" level="project" />
   </component>
 </module>
