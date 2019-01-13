@@ -1,4 +1,3 @@
-package Java;
 import java.sql.*;
 
 import org.h2.Driver;
