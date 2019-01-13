@@ -1,0 +1,46 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	
+	<link rel="stylesheet" type="text/css" href="../disenio.libs/lib.css" />
+	<link rel="stylesheet" type="text/css" href="../disenio.css/estilos.css" />
+	
+	<script type="text/javascript">
+		function SentLogin() {
+			var usuario = myForm.elements['usuario'].value;
+			var contraseña = myForm.elements['contraseña'].value;
+			localStorage.setItem("usuario", usuario);
+			localStorage.setItem("contraseña", contraseña);
+			Account.save(usuario, contraseña);
+		}
+	</script>
+</head>
+
+<body>
+	<div id="contenedor">
+		<div id="form">
+			<form name="myForm" action="pruebaMenu.html">
+				<div id="form-bx form-group">
+					<div class="form-group">
+						<label for="usuario">Nombre de Usuario:</label>
+						<input type="text" class="bx form-control" id="usuario" name="usuario" required />
+					</div>
+					<div class="form-group">
+						<label for="contraseña">Contraseña:</label>
+						<input type="password" class="bx form-control" id="contraseña" name="contraseña" required />
+					</div>
+				</div>
+				<div id="form-btn form-group" class="form-group">
+					<a href="menu.html" class="btn btn-primary" role="button" onclick="SentLogin();"> Iniciar Sesión</a>
+					<a href="registrar.html" class="btn btn-primary" role="button">Registrarse</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+	<script src="../disenio.libs.jQuery/jQuery/jquery-3.3.1.min.js"></script>
+	<script src="../disenio.libs.popperjs/popperjs/popper.min.js"></script>
+	<script src="../disenio.libs.boostrap.js/bootstrap/js/bootstrap.min.js"></script>
+
+</html>
