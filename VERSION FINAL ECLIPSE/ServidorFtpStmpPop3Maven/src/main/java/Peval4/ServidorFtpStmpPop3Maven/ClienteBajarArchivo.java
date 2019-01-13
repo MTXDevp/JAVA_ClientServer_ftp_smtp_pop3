@@ -52,7 +52,7 @@ public class ClienteBajarArchivo {
 			dos.writeUTF(nombreFichero);
 			System.out.println("Nombre del fihcero que ha descargadar " + nombreFichero);
 			//Para guardar fichero recibido
-			bos = new BufferedOutputStream(new FileOutputStream("src/Descargas/" + nombreFichero));
+			bos = new BufferedOutputStream(new FileOutputStream("src/main/java/Peval4/ServidorFtpStmpPop3Maven/Archivos/Usuario/" + nombreFichero));
 			while((in = bis.read(receivedData)) != -1) {
 				bos.write(receivedData, 0, in);
 			}
@@ -72,9 +72,10 @@ public class ClienteBajarArchivo {
 			// Enviamos la opcion subir archivo
 			dos.writeUTF("listar");
 			DataInputStream datos = new DataInputStream(connection.getInputStream());
-			int numeroFicheros = Integer.parseInt(datos.readUTF());
+			String numeroFicheros = datos.readUTF();
 			System.out.println("Ficheros disponibles: " + numeroFicheros);
-			for(int i = 0; i < numeroFicheros; i++) {
+			todoFichero.add(numeroFicheros);
+			for(int i = 1; i <= Integer.parseInt(numeroFicheros); i++) {
 				todoFichero.add(datos.readUTF());
 			}
 		} catch(IOException ex) {

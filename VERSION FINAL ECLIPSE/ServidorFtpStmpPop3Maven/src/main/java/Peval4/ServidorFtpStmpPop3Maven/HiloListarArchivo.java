@@ -30,7 +30,7 @@ public class HiloListarArchivo extends Thread {
 			OutputStream flujoSalida = connection.getOutputStream();
 			DataOutputStream dos = new DataOutputStream(flujoSalida);
 			//String sDirectorio = "C:\\Users\\Barcia\\Desktop\\Prueba";
-			File f = new File("src/ArchivosServidor");
+			File f = new File("src/main/java/Peval4/ServidorFtpStmpPop3Maven/Archivos/Servidor");
 			File[] ficheros = f.listFiles();
 			dos.writeUTF(String.valueOf(ficheros.length));//Numero de elementos
 			for(int x = 0; x < ficheros.length; x++) {
