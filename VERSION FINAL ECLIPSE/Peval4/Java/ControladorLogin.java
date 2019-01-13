@@ -1,4 +1,3 @@
-package Java;
 import com.teamdev.jxbrowser.chromium.*;
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
@@ -45,11 +44,9 @@ public class ControladorLogin {
 		frame.setSize(800, 500);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		
 
-		File file = new File(
-			ControladorLogin.class.getResource(".\\Resources\\disenio\\html\\login.html").getFile()
-		);
-		browser.loadURL(file.toString());
+		browser.loadURL(ControladorLogin.class.getResource("/disenio/html/login.html").toString());
 
 		browser.addLoadListener(new LoadAdapter() {
 			@Override
