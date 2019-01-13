@@ -57,7 +57,7 @@ function genera_tabla() {
     tabla.appendChild(thTitulo);
 
     // Crea las celdas (Tantas celdas como archivos contenga el servidor) 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 1; i <= parseInt(splitNombreFicheros[0]); i++) {
         // Crea las hileras de la tabla
         var hilera = document.createElement("tr");
         hilera.setAttribute("id", "" + i);

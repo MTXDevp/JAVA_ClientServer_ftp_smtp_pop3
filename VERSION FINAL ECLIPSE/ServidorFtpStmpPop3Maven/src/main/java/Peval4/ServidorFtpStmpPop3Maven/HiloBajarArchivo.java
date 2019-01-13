@@ -38,7 +38,7 @@ public class HiloBajarArchivo extends Thread {
 			DataInputStream dis = new DataInputStream(connection.getInputStream());
 			nombreFichero = dis.readUTF();
 			System.out.println(nombreFichero);
-			final File localFile = new File("src/ArchivosServidor/" + nombreFichero);
+			final File localFile = new File("src/main/java/Peval4/ServidorFtpStmpPop3Maven/Archivos/Servidor/" + nombreFichero);
 			bis = new BufferedInputStream(new FileInputStream(localFile));
 			System.out.println("He pasado por el punto critico 1");
 			bos = new BufferedOutputStream(connection.getOutputStream());
