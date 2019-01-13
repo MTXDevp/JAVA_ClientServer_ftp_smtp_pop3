@@ -1,4 +1,3 @@
-package Java;
 import java.util.UUID;
 
 import com.teamdev.jxbrowser.chromium.BrowserContext;
