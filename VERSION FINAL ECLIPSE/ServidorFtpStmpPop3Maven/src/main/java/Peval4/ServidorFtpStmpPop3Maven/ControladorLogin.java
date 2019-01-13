@@ -14,6 +14,7 @@ import javax.mail.*;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.sql.SQLException;
 import java.util.logging.Level;
 
 //USAR LOCAL STORAGE PARA GUARDAR USUARIO Y ONTRASEÑA ES MAS SEGURO QUE USAR COOKIES?
@@ -88,6 +89,7 @@ public class ControladorLogin {
 							public void handleEvent(DOMEvent event) {
 								//CAMPTAMOS LOS DATOS DE SESION DESDE EL LOCAL STORAGE DEPENDIENDO DEL DOMINIO MANDAREMOS UNOS DATOS U OTROS
 								System.out.println("Estas en la ventana de visualizacion de correos");
+								
 								browser.executeJavaScript("localStorage");
 								WebStorage webStorage = browser.getLocalWebStorage();
 								String usuario = webStorage.getItem("usuario");
@@ -191,47 +193,36 @@ public class ControladorLogin {
 			System.out.println("Usuario    = " + usuario);
 			System.out.println("Contraseña = " + contraseña);
 
-			File file = new File(
-				ControladorLogin.class.getResource("Disenio/Html/menu.html").getFile()
-			);
-			browser.loadURL(file.toString());
-
-			//IMPLEMENTAR CONSULTA A LA BASE
-			/*
             conexion.CheckLogin(usuario, contraseña);
             try {
                 //si el usuario y la contraseña coinciden
-               if(!conexion.getRs().next()){
+               if(conexion.getRs().next()){
 
-                    System.out.println("EL RESULTADO DE LA CONSULTA ES : " + conexion.getRs().next());
+                    System.out.println("Se ha encontrado al usuario");
                     externalUsuario = usuario;
                     externalContraseña = contraseña;
 
-                    File file = new File(
+                    //Si el login es correcto iremos a la ventana del menu
+                    File file1 = new File(
                             ControladorLogin.class.getResource("Disenio/Html/menu.html").getFile()
                     );
-                    browser.loadURL(file.toString());
-
-                    //cargar controlador menu para una mayor encapsulacion
-
+                    browser.loadURL(file1.toString());
                 }else{
-                    System.out.println("EL RESULTADO DE LA CONSULTA ES : " + conexion.getRs().next());
+                    System.out.println("El usuario no se encuentra registrado");
                     JOptionPane.showMessageDialog(null, "CREDENCIALES ERRONEAS", "ERROR", JOptionPane.WARNING_MESSAGE);
 
                     //en el caso de que las crecenciales no sean correctas volvemos a cargar la ventana de login
-                    File file = new File(
+                    File file2 = new File(
                             ControladorLogin.class.getResource("Disenio/Html/login.html").getFile()
                     );
-                    browser.loadURL(file.toString());
+                    browser.loadURL(file2.toString());
                 }
             } catch (SQLException e) {
                 System.out.println("SE HA PRODUCIDO UN ERROR CONSULTANDO LA BASE DE DATOS");
                 System.out.println("DETALLES : ");
                 System.out.println(e.getMessage());
-            }
-			 */
+            }		 
 		}
-
 	}// FINAL CLASE GET USUARIO Y CONTRASEÑA
 
 	//CALSE GET DATOS MENSAJE ----------------> AÑADIR TRY CATCH
@@ -287,10 +278,16 @@ public class ControladorLogin {
 			System.out.println("Usuario = " + usuario);
 			System.out.println("Contraseña = " + contraseña);
 			System.out.println("Contraseña2 = " + contraseña2);
+			
 
 			if(!contraseña.equals(contraseña2)) {
 
 				JOptionPane.showMessageDialog(null, "LAS CONTRASEÑAS NO COINCIDEN", "ERROR", JOptionPane.WARNING_MESSAGE);
+				File file = new File(
+						ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile()
+					);
+					browser.loadURL(file.toString());
+
 			} else {
 				conexion.InsertNewUsuario(usuario, contraseña, correo);
 				System.out.println("Nuevo usuario insertado con exito");

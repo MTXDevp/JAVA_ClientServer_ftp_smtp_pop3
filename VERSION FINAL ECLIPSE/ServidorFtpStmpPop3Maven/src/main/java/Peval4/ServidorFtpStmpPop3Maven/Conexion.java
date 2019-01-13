@@ -8,6 +8,7 @@ public class Conexion {
     Statement stm;
     Connection con;
     ResultSet rs=null;
+    
 
     public Conexion() {
 
@@ -19,7 +20,7 @@ public class Conexion {
             e.printStackTrace();
         }
         try {
-            con = DriverManager.getConnection("jdbc:h2:.\\database\\USUARIOS", "", "");
+            con = DriverManager.getConnection("jdbc:h2:~/plz", "", "");
             System.out.println("BASE DE DATOS CREADA!");
             stm = con.createStatement();
             String sentencia = "CREATE TABLE IF NOT EXISTS USUARIOS "
@@ -31,7 +32,8 @@ public class Conexion {
 
         } catch (SQLException e) {
             System.out.println("ERROR CREANDO LA BASE DE DATOS");
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+            
         }
 
 

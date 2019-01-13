@@ -36,11 +36,11 @@
     <version>1.4</version>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+<!-- https://mvnrepository.com/artifact/com.h2database/h2-->
 <dependency>
     <groupId>com.h2database</groupId>
     <artifactId>h2</artifactId>
-    <version>1.4.197</version>
+    <version>1.4.196</version>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
