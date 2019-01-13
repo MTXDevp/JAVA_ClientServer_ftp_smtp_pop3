@@ -47,7 +47,7 @@ public class ControladorLogin {
 		frame.setVisible(true);
 
 		File file = new File(
-			ControladorLogin.class.getResource("../Html/login.html").getFile()
+			ControladorLogin.class.getResource(".\\Resources\\disenio\\html\\login.html").getFile()
 		);
 		browser.loadURL(file.toString());
 

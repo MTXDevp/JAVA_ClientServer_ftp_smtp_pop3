@@ -1,6 +1,8 @@
 package Java;
 import java.sql.*;
 
+import org.h2.Driver;
+
 public class Conexion {
 
     Statement stm;
@@ -17,7 +19,7 @@ public class Conexion {
             e.printStackTrace();
         }
         try {
-            con = DriverManager.getConnection("jdbc:h2:C:\\Users\\USUARIO\\Desktop\\h2 database", "", "");
+            con = DriverManager.getConnection("jdbc:h2:.\\database\\h2 database", "", "");
             System.out.println("BASE DE DATOS CREADA!");
             stm = con.createStatement();
             String sentencia = "CREATE TABLE IF NOT EXISTS USUARIOS "
