@@ -29,3 +29,5 @@ hs_err_pid*
 .~lock.*
 ~\$*
 /ClienteServidorFtpSmtpPop3Maven/target/
+
+/private\.properties
