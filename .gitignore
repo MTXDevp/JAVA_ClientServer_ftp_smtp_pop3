@@ -31,3 +31,4 @@ hs_err_pid*
 /ClienteServidorFtpSmtpPop3Maven/target/
 
 /private\.properties
+*.tmp
