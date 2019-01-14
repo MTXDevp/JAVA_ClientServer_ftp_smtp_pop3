@@ -4,25 +4,6 @@ function inicio() {
 	genera_tabla();
 }
 
-function myLinkedin(numero) {
-	if (numero == 1) {
-		window.open("https://es.linkedin.com");
-	}
-	else if (numero == 2) {
-		window.open("https://www.google.com");
-	}
-	else if (numero == 3) {
-		window.open("https://outlook.live.com");
-	}
-}
-
-function cargando() {
-	alert('Bandeja de entrada');
-	var nombreFichero = document.getElementById(this.id).innerText
-	SentDatosFTP(nombreFichero);
-	var divBarra = document.getElementById("segundario");
-	divBarra.innerHTML = document.getElementById("barraDescarga").innerHTML;
-}
 
 function cambiarBrillo() {
 
