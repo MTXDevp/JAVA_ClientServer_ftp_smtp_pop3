@@ -36,11 +36,11 @@
     <version>1.4</version>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+<!-- https://mvnrepository.com/artifact/com.h2database/h2-->
 <dependency>
     <groupId>com.h2database</groupId>
     <artifactId>h2</artifactId>
-    <version>1.4.197</version>
+    <version>1.4.196</version>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
@@ -63,6 +63,12 @@
     <artifactId>popper.js</artifactId>
     <version>1.14.4</version>
 </dependency>
+
+	<dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>3.141.59</version>
+    </dependency>  
 
 
 
