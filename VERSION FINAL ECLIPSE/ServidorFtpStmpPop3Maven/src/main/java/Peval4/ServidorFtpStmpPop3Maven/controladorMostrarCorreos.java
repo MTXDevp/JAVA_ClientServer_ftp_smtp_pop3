@@ -50,9 +50,9 @@ public class controladorMostrarCorreos {
             folder.open(Folder.READ_ONLY);
 
         } catch (NoSuchProviderException e) {
-            System.out.println("SE HA PRODUCIDO UN ERROR COMUNICANDONOS CON EL SERVIDOR DE CORREO");
+            System.out.println(e.getMessage());
         } catch (MessagingException e) {
-            e.printStackTrace();
+        	System.out.println(e.getMessage());
         }
         try {
             /*

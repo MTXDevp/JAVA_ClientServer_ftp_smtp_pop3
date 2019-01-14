@@ -94,6 +94,7 @@ public class ControladorLogin {
 								div.setInnerHTML(document.findElement(By.id("barraDescarga")).getInnerHTML());
 
 								System.out.println("Estas en la ventana de visualizacion de correos");
+								
 								browser.executeJavaScript("localStorage");
 								WebStorage webStorage = browser.getLocalWebStorage();
 								String usuario = webStorage.getItem("usuario");
@@ -169,8 +170,6 @@ public class ControladorLogin {
 			}
 		});
 	}
-	//EL LOGIN FALLAAAAAAAAAAAAA USUARIO NO ERRONEO CUANDO ES FALSO
-	//CLASE ENCARGADA DE RESCATAR LOS DATOS USUARIO/CONTRASEÑA DESDE EL HTML
 
 	public class getDireccionFTP {
 
@@ -197,73 +196,35 @@ public class ControladorLogin {
 			System.out.println("Usuario    = " + usuario);
 			System.out.println("Contraseña = " + contraseña);
 
-			File file = new File(
-				ControladorLogin.class.getResource("Disenio/Html/menu.html").getFile()
-			);
-			browser.loadURL(file.toString());
-
-			//IMPLEMENTAR CONSULTA A LA BASE
-			/*
             conexion.CheckLogin(usuario, contraseña);
             try {
                 //si el usuario y la contraseña coinciden
-               if(!conexion.getRs().next()){
+               if(conexion.getRs().next()){
 
-                    System.out.println("EL RESULTADO DE LA CONSULTA ES : " + conexion.getRs().next());
+                    System.out.println("Se ha encontrado al usuario");
                     externalUsuario = usuario;
                     externalContraseña = contraseña;
 
-                    File file = new File(
+                    //Si el login es correcto iremos a la ventana del menu
+                    File file1 = new File(
                             ControladorLogin.class.getResource("Disenio/Html/menu.html").getFile()
                     );
-                    browser.loadURL(file.toString());
-
-                    //cargar controlador menu para una mayor encapsulacion
-
+                    browser.loadURL(file1.toString());
                 }else{
-                    System.out.println("EL RESULTADO DE LA CONSULTA ES : " + conexion.getRs().next());
+                    System.out.println("El usuario no se encuentra registrado");
                     JOptionPane.showMessageDialog(null, "CREDENCIALES ERRONEAS", "ERROR", JOptionPane.WARNING_MESSAGE);
 
                     //en el caso de que las crecenciales no sean correctas volvemos a cargar la ventana de login
-                    File file = new File(
+                    File file2 = new File(
                             ControladorLogin.class.getResource("Disenio/Html/login.html").getFile()
                     );
-                    browser.loadURL(file.toString());
+                    browser.loadURL(file2.toString());
                 }
             } catch (SQLException e) {
                 System.out.println("SE HA PRODUCIDO UN ERROR CONSULTANDO LA BASE DE DATOS");
                 System.out.println("DETALLES : ");
                 System.out.println(e.getMessage());
-            }
-			 */
-
-			//conexion.CheckLogin(usuario, contraseña);
-			//try {
-				// si el usuario y la contraseña coinciden
-				//if (conexion.getRs().next()) {
-
-					//System.out.println("Se ha encontrado al usuario");
-					//externalUsuario = usuario;
-					//externalContraseña = contraseña;
-
-					// Si el login es correcto iremos a la ventana del menu
-					//File file1 = new File(ControladorLogin.class.getResource("Disenio/Html/menu.html").getFile());
-					//browser.loadURL(file1.toString());
-				//} else {
-					//System.out.println("El usuario no se encuentra registrado");
-					//JOptionPane.showMessageDialog(null, "CREDENCIALES ERRONEAS", "ERROR", JOptionPane.WARNING_MESSAGE);
-
-					// en el caso de que las crecenciales no sean correctas volvemos a cargar la
-					// ventana de login
-					//File file2 = new File(ControladorLogin.class.getResource("Disenio/Html/login.html").getFile());
-					//browser.loadURL(file2.toString());
-				//}
-			//} catch (SQLException e) {
-				//System.out.println("SE HA PRODUCIDO UN ERROR CONSULTANDO LA BASE DE DATOS");
-				//System.out.println("DETALLES : ");
-				//System.out.println(e.getMessage());
-			//}
-
+            }		 
 		}
 	}// FINAL CLASE GET USUARIO Y CONTRASEÑA
 
@@ -303,8 +264,6 @@ public class ControladorLogin {
 			EnviarMail em = new EnviarMail();
 			em.EnviarMail(destinatario, getUsuario(), getUsuario(),
 				getContraseña(), asunto, contenido);
-
-			em.EnviarMail(destinatario, getUsuario(), getUsuario(), getContraseña(), asunto, contenido);
 		}
 	}
 
@@ -320,69 +279,70 @@ public class ControladorLogin {
 			System.out.println("Correo Electrónico    = " + correo);
 			System.out.println("Contraseña = " + contraseña);
 			System.out.println("Contraseña2 = " + contraseña2);
-
-			if (correo.equals("") || contraseña.equals("") || contraseña2.equals("")) {
-
-				JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios", "ERROR",
-						JOptionPane.ERROR_MESSAGE);
-
-			} else if (!contraseña.equals(contraseña2)) {
+			
+			
+			
+			if(correo.equals("") || contraseña.equals("") || contraseña2.equals("")) {
+				
+				JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+				
+			}else if(!contraseña.equals(contraseña2)) {
 
 				JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "ERROR", JOptionPane.ERROR_MESSAGE);
-				File file = new File(ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile());
-				browser.loadURL(file.toString());
+				File file = new File(
+						ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile()
+					);
+					browser.loadURL(file.toString());
 
-				if (!contraseña.equals(contraseña2)) {
-
-					JOptionPane.showMessageDialog(null, "LAS CONTRASEÑAS NO COINCIDEN", "ERROR",
-							JOptionPane.WARNING_MESSAGE);
-				} else {
-
-					boolean correoValido = false;
-
-					if (correo.endsWith("@hotmail.es") || correo.endsWith("@hotmail.com")) {
-
-						AutentificarCorreo ac = new AutentificarCorreo();
-
-						if (ac.AutentificarCorreo("pop3.live.com", correo, contraseña)) {
-
-							correoValido = true;
-
-						} else {
-
-							JOptionPane.showMessageDialog(null, "CORREO NO VÁLIDO", "ERROR", JOptionPane.ERROR_MESSAGE);
-
-						}
-
-					} else if (correo.endsWith("@gmail.es") || correo.endsWith("@gmail.com")) {
-
-						AutentificarCorreo ac = new AutentificarCorreo();
-
-						if (ac.AutentificarCorreo("pop.gmail.com", correo, contraseña)) {
-
-							correoValido = true;
-
-						} else {
-
-							JOptionPane.showMessageDialog(null, "CORREO NO VÁLIDO", "ERROR", JOptionPane.ERROR_MESSAGE);
-						}
-
+			} else {
+				
+				boolean correoValido = false;
+				
+				if(correo.endsWith("@hotmail.es") || correo.endsWith("@hotmail.com")) {
+					
+					AutentificarCorreo ac = new AutentificarCorreo();
+					
+					if(ac.AutentificarCorreo("pop3.live.com", correo, contraseña)) {
+								
+						correoValido = true;
+						
+					}else {
+						
+						JOptionPane.showMessageDialog(null, "CORREO NO VÁLIDO", "ERROR", JOptionPane.ERROR_MESSAGE);
+						
 					}
-
-					if (correoValido == true) {
-
-						conexion.InsertNewUsuario(correo, contraseña);
-						System.out.println("Nuevo usuario insertado con exito");
-
-					} else {
-
-						File file1 = new File(
-								ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile());
-						browser.loadURL(file1.toString());
-
+					
+				}else if(correo.endsWith("@gmail.es") || correo.endsWith("@gmail.com")){
+					
+					AutentificarCorreo ac = new AutentificarCorreo();
+					
+					if(ac.AutentificarCorreo("pop.gmail.com", correo, contraseña)) {
+						
+						correoValido = true;
+								
+					}else {
+						
+						JOptionPane.showMessageDialog(null, "CORREO NO VÁLIDO", "ERROR", JOptionPane.ERROR_MESSAGE);
 					}
-
+					
 				}
+				
+				if(correoValido == true) {
+					
+					conexion.InsertNewUsuario(correo, contraseña);
+					System.out.println("Nuevo usuario insertado con exito");
+					
+				}else {
+					
+					File file = new File(
+							ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile()
+						);
+						browser.loadURL(file.toString());
+					
+				}
+			
+				
+				
 			}
 		}
 
