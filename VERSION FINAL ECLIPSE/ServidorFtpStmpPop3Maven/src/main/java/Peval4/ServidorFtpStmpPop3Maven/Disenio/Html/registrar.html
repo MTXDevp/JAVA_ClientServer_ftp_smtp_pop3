@@ -6,10 +6,9 @@
 		<script type="text/javascript">
 			function SentDatosRegistro() {
 				var email = formRegistro.elements['email'].value;
-				var nombre = formRegistro.elements['nombre'].value;
 				var contraseña = formRegistro.elements['contraseña'].value;
 				var contraseña2 = formRegistro.elements['contraseña2'].value;
-				Account.save(email, nombre, contraseña, contraseña2);
+				Account.save(email, contraseña, contraseña2);
 			}
 		</script>
 	</head>

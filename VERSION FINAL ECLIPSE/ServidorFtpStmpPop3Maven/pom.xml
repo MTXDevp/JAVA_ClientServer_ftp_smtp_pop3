@@ -64,6 +64,12 @@
     <version>1.14.4</version>
 </dependency>
 
+	<dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>3.141.59</version>
+    </dependency>  
+
 
 
 

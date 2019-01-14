@@ -165,8 +165,6 @@ public class ControladorLogin {
 			}
 		});
 	}
-	//EL LOGIN FALLAAAAAAAAAAAAA USUARIO NO ERRONEO CUANDO ES FALSO
-	//CLASE ENCARGADA DE RESCATAR LOS DATOS USUARIO/CONTRASEÑA DESDE EL HTML
 
 	public class getDireccionFTP {
 
@@ -261,7 +259,6 @@ public class ControladorLogin {
 			EnviarMail em = new EnviarMail();
 			em.EnviarMail(destinatario, getUsuario(), getUsuario(),
 				getContraseña(), asunto, contenido);
-
 		}
 	}
 
@@ -273,24 +270,74 @@ public class ControladorLogin {
 			System.out.println("entro en get datos registro");
 		}
 
-		public void save(String correo, String usuario, String contraseña, String contraseña2) {
+		public void save(String correo, String contraseña, String contraseña2) {
 			System.out.println("Correo Electrónico    = " + correo);
-			System.out.println("Usuario = " + usuario);
 			System.out.println("Contraseña = " + contraseña);
 			System.out.println("Contraseña2 = " + contraseña2);
 			
+			
+			
+			if(correo.equals("") || contraseña.equals("") || contraseña2.equals("")) {
+				
+				JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+				
+			}else if(!contraseña.equals(contraseña2)) {
 
-			if(!contraseña.equals(contraseña2)) {
-
-				JOptionPane.showMessageDialog(null, "LAS CONTRASEÑAS NO COINCIDEN", "ERROR", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "ERROR", JOptionPane.ERROR_MESSAGE);
 				File file = new File(
 						ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile()
 					);
 					browser.loadURL(file.toString());
 
 			} else {
-				conexion.InsertNewUsuario(usuario, contraseña, correo);
-				System.out.println("Nuevo usuario insertado con exito");
+				
+				boolean correoValido = false;
+				
+				if(correo.endsWith("@hotmail.es") || correo.endsWith("@hotmail.com")) {
+					
+					AutentificarCorreo ac = new AutentificarCorreo();
+					
+					if(ac.AutentificarCorreo("pop3.live.com", correo, contraseña)) {
+								
+						correoValido = true;
+						
+					}else {
+						
+						JOptionPane.showMessageDialog(null, "CORREO NO VÁLIDO", "ERROR", JOptionPane.ERROR_MESSAGE);
+						
+					}
+					
+				}else if(correo.endsWith("@gmail.es") || correo.endsWith("@gmail.com")){
+					
+					AutentificarCorreo ac = new AutentificarCorreo();
+					
+					if(ac.AutentificarCorreo("pop.gmail.com", correo, contraseña)) {
+						
+						correoValido = true;
+								
+					}else {
+						
+						JOptionPane.showMessageDialog(null, "CORREO NO VÁLIDO", "ERROR", JOptionPane.ERROR_MESSAGE);
+					}
+					
+				}
+				
+				if(correoValido == true) {
+					
+					conexion.InsertNewUsuario(correo, contraseña);
+					System.out.println("Nuevo usuario insertado con exito");
+					
+				}else {
+					
+					File file = new File(
+							ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile()
+						);
+						browser.loadURL(file.toString());
+					
+				}
+			
+				
+				
 			}
 		}
 	}

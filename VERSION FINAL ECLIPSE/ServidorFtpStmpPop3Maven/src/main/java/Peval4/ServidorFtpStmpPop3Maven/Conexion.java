@@ -24,9 +24,8 @@ public class Conexion {
             System.out.println("BASE DE DATOS CREADA!");
             stm = con.createStatement();
             String sentencia = "CREATE TABLE IF NOT EXISTS USUARIOS "
-                    + "(usuario VARCHAR(30), "
-                    + " contraseña VARCHAR(30),"
-                    + " correo VARCHAR(30))";
+                    + "(correo VARCHAR(30), "
+                    + " contraseña VARCHAR(30))";
             stm.executeUpdate(sentencia);
             System.out.println("Tabla creada con exito");
 
@@ -35,12 +34,10 @@ public class Conexion {
             System.out.println(e.getMessage());
             
         }
-
-
     }
 
-    public void CheckLogin(String usuario, String contraseña){
-                String sentencia = "select " + "'" +usuario + "'"+ " from USUARIOS where contraseña=" + "'"+contraseña+"'"+";";
+    public void CheckLogin(String correo, String contraseña){
+                String sentencia = "select " + "'" + correo + "'"+ " from USUARIOS where contraseña=" + "'"+contraseña+"'"+";";
         try {
             rs = stm.executeQuery(sentencia);
         } catch (SQLException e) {
@@ -49,8 +46,8 @@ public class Conexion {
             System.out.println(e.getMessage());
         }
     }
-    public void InsertNewUsuario(String usuario, String contraseña, String correo){
-        String sentencia = "insert into usuarios values("+"'"+usuario+"'"+","+"'"+contraseña+"'"+","+"'"+correo+"'"+");";
+    public void InsertNewUsuario(String correo, String contraseña){
+        String sentencia = "insert into usuarios values("+"'"+correo+"'"+","+"'"+contraseña+"'"+");";
         try {
             stm.executeUpdate(sentencia);
             System.out.println("Inserción realizada con éxito");
