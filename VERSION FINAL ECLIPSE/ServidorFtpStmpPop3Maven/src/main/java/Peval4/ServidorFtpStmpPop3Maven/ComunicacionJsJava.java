@@ -18,7 +18,7 @@ import com.teamdev.jxbrowser.chromium.WebStorage;
  * 
  *
  */
-public class Events {
+public class ComunicacionJsJava {
     public void Close(int numCorreo) {
 
         System.out.println("Numero de correos " + numCorreo);
@@ -112,6 +112,82 @@ public class Events {
 			EnviarMail em = new EnviarMail();
 			em.EnviarMail(destinatario, getUsuario(), getUsuario(), getContraseña(), asunto, contenido);
 		}
+	}
+	
+	public static class getDatosRegistro {
+
+		Browser browser;
+		Conexion conexion;
+		
+		public getDatosRegistro(Browser browser, Conexion conexion) {
+		this.browser = browser;
+		this.conexion = conexion;
+		}
+
+		public void save(String correo, String contraseña, String contraseña2) {
+			System.out.println("Correo Electrónico    = " + correo);
+			System.out.println("Contraseña = " + contraseña);
+			System.out.println("Contraseña2 = " + contraseña2);
+
+			if (correo.equals("") || contraseña.equals("") || contraseña2.equals("")) {
+
+				JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios", "ERROR",
+						JOptionPane.ERROR_MESSAGE);
+
+			} else if (!contraseña.equals(contraseña2)) {
+
+				JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "ERROR", JOptionPane.ERROR_MESSAGE);
+				File file = new File(ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile());
+				this.browser.loadURL(file.toString());
+
+			} else {
+
+				boolean correoValido = false;
+
+				if (correo.endsWith("@hotmail.es") || correo.endsWith("@hotmail.com")) {
+
+					AutentificarCorreo ac = new AutentificarCorreo();
+
+					if (ac.AutentificarCorreo("pop3.live.com", correo, contraseña)) {
+
+						correoValido = true;
+
+					} else {
+
+						JOptionPane.showMessageDialog(null, "CORREO NO VÁLIDO", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+					}
+
+				} else if (correo.endsWith("@gmail.es") || correo.endsWith("@gmail.com")) {
+
+					AutentificarCorreo ac = new AutentificarCorreo();
+
+					if (ac.AutentificarCorreo("pop.gmail.com", correo, contraseña)) {
+
+						correoValido = true;
+
+					} else {
+
+						JOptionPane.showMessageDialog(null, "CORREO NO VÁLIDO", "ERROR", JOptionPane.ERROR_MESSAGE);
+					}
+
+				}
+
+				if (correoValido == true) {
+
+					this.conexion.InsertNewUsuario(correo, contraseña);
+					System.out.println("Nuevo usuario insertado con exito");
+
+				} else {
+
+					File file = new File(ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile());
+					this.browser.loadURL(file.toString());
+
+				}
+
+			}
+		}
+
 	}
 
 
