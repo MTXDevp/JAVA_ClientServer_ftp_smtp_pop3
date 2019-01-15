@@ -45,7 +45,7 @@ public class Conexion {
 		}
 		try {
 			// Ruta donde se guarda la base de datos.
-			con = DriverManager.getConnection("jdbc:h2:.\\database\\h2 database", "", "");
+			con = DriverManager.getConnection("jdbc:h2:.\\database\\USUARIOS", "", "");
 			System.out.println("¡Estado de la base de datos: OK!");
 			stm = con.createStatement();
 			String sentencia = "CREATE TABLE IF NOT EXISTS USUARIOS " + "(correo VARCHAR(30), "
