@@ -16,9 +16,13 @@ public class EnviarMail {
         final String username = userName;
         final String password = userPassword;
         //String host = smtpHost;
+        
+        System.out.println("El usuario que quiere enviar el correo es : " + username);
+        System.out.println("la contraseña del usuario que quiere enviar el correo es : " + password);
 
 
         Properties props = new Properties();
+        
 
         //DEPENDIENDO DEL DOMINIO DE CORREO LO ENVIAREMO A UN HOST U OTRO
 
@@ -33,13 +37,14 @@ public class EnviarMail {
             System.out.println("entro en hotmail");
         }
 
-        props.put("mail.smtp.starttls.enable",true);
-        props.put("mail.smtp.auth",true);
+        
+        props.put("mail.smtp.starttls.enable","true");
+        props.setProperty("mail.smtps.ssl.enable", "true");
+        props.put("mail.smtp.auth","true");
         props.put("mail.smtp.port", 587);
 
         SimpleMailAuthenticator authenticator = new SimpleMailAuthenticator(username, password);
         Session session = Session.getInstance(props, authenticator);
-        session.setDebug(true);
 
         try {
             Message message = new MimeMessage(session);
@@ -59,8 +64,7 @@ public class EnviarMail {
         } catch (MessagingException e) {
 
             System.out.println("Se ha producido un error mandando el correo");
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 

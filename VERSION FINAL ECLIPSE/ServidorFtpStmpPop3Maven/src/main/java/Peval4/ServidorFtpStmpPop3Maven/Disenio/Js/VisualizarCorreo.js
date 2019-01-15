@@ -19,6 +19,14 @@ function cambiarBrillo() {
 
 }
 
+function Actualizar(){
+	
+	alert('as pulsado actualizar');
+	
+	localStorage.setItem("actualizar", "true");
+	
+}
+
 function genera_tabla() {
 
 	var body = document.getElementsByTagName("body")[0];

@@ -1,4 +1,4 @@
-package Peval4.ServidorFtpStmpPop3Maven.Disenio;
+package Peval4.ServidorFtpStmpPop3Maven;
 
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;

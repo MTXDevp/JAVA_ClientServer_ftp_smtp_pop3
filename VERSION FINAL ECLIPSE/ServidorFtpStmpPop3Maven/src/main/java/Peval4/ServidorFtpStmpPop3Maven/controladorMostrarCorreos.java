@@ -28,18 +28,13 @@ public class controladorMostrarCorreos extends Thread {
 	Folder folder = null;
 	Properties prop = new Properties();
 	
-
-    //CONTROLADOR ALTERNATIVO QUE NO PRECISA EL REALIZAR UNA CONEXION
-    public controladorMostrarCorreos(Browser browser, String numCorreos, String from, String subject, String fecha, String cuerpo) {
-    	
-    	System.out.println("HE LLEGAO :D");
-    	
-    }
     
 
 	public controladorMostrarCorreos(Browser browser, String usuario, String contraseña, String host) {
 		this.browserAux = browser;
 		System.out.println("ESTOY EN EL CONTROLADOR MOSTRAR CORREOS");
+		System.out.println("usuario : " + usuario);
+		System.out.println("contraseña : " + contraseña);
 
 		// Deshabilitamos TLS
 		prop.setProperty("mail.pop3.starttls.enable", "false");
