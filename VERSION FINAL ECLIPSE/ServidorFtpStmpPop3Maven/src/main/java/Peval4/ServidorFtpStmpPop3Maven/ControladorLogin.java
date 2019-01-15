@@ -99,6 +99,8 @@ public class ControladorLogin {
 									
 										String usuario = webStorage.getItem("usuario");
 										String contraseña = webStorage.getItem("contraseña");
+										
+										System.out.println(usuario + " " + contraseña);
 
 										webStorage.setItem("usuario", usuario);
 										webStorage.setItem("contraseña", contraseña);
