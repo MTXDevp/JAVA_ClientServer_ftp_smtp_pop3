@@ -1,5 +1,0 @@
-Investigar como crear una carpeta en la que se almacena los datos del servidor
-Investigar como pasar el archivo del cliente al servidor mediante el path que proporciona el Html
-Descarga del archivo seleccionado por el usuario
-Barra de descarga para la vista de subirArchivo que muestra cuando se ha terminado la subida del archivo
-Cambiar el tamaño de las ventanas dependiendo de la vista que se esta representando (setSize(width, heigth))

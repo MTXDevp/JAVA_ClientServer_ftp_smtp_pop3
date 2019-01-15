@@ -60,7 +60,7 @@ public class ClienteSubirArchivo {
 	/**
 	 * Constructor parametrizado de la clase.
 	 * 
-	 * @param <String> pathFichero: Ruta del fichero que se desea subir al servidor.
+	 * @param <String> rutaFichero: Ruta del fichero que se desea subir al servidor.
 	 */
 	public ClienteSubirArchivo(String rutaFichero) {
 		this.nomFichero = rutaFichero;

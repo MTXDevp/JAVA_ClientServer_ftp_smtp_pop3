@@ -5,84 +5,104 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+/**
+ * Clase encargada de enviar los correos.
+ * 
+ * @author Rafael Valls.
+ * @version 1.0.
+ */
 public class EnviarMail {
 
+	/**
+	 * Constructor que permite el envio de correos.
+	 * 
+	 * @param <String> toAddress: Variable que indica para quien es el correo.
+	 * @param <String> fromAddress: Variable que indica quien manda el correo.
+	 * @param <String> userName: Variable que contiene el usuario.
+	 * @param <String> userPassword: Variable que contiene la contraseña.
+	 * @param <String> emailSubject: Variable que indica el asunto del correo.
+	 * @param <String> emailBody: Variable que indica el cuerpo del correo.
+	 */
+	public void EnviarMail(String toAddress, String fromAddress, String userName, String userPassword,
+			String emailSubject, String emailBody) {
+		String to = toAddress;
+		String from = fromAddress;
+		final String username = userName;
+		final String password = userPassword;
 
-    public void EnviarMail(String toAddress, String fromAddress, String userName, String userPassword, String emailSubject,String emailBody) {
+		Properties props = new Properties();
 
-        System.out.println("Constructor enviar mail");
-        String to = toAddress;
-        String from = fromAddress;
-        final String username = userName;
-        final String password = userPassword;
-        //String host = smtpHost;
-        
-        System.out.println("El usuario que quiere enviar el correo es : " + username);
-        System.out.println("la contraseña del usuario que quiere enviar el correo es : " + password);
+		// Dependiendo del host del correo.
+		if (from.endsWith("@gmail.com") || from.endsWith("gmail.es")) {
+			props.put("mail.smtp.host", "smtp.gmail.com");
+		} else if (from.endsWith("@hotmail.com") || from.endsWith("@hotmail.es")) {
+			props.put("mail.smtp.host", "smtp.live.com");
+		}
 
+		// Configuramos las propiedades del correo.
+		props.put("mail.smtp.starttls.enable", "true");
+		props.setProperty("mail.smtps.ssl.enable", "true");
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.port", 587);
+		SimpleMailAuthenticator authenticator = new SimpleMailAuthenticator(username, password);
+		Session session = Session.getInstance(props, authenticator);
 
-        Properties props = new Properties();
-        
+		try {
+			// Modificamos y enviamos el correo
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(from));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+			message.setSubject(emailSubject);
+			message.setText(emailBody);
+			Transport.send(message);
+			System.out.println("Mensaje enviado con exito....");
 
-        //DEPENDIENDO DEL DOMINIO DE CORREO LO ENVIAREMO A UN HOST U OTRO
+		} catch (MessagingException e) {
+			System.out.println("Se ha producido un error mandando el correo");
+			System.out.println(e.getMessage());
+		}
+	}
 
-        if(from.endsWith("@gmail.com") || from.endsWith("gmail.es")){
+	/**
+	 * Clase que verifica si un correo es no esta falsificado, por tema de seguridad
+	 * para evitar fishing.
+	 */
+	static class SimpleMailAuthenticator extends Authenticator {
 
-            props.put("mail.smtp.host", "smtp.gmail.com");
-            System.out.println("entro en gmail");
+		/**
+		 * <String> usuario: Variable que hace referencia al usuario del cliente.
+		 */
+		String usuario;
+		/**
+		 * <String> contraseña: Variable que hace referencia a la contraseña del
+		 * cliente.
+		 */
+		String contraseña;
+		/**
+		 * <PasswordAuthentication> autentificacion: Variable que comprueba la
+		 * uatentificacion del correo.
+		 */
+		PasswordAuthentication autentificacion;
 
-        }else if(from.endsWith("@hotmail.com") || from.endsWith("@hotmail.es")){
+		/**
+		 * Método que verifica el correo.
+		 * 
+		 * @param usuario
+		 * @param contraseña
+		 */
+		public SimpleMailAuthenticator(String usuario, String contraseña) {
+			super();
+			this.usuario = usuario;
+			this.contraseña = contraseña;
+			autentificacion = new PasswordAuthentication(usuario, contraseña);
+		}
 
-            props.put("mail.smtp.host", "smtp.live.com");
-            System.out.println("entro en hotmail");
-        }
-
-        
-        props.put("mail.smtp.starttls.enable","true");
-        props.setProperty("mail.smtps.ssl.enable", "true");
-        props.put("mail.smtp.auth","true");
-        props.put("mail.smtp.port", 587);
-
-        SimpleMailAuthenticator authenticator = new SimpleMailAuthenticator(username, password);
-        Session session = Session.getInstance(props, authenticator);
-
-        try {
-            Message message = new MimeMessage(session);
-
-            message.setFrom(new InternetAddress(from));
-
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-
-            message.setSubject(emailSubject);
-
-            message.setText(emailBody);
-
-            Transport.send(message);
-
-            System.out.println("Mensaje enviado con exito....");
-
-        } catch (MessagingException e) {
-
-            System.out.println("Se ha producido un error mandando el correo");
-            System.out.println(e.getMessage());
-        }
-    }
-
-    static class SimpleMailAuthenticator extends Authenticator {
-        String userName;
-        String password;
-        PasswordAuthentication authentication;
-
-        public SimpleMailAuthenticator(String userName,String password) {
-            super();
-            this.userName = userName;
-            this.password = password;
-            authentication = new PasswordAuthentication(userName, password);
-        }
-
-        @Override
-        public PasswordAuthentication getPasswordAuthentication() {
-            return authentication;
-        }
-    }
+		@Override
+		/**
+		 * Método para obtener la autentificacion del correo.
+		 */
+		public PasswordAuthentication getPasswordAuthentication() {
+			return autentificacion;
+		}
+	}
 }
