@@ -3,7 +3,6 @@ package Peval4.ServidorFtpStmpPop3Maven;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.net.Socket;
 
@@ -47,7 +46,7 @@ public class HiloSubirArchivo extends Thread {
 	private byte[] datosFichero;
 
 	/**
-	 * <in> lineas: Número de lineas que contiene el fichero mandado por el usuario.
+	 * <int> lineas: Número de lineas que contiene el fichero.
 	 */
 	private int lineas;
 
@@ -59,7 +58,7 @@ public class HiloSubirArchivo extends Thread {
 	/**
 	 * Constructor de la clase
 	 * 
-	 * @param <Socket> s: Variable que indica la relacion entre servidor y usuario.
+	 * @param <Socket> s: Variable que indica la conexión entre servidor y usuario.
 	 */
 	public HiloSubirArchivo(Socket s) {
 		this.socket = s;

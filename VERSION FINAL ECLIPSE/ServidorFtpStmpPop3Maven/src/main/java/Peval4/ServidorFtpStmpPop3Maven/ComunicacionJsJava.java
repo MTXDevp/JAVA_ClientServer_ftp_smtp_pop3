@@ -1,144 +1,226 @@
 package Peval4.ServidorFtpStmpPop3Maven;
 
 import java.io.File;
+
 import java.sql.SQLException;
 
-import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 
 import com.teamdev.jxbrowser.chromium.Browser;
-import com.teamdev.jxbrowser.chromium.JSValue;
 import com.teamdev.jxbrowser.chromium.WebStorage;
 
 /**
+ * Clase con los eventos necesarios para transportar los datos del usuario desde
+ * nuestra vista a nuestras clases java mediantes funciones JS, alojadas en
+ * nuestros HTML.
  * 
- * @author USUARIO
- * Clase con los eventos necesarios para transportar los datos del usuario desde nuestra vista a nuestras clases java
- * mediantes funciones JS, alojadas en nuestros html
- * 
+ * @author Rafael Valls
  *
  */
 public class ComunicacionJsJava {
-    public void Close(int numCorreo) {
 
-        System.out.println("Numero de correos " + numCorreo);
+	/**
+	 * <Browser> browser: Variable que hace referencia al contenido que hay en el
+	 * 'JFrame'.
+	 */
+	private static Browser browser;
 
-    }
-    
+	/**
+	 * <Conexion> conexion: Variable que permite la establecer la conexión on la
+	 * base de datos.
+	 */
+	private static Conexion conexion;
+
+	/**
+	 * Método para imprimir número de correo.
+	 * 
+	 * @param <int> numCorreo: Número de correos.
+	 */
+	public void numeroCorreo(int numCorreo) {
+		System.out.println("Numero de correos " + numCorreo);
+	}
+
+	/**
+	 * Clase que manda la informacion del nombre del fichero que el usuario quiere
+	 * descargar.
+	 */
 	public static class getDireccionFTP {
 
+		/**
+		 * Método que recoge la información (nombre del fichero) del HTML y lo envia a
+		 * Java.
+		 * 
+		 * @param <String> nombreFichero: Nombre del fichero que el usuario quiere
+		 *        descargar.
+		 */
 		public void save(String nombreFichero) {
-			System.out.println("Nombre Fichero : " + nombreFichero);
 			new ClienteBajarArchivo(nombreFichero);
 		}
 	}
 
-    
+	/**
+	 * Clase que permite obtener los datos del usuario.
+	 */
 	public static class getUsuarioContraseña {
 
-		Browser browser;
-		Conexion conexion;
-		
-		public getUsuarioContraseña(Browser browser, Conexion conexion) {
-			
-			this.browser = browser;
-			this.conexion = conexion;
-			
+		/**
+		 * Constructor parametrizado.
+		 * 
+		 * @param <Browser>b: Variable que hace referencia al contexto de la vista.
+		 * @param <Conexion>c: Variable que hace referencia a la conexión con la base de
+		 *        datos.
+		 */
+		public getUsuarioContraseña(Browser b, Conexion c) {
+			browser = b;
+			conexion = c;
 		}
 
+		/**
+		 * Método que permite obtener los datos personales del usuario.
+		 * 
+		 * @param <String> usuario: Variable que contiene el dato usuario del cliente.
+		 * @param <String> contraseña: Variable que contiene el dato contraseña del
+		 *        cliente.
+		 */
 		public void save(String usuario, String contraseña) {
-			System.out.println("Usuario    = " + usuario);
-			System.out.println("Contraseña = " + contraseña);
 
-			this.conexion.CheckLogin(usuario, contraseña);
+			// Comprobar si los datos personales del usuario son correctos.
+			conexion.CheckLogin(usuario, contraseña);
 			try {
-				// si el usuario y la contraseña coinciden
-				if (this.conexion.getRs().next()) {
+				// Si el usuario y la contraseña coinciden
+				if (conexion.getRs().next()) {
 
-					System.out.println("Se ha encontrado al usuario");
-					
-					// Si el login es correcto iremos a la ventana del menu
-					File file1 = new File(ControladorLogin.class.getResource("Disenio/Html/menu.html").getFile());
-					this.browser.loadURL(file1.toString());
+					System.out.println("Credenciales correctas");
+
+					// Si el login es correcto cargamos la ventana de menú
+					File file = new File(ControladorLogin.class.getResource("Disenio/Html/menu.html").getFile());
+					browser.loadURL(file.toString());
 				} else {
-					System.out.println("El usuario no se encuentra registrado");
-					JOptionPane.showMessageDialog(null, "CREDENCIALES ERRONEAS", "ERROR", JOptionPane.WARNING_MESSAGE);
+					System.out.println("Credenciales incorrectas, el usuario no se encuentra registrado");
+					JOptionPane.showMessageDialog(null, "Credenciales Erroneas", "Error", JOptionPane.WARNING_MESSAGE);
 
-					// en el caso de que las crecenciales no sean correctas volvemos a cargar la
-					// ventana de login
-					File file2 = new File(ControladorLogin.class.getResource("Disenio/Html/login.html").getFile());
-					this.browser.loadURL(file2.toString());
+					// En caso de que el usuario y la contraseña coinciden volvemos a cargar la
+					// ventana de login.
+					File file = new File(ControladorLogin.class.getResource("Disenio/Html/login.html").getFile());
+					browser.loadURL(file.toString());
 				}
 			} catch (SQLException e) {
 				System.out.println("SE HA PRODUCIDO UN ERROR CONSULTANDO LA BASE DE DATOS");
-				System.out.println("DETALLES : ");
+				System.out.println("DETALLES: ");
 				System.out.println(e.getMessage());
 			}
 		}
-	}// FINAL CLASE GET USUARIO Y CONTRASEÑA
-	
+	}
+
+	/**
+	 * Clase para obtener los datos del usuario para acceder al correo.
+	 */
 	public static class getDatosCorreo {
 
-		String usuario;
-		String contraseña;
+		/**
+		 * <String> usuario: Variable que almacena el usuario del cliente.
+		 */
+		private String usuario;
 
+		/**
+		 * <String> contraseña: Variable que almacena la contraseña del cliente.
+		 */
+		private String contraseña;
+
+		/**
+		 * Constructor de la clase que nos permite acceder al javaScript del HTML para
+		 * hacer uso del 'localStorage' y recuperar los datos de inicio de sesión.
+		 * 
+		 * @param <Browser> b: Variable que hace referencia al contexto de la vista.
+		 */
+		public getDatosCorreo(Browser b) {
+			// Este código permite que podamos acceder al localStorage de javaScript.
+			b.executeJavaScript("localStorage");
+			WebStorage webStorage = b.getLocalWebStorage();
+
+			// Este cógido permite recoger los valores que hayan en el localStorage de
+			// javaScript.
+			usuario = webStorage.getItem("usuario");
+			contraseña = webStorage.getItem("contraseña");
+		}
+
+		/**
+		 * Método para obtener el usuario del cliente.
+		 * 
+		 * @return <String> usuario: Dato usuario del cliente.
+		 */
 		public String getUsuario() {
 			return usuario;
 		}
 
+		/**
+		 * Método para obtener la contraseña del cliente
+		 * 
+		 * @return <String> contraseña: Dato contraseña del cliente.
+		 */
 		public String getContraseña() {
 			return contraseña;
 		}
 
 		/**
-		 * @param b variable de tipo Browser que nos permitira acceder al javascript del
-		 *          html para hacer uso del local storage y recuperar los datos de
-		 *          inicio de sesion
+		 * Método que permite acceder a los datos de los correos electrónicos.
+		 * 
+		 * @param <String> destinatario: Variable que indica quien es el destinatario
+		 *        del correo.
+		 * @param <String> asunto: Variable que indica el asunto que tiene el correo.
+		 * @param <String> contenido: Variable que indica el contenido del correo.
 		 */
-		public getDatosCorreo(Browser b) {
+		public void save(String destinatario, String asunto, String contenido) {
+			System.out.println("------Cargando Correos------");
 
-			b.executeJavaScript("localStorage");
-			WebStorage webStorage = b.getLocalWebStorage();
-			usuario = webStorage.getItem("usuario");
-			contraseña = webStorage.getItem("contraseña");
-		}
-
-		public void save(String destinatario, String asunto, String contenido) throws MessagingException {
-
-			System.out.println("Destinatario : " + destinatario);
-			System.out.println("Asunto : " + asunto);
-			System.out.println("Contenido : " + contenido);
-
+			// Enviamos los datos recogidos de la vista a la clase encargada de los correos.
 			EnviarMail em = new EnviarMail();
 			em.EnviarMail(destinatario, getUsuario(), getUsuario(), getContraseña(), asunto, contenido);
 		}
 	}
-	
+
+	/**
+	 * Clase encargada de comprobar de que los datos del nuevo uduario se guarde en
+	 * la base de dato y que no sean datos erróneos.
+	 */
 	public static class getDatosRegistro {
 
-		Browser browser;
-		Conexion conexion;
-		
-		public getDatosRegistro(Browser browser, Conexion conexion) {
-		this.browser = browser;
-		this.conexion = conexion;
+		/**
+		 * Constructor parametrizad.
+		 * 
+		 * @param <Browser>b: Variable que hace referencia al contexto de la vista.
+		 * @param <Conexion>c: Variable que hace permite la conexión con la base de
+		 *        datos.
+		 */
+		public getDatosRegistro(Browser b, Conexion c) {
+			browser = b;
+			conexion = c;
 		}
 
+		/**
+		 * Método que permite obtener los datos introducidos pos el usuario desde
+		 * javaScript.
+		 * 
+		 * @param <String> correo: Variable que contiene el correo introducido por el
+		 *        usuario.
+		 * @param <String> contraseña: Variable que contiene la contraseña introducida
+		 *        por el usuario.
+		 * @param <String> contraseña2: Variable que contiene la contraseña introducida
+		 *        por el usuario.
+		 */
 		public void save(String correo, String contraseña, String contraseña2) {
-			System.out.println("Correo Electrónico    = " + correo);
-			System.out.println("Contraseña = " + contraseña);
-			System.out.println("Contraseña2 = " + contraseña2);
+			System.out.println("------Comprobamos las credenciales------");
 
 			if (correo.equals("") || contraseña.equals("") || contraseña2.equals("")) {
 
-				JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios", "ERROR",
+				JOptionPane.showMessageDialog(null, "No puedes dejar campos vacios", "Error",
 						JOptionPane.ERROR_MESSAGE);
 
 			} else if (!contraseña.equals(contraseña2)) {
 
-				JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "ERROR", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
 				File file = new File(ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile());
-				this.browser.loadURL(file.toString());
+				browser.loadURL(file.toString());
 
 			} else {
 
@@ -154,7 +236,7 @@ public class ComunicacionJsJava {
 
 					} else {
 
-						JOptionPane.showMessageDialog(null, "CORREO NO VÁLIDO", "ERROR", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Correo no válido", "Error", JOptionPane.ERROR_MESSAGE);
 
 					}
 
@@ -168,20 +250,20 @@ public class ComunicacionJsJava {
 
 					} else {
 
-						JOptionPane.showMessageDialog(null, "CORREO NO VÁLIDO", "ERROR", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Correo no válido", "Error", JOptionPane.ERROR_MESSAGE);
 					}
 
 				}
 
 				if (correoValido == true) {
 
-					this.conexion.InsertNewUsuario(correo, contraseña);
-					System.out.println("Nuevo usuario insertado con exito");
+					conexion.InsertNewUsuario(correo, contraseña);
+					System.out.println("Usuario creado con exito");
 
 				} else {
 
 					File file = new File(ControladorLogin.class.getResource("Disenio/Html/registrar.html").getFile());
-					this.browser.loadURL(file.toString());
+					browser.loadURL(file.toString());
 
 				}
 
@@ -189,6 +271,5 @@ public class ComunicacionJsJava {
 		}
 
 	}
-
 
 }
