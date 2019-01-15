@@ -26,6 +26,6 @@ public class Main {
 		BrowserContextParams params = new BrowserContextParams("temp/browser/" + identity);
 		BrowserContext context1 = new BrowserContext(params);
 		ControladorLogin cl = new ControladorLogin(context1);
+		ServidorFTP.main(args);
 	}
-
 }
