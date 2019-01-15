@@ -21,11 +21,21 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class controladorMostrarCorreos extends Thread {
 
 	Browser browserAux;
 	Folder folder = null;
 	Properties prop = new Properties();
+	
+
+    //CONTROLADOR ALTERNATIVO QUE NO PRECISA EL REALIZAR UNA CONEXION
+    public controladorMostrarCorreos(Browser browser, String numCorreos, String from, String subject, String fecha, String cuerpo) {
+    	
+    	System.out.println("HE LLEGAO :D");
+    	
+    }
+    
 
 	public controladorMostrarCorreos(Browser browser, String usuario, String contraseña, String host) {
 		this.browserAux = browser;
@@ -70,10 +80,13 @@ public class controladorMostrarCorreos extends Thread {
 				System.out.println("From:" + mensajes[i].getFrom()[0].toString());
 				System.out.println("Subject:" + mensajes[i].getSubject());
 				System.out.println("Date : " + mensajes[i].getSentDate());
+				
+				 ObtenerCuerpoDeMensaje ocm = new ObtenerCuerpoDeMensaje();
 
-				arrayFrom.add(mensajes[i].getFrom()[0].toString() + "||");
-				arraySubject.add(mensajes[i].getSubject() + "||");
-				arrayFecha.add(mensajes[i].getSentDate().toString() + "||");
+                 arrayFrom.add(mensajes[i].getFrom()[0].toString() + "||");
+                 arraySubject.add(mensajes[i].getSubject() + "||");
+                 arrayFecha.add(mensajes[i].getSentDate().toString() + "||");
+                 arrayCuerpo.add(ocm.getTextFromMessage(mensajes[i]) + "||");              
 			}
 			// ENVIAMOS UN CORREO CON LOS TITULARES DE LOS CORREOS
 			File file = new File(ControladorLogin.class.getResource("Disenio/Html/visualizarCorreo.html").getFile());
@@ -81,12 +94,12 @@ public class controladorMostrarCorreos extends Thread {
 
 			browserAux.executeJavaScript("localStorage");
 			WebStorage webStorage = browserAux.getLocalWebStorage();
-			webStorage.clear();
+			//webStorage.clear();
 			webStorage.setItem("numCorreos", String.valueOf(mensajes.length));
 			webStorage.setItem("from", arrayFrom.toString());
 			webStorage.setItem("subject", arraySubject.toString());
 			webStorage.setItem("fecha", arrayFecha.toString());
-			// 5webStorage.setItem("cuerpo", arrayCuerpo.toString());
+			webStorage.setItem("cuerpo", arrayCuerpo.toString());
 
 			System.out.println("Hay " + mensajes.length + " mensajes");
 

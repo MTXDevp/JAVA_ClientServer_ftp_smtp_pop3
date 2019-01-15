@@ -20,10 +20,6 @@ function cambiarBrillo() {
 }
 
 function genera_tabla() {
-	// Obtener la referencia del elemento body
-
-
-	//alert('entro en la function genera_tabla JS');
 
 	var body = document.getElementsByTagName("body")[0];
 	var div = document.getElementById("principal");
@@ -34,13 +30,10 @@ function genera_tabla() {
 	//alert(numCorreos);
 	//ACCEDEMOS AL NUMERO DE CORREOS EL CUAL ESTA ALMACENADO EN LOCAL STORAGE
 	var tamano = localStorage.numCorreos;
-
-	//RECIBIMOS EN TITULAR DE LOS CORREOS
-	// HAY QUE OPTIMIZAR LA GUARRERIA DEL SPLIT 555--------------------------------------------------------------------------------------------->
 	var aFrom = localStorage.from;
 	var aSubject = localStorage.subject;
 	var aFecha = localStorage.fecha;
-	//AKI NO LLEGAN LOS NUEVO MENSAJES PERO SON LEADOS EN EL CONTROLADOR MOSTRAR CORREOS DE JAVA LMAO
+	var aCuerpo = localStorage.cuerpo;
 
 	var findComas = ',';
 	var findCorchetes = "\\[";
@@ -56,10 +49,13 @@ function genera_tabla() {
 	var aFechaClear = aFecha.replace(re, '');
 	var aFechaClear2 = aFechaClear.replace(re2, '');
 
+	var aCuerpoClear1 = aCuerpo.replace(re, '');
+	var aCuerpoClear = aCuerpoClear1.replace(re2, '');
 
 	var splitFrom = aFromClear2.split("||");
 	var splitSubject = aSubjectClear2.split("||");
 	var splitFecha = aFechaClear2.split("||");
+	var splitCuerpos = aCuerpoClear.split("||");
 
 	var h = 0;
 
@@ -70,19 +66,17 @@ function genera_tabla() {
 		var correos = document.createElement("tr");
 		correos.setAttribute("id", "" + i);
 
-		//correos.onclick = function(){
+		correos.onclick = function(){
 
-		//alert(this.id);
-		//var cuerpos = localStorage.cuerpo;
-		//var splitCuerpos = cuerpos.split("||");
+		var cuerpos = localStorage.cuerpo;
 
-		//localStorage.setItem("remitenteSeleccionado", splitFrom[this.id]);
-		//localStorage.setItem("asuntoSeleccionado", splitSubject[this.id]);
-		//localStorage.setItem("cuerpoSeleccionado", splitCuerpos[this.id]);
+		localStorage.setItem("remitenteSeleccionado", splitFrom[this.id]);
+		localStorage.setItem("asuntoSeleccionado", splitSubject[this.id]);
+		localStorage.setItem("cuerpoSeleccionado", splitCuerpos[this.id]);
 
-		//var win = window.open("../Html/verCorreo.html");
+		var win = window.open("../Html/visualizarMensajeConcreto.html");
 
-		//}
+		}
 
 
 		for (var x = 0; x < 3; x++) {
