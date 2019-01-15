@@ -6,6 +6,7 @@ import java.net.Socket;
 
 /**
  * Clase que dependiendo de la solicitud del usuario llama a otras clases.
+ * Los ficheros del dervidor están almacenados en la ruta (src\main\java\Peval4\ServidorFtpStmpPop3Maven\Archivos\Servidor)
  * 
  * @author Guillermo Barcia.
  * @version 1.0.

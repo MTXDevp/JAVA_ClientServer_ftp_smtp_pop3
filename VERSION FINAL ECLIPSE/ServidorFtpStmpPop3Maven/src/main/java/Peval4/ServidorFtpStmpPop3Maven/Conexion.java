@@ -109,11 +109,10 @@ public class Conexion {
 
 	/**
 	 * Método que permite obtener la variable ResultSet.
+	 * 
 	 * @return <ResultSet> rs.
 	 */
 	public ResultSet getRs() {
 		return rs;
 	}
-
-
 }

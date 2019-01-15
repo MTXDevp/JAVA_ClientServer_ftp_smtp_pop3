@@ -10,7 +10,9 @@ import java.net.Socket;
 
 /**
  * Clase encargada de recibir el fichero que el usuario quiere descargar,
- * buscarlo en el servidor y mandarlo al usuario. (Extiende de Thread)
+ * buscarlo en el servidor y mandarlo al usuario. (Extiende de Thread) Los
+ * fichero de de los clientes están almacenados en la ruta
+ * (src\main\java\Peval4\ServidorFtpStmpPop3Maven\Archivos\Usuario)
  * 
  * @author Guillermo Barcia.
  * @version 1.0.

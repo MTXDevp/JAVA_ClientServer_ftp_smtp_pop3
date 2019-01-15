@@ -4,7 +4,9 @@ import java.io.*;
 import java.net.Socket;
 
 /**
- * Calse que manda el fihcero que se envia al servidor.
+ * Calse que manda el fihcero que se envia al servidor. Los fichero de los
+ * clientes están almacenados en la ruta
+ * (src\main\java\Peval4\ServidorFtpStmpPop3Maven\Archivos\Usuario)
  * 
  * @author Guillermo Barcia.
  * @version 1.0.

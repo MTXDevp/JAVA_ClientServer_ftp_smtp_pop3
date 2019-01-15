@@ -94,7 +94,7 @@ public class ControladorLogin {
 						value.asObject().setProperty("Account", uc);
 
 					} else if (url.endsWith("registrar.html")) {
-						
+
 						// Obtenemos los elementos de la vista para obtener informacion que introduce el
 						// usuario.
 						JSValue value = browser.executeJavaScriptAndReturnValue("window");
@@ -102,16 +102,16 @@ public class ControladorLogin {
 						value.asObject().setProperty("Account", dr);
 
 					} else if (url.endsWith("menu.html")) {
-						
+
 						// Inicializamos variables.
 						DOMDocument document = browser.getDocument();
 						DOMElement botonVisualizarCorreos = document.findElement(By.name("botonVisualizarCorreos"));
-						
+
 						// Aplicamos un evento a un boton de HTML para que cuando sea pulsado cargue la
 						// ventana de visualizar los correos.
 						botonVisualizarCorreos.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
 							public void handleEvent(DOMEvent event) {
-								
+
 								// Sincronizamos un hilo para que pudiera verse la barra de carga al cargar los
 								// correos
 								synchronized (this) {
@@ -124,13 +124,13 @@ public class ControladorLogin {
 
 						// Inicializamos variables
 						DOMElement bajarFichero = document.findElement(By.name("bajarFichero"));
-						
+
 						// Añadimos un evento a un boton de HTML para que cuando sea pulsado muestre los
 						// ficheros que contiene el servidor.
 						bajarFichero.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
 							public void handleEvent(DOMEvent event) {
 								new ControladorMostrarArchivos(browser);
-								
+
 								// Cambiamos a la ventana de descarga de archivos.
 								File file = new File(ControladorLogin.class
 										.getResource("Disenio/Html/descargaArchivo.html").getFile());
@@ -139,7 +139,7 @@ public class ControladorLogin {
 						}, false);
 
 					} else if (url.endsWith("servidorFTP.html")) {
-						ControladorFTP cf = new ControladorFTP(browser, view, event);
+						new ControladorFTP(browser, view, event);
 
 					} else if (url.endsWith("descargaArchivo.html")) {
 						JSValue value = browser.executeJavaScriptAndReturnValue("window");
