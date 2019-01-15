@@ -1,98 +1,96 @@
+<!DOCTYPE html>
 <html>
-
-<head>
-	<meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8" />
-	<link rel="stylesheet" type="text/css" href="lib/lib.css" />
-	<script language="javascript" src="../Js/menu.js"></script>
-	<link rel="stylesheet" type="text/css" href="../Css/estiloMenu.css" />
-	<script id="barraDescarga" type="text/html">
-		<div style="width: 350px; margin: 50px auto">
-		    <div id="preloader6">
-				<span></span>
-				<span></span>
-				<span></span>
-				<span></span>
-				<p id="enum">Cargando Correos...</p>
-			</div>
-		</div>
-	</script>
-</head>
-
-<body>
-	<div class="container">
-		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-			<ul class="navbar-nav">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" title="Inicio">
-						<img src="../Imagenes/inicio.png" width="30" height="30" />
-					</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#" id="salir" name="salir" onclick="Salir();">Salir</a><!-- implemetar funcion CLOSE APLICATION -->
-					</div>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" title="Programadores">
-						<img src="../Imagenes/infoGrupo.png" width="30" height="30" />
-					</a>
-					<div class="dropdown-menu">
-					
-						<a class="dropdown-item" href="#" onclick=Contacto(0)>CONTACTOS</a>
-					
-					</div>
-				</li>
-				<li class="nav-item dropdown" id="perfil">
-					<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" title="Usuario">
-						<img src="../Imagenes/perfil.png" width="30" height="30" />
-					</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="login.html">Cerrar Sesión</a>
-					</div>
-				</li>
-			</ul>
-		</nav>
-		<div id="menu" class="carousel slide" data-ride="carousel">
-			<ul class="carousel-indicators">
-				<li data-target="#menu" data-slide-to="0" class="active"></li>
-				<li data-target="#menu" data-slide-to="1"></li>
-				<li data-target="#menu" data-slide-to="2"></li>
-			</ul>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<a href="servidorFTP.html" title="Subir archivos (FTP)">
-						<img src="../Imagenes/subirArch.png" />
-					</a>
-				</div>
-				<div class="carousel-item">
-					<a href="#" role="button" name="bajarFichero" title="Descargar archivos (FTP)"> <img src="../Imagenes/descargarArch.png" />
-					</a>
-				</div>
-				<div class="carousel-item" id="segundario">
-					<a href="#" title="Gestión de correos (SMTP - POP3)" role="button" name="botonVisualizarCorreos">
-						<img src="../Imagenes/correo.png" />
-					</a>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8"/>
+		<link rel="stylesheet" type="text/css" href="lib/lib.css"/>
+		<script language="javascript" src="../Js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="../Css/estiloMenu.css"/>
+		<script id="barraDescarga" type="text/html">
+			<div style="width: 350px; margin: 50px auto">
+			    <div id="preloader6">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<p id="enum">Cargando Correos...</p>
 				</div>
 			</div>
-			<a class="carousel-control-prev" href="#menu" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a>
-			<a class="carousel-control-next" href="#menu" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" title="Inicio">
+							<img src="../Imagenes/inicio.png" width="30" height="30"/>
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#" id="salir" name="salir" onclick="Salir();">Salir</a>
+							<!-- implemetar funcion CLOSE APLICATION  -->
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" title="Programadores">
+							<img src="../Imagenes/infoGrupo.png" width="30" height="30"/>
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#" onclick=Contacto(0)>CONTACTOS</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown" id="perfil">
+						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" title="Usuario">
+							<img src="../Imagenes/perfil.png" width="30" height="30"/>
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="login.html">Cerrar Sesión</a>
+						</div>
+					</li>
+				</ul>
+			</nav>
+			<div id="menu" class="carousel slide" data-ride="carousel">
+				<ul class="carousel-indicators">
+					<li data-target="#menu" data-slide-to="0" class="active"></li>
+					<li data-target="#menu" data-slide-to="1"></li>
+					<li data-target="#menu" data-slide-to="2"></li>
+				</ul>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<a href="servidorFTP.html" title="Subir archivos (FTP)">
+							<img src="../Imagenes/subirArch.png"/>
+						</a>
+					</div>
+					<div class="carousel-item">
+						<a href="#" role="button" name="bajarFichero" title="Descargar archivos (FTP)">
+							<img src="../Imagenes/descargarArch.png"/>
+						</a>
+					</div>
+					<div class="carousel-item" id="segundario">
+						<a href="#" title="Gestión de correos (SMTP - POP3)" role="button" name="botonVisualizarCorreos">
+							<img src="../Imagenes/correo.png"/>
+						</a>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#menu" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#menu" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+			</div>
 		</div>
-	</div>
-	<script>
-	function Contacto(numero){
-
-
-			window.open("Perfiles.html");
-
+		<script>
+			function Contacto(numero){
 		
-
-		}
-	</script>
-	<script src="lib/jQuery/jquery-3.3.1.min.js"></script>
-	<script src="lib/popperjs/popper.min.js"></script>
-	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-</body>
-
+		
+					window.open("Perfiles.html");
+		
+				
+		
+				}
+			</script>
+		<script src="lib/jQuery/jquery-3.3.1.min.js"></script>
+		<script src="lib/popperjs/popper.min.js"></script>
+		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	</body>
 </html>

@@ -1,18 +1,18 @@
 #contenedor {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width: 600px;
-    height: 300px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	width: 600px;
+	height: 300px;
 }
 
 #form {
-    font-weight: bolder;
-    font-size: 16px;
-    width: 400px;
-    height: 300px;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+	font-weight: bolder;
+	font-size: 16px;
+	width: 400px;
+	height: 300px;
+	margin: 0 auto;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
 }
 
 /*

@@ -1,54 +1,93 @@
-#perfil{
-    float: right;
+#perfil {
+	float: right;
 }
-.container{
-    width: 600px;
+
+.container {
+	width: 600px;
 }
-#enum{
-    margin: 50px 150px;
-    color: white;
+
+#enum {
+	margin: 50px 150px;
+	color: white;
 }
-#menu{
-    padding: 20px;
-    height: 200px;
-    text-align: center;
-    background-color: #615d5d;
+
+#menu {
+	padding: 20px;
+	height: 200px;
+	text-align: center;
+	background-color: #615d5d;
 }
-#preloader6{
-    position:relative;
-    width: 42px;
-    height: 42px;
-    animation: preloader_6 5s infinite linear;
+
+#preloader6 {
+	position: relative;
+	width: 42px;
+	height: 42px;
+	-webkit-animation: preloader_6 5s infinite linear;
+	animation: preloader_6 5s infinite linear;
 }
-#preloader6 span{
-    width:20px;
-    height:20px;
-    position:absolute;
-    background:red;
-    display:block;
-    animation: preloader_6_span 1s infinite linear;
+
+#preloader6 span {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	background: red;
+	display: block;
+	-webkit-animation: preloader_6_span 1s infinite linear;
+	animation: preloader_6_span 1s infinite linear;
 }
-#preloader6 span:nth-child(1){
-background:#2ecc71;
+
+#preloader6 span:nth-child(1) {
+	background: #2ecc71;
 }
-#preloader6 span:nth-child(2){
-left:22px;
-background:#9b59b6;
-    animation-delay: .2s;
+
+#preloader6 span:nth-child(2) {
+	left: 22px;
+	background: #9b59b6;
+	-webkit-animation-delay: .2s;
+	animation-delay: .2s;
 }
-#preloader6 span:nth-child(3){
-top:22px;
-background:#3498db;
-    animation-delay: .4s;
+
+#preloader6 span:nth-child(3) {
+	top: 22px;
+	background: #3498db;
+	-webkit-animation-delay: .4s;
+	animation-delay: .4s;
 }
-#preloader6 span:nth-child(4){
-top:22px;
-left:22px;
-background:#f1c40f;
-    animation-delay: .6s;
+
+#preloader6 span:nth-child(4) {
+	top: 22px;
+	left: 22px;
+	background: #f1c40f;
+	-webkit-animation-delay: .6s;
+	animation-delay: .6s;
 }
+
+@-webkit-keyframes preloader_6_span {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	50% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
 @keyframes preloader_6_span {
-   0% { transform:scale(1); }
-   50% { transform:scale(0.5); }
-   100% { transform:scale(1); }
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	50% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
 }
