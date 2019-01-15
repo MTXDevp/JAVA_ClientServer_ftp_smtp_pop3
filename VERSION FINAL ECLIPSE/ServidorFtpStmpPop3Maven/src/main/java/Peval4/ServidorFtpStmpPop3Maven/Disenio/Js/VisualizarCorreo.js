@@ -21,9 +21,8 @@ function cambiarBrillo() {
 
 function Actualizar(){
 	
-	alert('as pulsado actualizar');
-	
 	localStorage.setItem("actualizar", "true");
+	var myWindow = window.open("../Html/VisualizarCorreo.html", "_self");
 	
 }
 

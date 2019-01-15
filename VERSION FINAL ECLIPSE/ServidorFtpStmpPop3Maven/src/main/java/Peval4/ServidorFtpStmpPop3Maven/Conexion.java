@@ -20,7 +20,7 @@ public class Conexion {
             e.printStackTrace();
         }
         try {
-            con = DriverManager.getConnection("jdbc:h2:~/plz", "", "");
+            con = DriverManager.getConnection("jdbc:h2:.\\database\\h2 database", "", "");
             System.out.println("BASE DE DATOS CREADA!");
             stm = con.createStatement();
             String sentencia = "CREATE TABLE IF NOT EXISTS USUARIOS "
@@ -33,7 +33,7 @@ public class Conexion {
             System.out.println("ERROR CREANDO LA BASE DE DATOS");
             System.out.println(e.getMessage());
             
-        }
+        }	
     }
 
     public void CheckLogin(String correo, String contraseña){

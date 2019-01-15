@@ -90,30 +90,11 @@ public class ControladorLogin {
 							public void handleEvent(DOMEvent event) {
 	
 								synchronized (this) {
-								hiloCargaCorreo h = new hiloCargaCorreo(document);
-								h.start();
-								}
-									System.out.println("Estas en la ventana de visualizacion de correos");
-									
-									WebStorage webStorage = browser.getLocalWebStorage();
-									
-										String usuario = webStorage.getItem("usuario");
-										String contraseña = webStorage.getItem("contraseña");
-										
-										System.out.println("usuario login : " + usuario);
-										System.out.println("usuario pass : " + contraseña);
-										
-										
-										if (usuario.endsWith("@hotmail.es") || usuario.endsWith("@hotmail.com")) {
-											System.out.println("te conectas con una cuenta de hotmail");
-											controladorMostrarCorreos c = new controladorMostrarCorreos(browser, usuario, contraseña, "pop3.live.com");
-											c.start();
-
-										} else if (usuario.endsWith("@gmail.es") || usuario.endsWith("@gmail.com")) {
-											System.out.println("te conectas con una cuenta de gmail");
-											controladorMostrarCorreos c = new controladorMostrarCorreos(browser, usuario, contraseña, "pop.gmail.com");
-											c.start();
-										}
+									hiloCargaCorreo h = new hiloCargaCorreo(document);
+									h.start();
+									}
+								enventoCargarCorreos();
+							
 							}
 						}, false);
 
@@ -141,18 +122,15 @@ public class ControladorLogin {
 						value.asObject().setProperty("Account", new getDireccionFTP());
 					} else if (url.endsWith("VisualizarCorreo.html")) {
 						
-						
-						
-
-							WebStorage webStorage = browser.getLocalWebStorage();
-						
+							WebStorage webStorage = browser.getLocalWebStorage();						
 							String actualizar = webStorage.getItem("actualizar");
-							
-							System.out.println("ESTA ================> " + actualizar);
-						
-						
-						
-						
+														
+							if(actualizar.equals("true")){
+								enventoCargarCorreos();
+								webStorage.setItem("actualizar","no");
+								
+								
+							}	
 					} else if (url.endsWith("enviarCorreo.html")) {
 
 						DOMDocument document = browser.getDocument();
@@ -171,6 +149,35 @@ public class ControladorLogin {
 				} // final si es el main frame
 			}
 		});
+	}
+	
+	public void enventoCargarCorreos() {
+		
+
+				System.out.println("Estas en la ventana de visualizacion de correos");
+				
+				WebStorage webStorage = browser.getLocalWebStorage();
+				
+					String usuario = webStorage.getItem("usuario");
+					String contraseña = webStorage.getItem("contraseña");
+					
+					System.out.println("usuario login : " + usuario);
+					System.out.println("usuario pass : " + contraseña);
+					
+					
+					if (usuario.endsWith("@hotmail.es") || usuario.endsWith("@hotmail.com")) {
+						System.out.println("te conectas con una cuenta de hotmail");
+						controladorMostrarCorreos c = new controladorMostrarCorreos(browser, usuario, contraseña, "pop3.live.com");
+						c.start();
+
+					} else if (usuario.endsWith("@gmail.es") || usuario.endsWith("@gmail.com")) {
+						System.out.println("te conectas con una cuenta de gmail");
+						controladorMostrarCorreos c = new controladorMostrarCorreos(browser, usuario, contraseña, "pop.gmail.com");
+						c.start();
+					}
+		
+		
+		
 	}
 }
 
