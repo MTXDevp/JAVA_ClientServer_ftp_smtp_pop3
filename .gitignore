@@ -26,11 +26,11 @@ hs_err_pid*
 *.sublime-project
 
 # Open office autosave files
-.~lock.*
-~\$*
+#.~lock.*
+#~\$*
 /ClienteServidorFtpSmtpPop3Maven/target/
 
 /private\.properties
 *.tmp
 
-VERSION FINAL ECLIPSE/\.metadata/
+/VERSION FINAL ECLIPSE/\.metadata/
