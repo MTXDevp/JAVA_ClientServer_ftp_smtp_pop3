@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<link rel="stylesheet" type="text/css" href="lib/lib.css"/>
+		<script language="javascript" src="../Js/VisualizarCorreo.js"></script>
+		<script type="text/javascript">
+			function mandaCajaBuscar() {
+				var contenidoCajaBuscar = formBuscar.elements['cajaBuscar'].value;
+				localStorage.setItem("contenidoCajaBuscar", contenidoCajaBuscar);
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-between" id="barraNavegacion">
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" title="Inicio">
+							<img src="../Imagenes/opciones.png" width="30" height="30"/>
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="enviarCorreo.html">
+								<img src="../Imagenes/enviarCorreo.png" width="20" height="20"/>
+								Enviar Mensaje
+							</a>
+							<a class="dropdown-item" href="#" onclick="cambiarBrillo()">
+								<img src="../Imagenes/modoBrillo.png" width="20" height="20"/>
+								Modo Nocturno
+							</a>
+							<a class="dropdown-item" href="#" onclick="Actualizar();">
+								<img src="../Imagenes/actualizar.png" width="20" height="20"/>
+								Actualizar
+							</a>
+							<a class="dropdown-item" href="menu.html">
+								<img src="../Imagenes/salida.png" width="20" height="20"/>
+								Salir
+							</a>
+						</div>
+					</li>
+				</ul>
+				<input class="form-control mr-sm-2" type="text" placeholder="Buscar..." aria-label="Search" name="cajaBuscar" id="cajaBuscar"/>
+				<button class="btn btn-primary" role="button" name="buscar" onclick="buscar();">
+					<img src="../Imagenes/busqueda.png" width="20" height="20"/>
+				</button>
+			</nav>
+			<div id="principal" class="container">
+				<table class="table table-hover" id="tablaCorreos">
+					<thead>
+						<tr>
+							<th scope="col">Remitente</th>
+							<th scope="col">Asunto</th>
+							<th scope="col">Fecha</th>
+						</tr>
+					</thead>
+					<tbody id="contenidoTabla"></tbody>
+				</table>
+			</div>
+		</div>
+		<script src="lib/jQuery/jquery-3.3.1.min.js"></script>
+		<script src="lib/popperjs/popper.min.js"></script>
+		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>

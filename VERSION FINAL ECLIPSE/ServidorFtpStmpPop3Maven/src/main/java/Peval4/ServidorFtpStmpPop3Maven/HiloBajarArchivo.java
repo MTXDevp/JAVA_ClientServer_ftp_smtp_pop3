@@ -1,6 +1,5 @@
 package Peval4.ServidorFtpStmpPop3Maven;
 
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
@@ -9,51 +8,99 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
- *
- * @author Barcia
+ * Clase encargada de recibir el fichero que el usuario quiere descargar,
+ * buscarlo en el servidor y mandarlo al usuario. (Extiende de Thread)
+ * 
+ * @author Guillermo Barcia.
+ * @version 1.0.
  */
 public class HiloBajarArchivo extends Thread {
 
-	Socket connection;
-	BufferedInputStream bis;
-	BufferedOutputStream bos;
-	byte[] receivedData;
-	int in;
-	String nombreFichero;
+	/**
+	 * <Socket> socket: Variable que permite realizar la conexion entre el cliente y
+	 * el servidor.
+	 */
+	private Socket socket;
 
+	/**
+	 * <DataInputStream> dis: Variable que permite recibir mensajes enviados por el
+	 * usuario.
+	 */
+	private DataInputStream dis;
+
+	/**
+	 * <BufferedInputStream> bis: Variable que permite la lectura del fichero que se
+	 * va a enviar al usuario.
+	 */
+	private BufferedInputStream bis;
+
+	/**
+	 * <BufferedOutputStream> bos: Variable que permite mandar la información del
+	 * fichero al usuario.
+	 */
+	private BufferedOutputStream bos;
+
+	/**
+	 * <File> fichero: Variable que referencia al fichero que se envia al usuario.
+	 */
+	private File fichero;
+	/**
+	 * <byte[]> datosFichero: Variable que almacena los datos que contiene el
+	 * fichero mandado por el usuario.
+	 */
+	private byte[] datosFichero;
+
+	/**
+	 * <int> lineas: Número de lineas que contiene el fichero.
+	 */
+	private int lineas;
+
+	/**
+	 * <String> nomFichero: Nombre del fichero mandado por el usuario.
+	 */
+	private String nombreFichero;
+
+	/**
+	 * Constructor parametrizado de la clase.
+	 * 
+	 * @param <Socket>s: Variable que indica la conexión entre servidor y usuario.
+	 */
 	public HiloBajarArchivo(Socket s) {
-		this.connection = s;
+		this.socket = s;
 	}
 
+	/**
+	 * Método que permite el transpaso y envio de datos entre el servidor y el
+	 * usuario.
+	 */
 	public void run() {
 		try {
 			System.out.println("Entro en el hilo bajar archivo");
-			//Recibimos el nombre del fichero
-			DataInputStream dis = new DataInputStream(connection.getInputStream());
+
+			// Inicializamos variables.
+			fichero = new File("src/main/java/Peval4/ServidorFtpStmpPop3Maven/Archivos/Servidor/" + nombreFichero);
+			dis = new DataInputStream(socket.getInputStream());
+			bis = new BufferedInputStream(new FileInputStream(fichero));
+			bos = new BufferedOutputStream(socket.getOutputStream());
+
+			// Recibimos el nombre del fichero.
 			nombreFichero = dis.readUTF();
-			System.out.println(nombreFichero);
-			final File localFile = new File("src/main/java/Peval4/ServidorFtpStmpPop3Maven/Archivos/Servidor/" + nombreFichero);
-			bis = new BufferedInputStream(new FileInputStream(localFile));
-			System.out.println("He pasado por el punto critico 1");
-			bos = new BufferedOutputStream(connection.getOutputStream());
-			System.out.println("He pasado el punto critico 2");
-			System.out.println("Acabo de mandar el nombre del fichero");
-			//Enviamos el fichero
-			receivedData = new byte[8192];
-			while((in = bis.read(receivedData)) != -1) {
-				bos.write(receivedData, 0, in);
+
+			// Enviamos el contenido del fichero al usuario.
+			datosFichero = new byte[8192];
+			while ((lineas = bis.read(datosFichero)) != -1) {
+				bos.write(datosFichero, 0, lineas);
 			}
-			System.out.println("Fichero mandado, aqui se acaba mi trabajo");
+
+			// Cerramos las conexiónes
+			System.out.println("Fichero mandado con exito");
 			bis.close();
 			bos.close();
+			dis.close();
+			socket.close();
 
-		} catch(IOException ex) {
+		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
 	}
