@@ -56,7 +56,7 @@ public class ControladorLogin {
 	 */
 	public ControladorLogin(BrowserContext context) {
 
-		// conexion = new Conexion();
+		conexion = new Conexion();
 		LoggerProvider.setLevel(Level.OFF);
 
 		// Creamos una vista en Java a la cual le añadiremos las vistas en HTML.
@@ -90,8 +90,8 @@ public class ControladorLogin {
 						// Obtenemos los elementos de la vista para obtener informacion que introduce el
 						// usuario.
 						JSValue value = browser.executeJavaScriptAndReturnValue("window");
-						// getUsuarioContraseña uc = new getUsuarioContraseña(browser, conexion);
-						// value.asObject().setProperty("Account", uc);
+						getUsuarioContraseña uc = new getUsuarioContraseña(browser, conexion);
+						value.asObject().setProperty("Account", uc);
 
 					} else if (url.endsWith("registrar.html")) {
 
