@@ -32,3 +32,5 @@ hs_err_pid*
 
 /private\.properties
 *.tmp
+
+VERSION FINAL ECLIPSE/\.metadata/
