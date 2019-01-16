@@ -10,7 +10,9 @@ import java.net.Socket;
 
 /**
  * Clase encargada de recibir el fichero que el usuario quiere descargar,
- * buscarlo en el servidor y mandarlo al usuario. (Extiende de Thread)
+ * buscarlo en el servidor y mandarlo al usuario. (Extiende de Thread) Los
+ * fichero de de los clientes están almacenados en la ruta
+ * (src\main\java\Peval4\ServidorFtpStmpPop3Maven\Archivos\Usuario)
  * 
  * @author Guillermo Barcia.
  * @version 1.0.
@@ -79,14 +81,14 @@ public class HiloBajarArchivo extends Thread {
 			System.out.println("Entro en el hilo bajar archivo");
 
 			// Inicializamos variables.
-			fichero = new File("src/main/java/Peval4/ServidorFtpStmpPop3Maven/Archivos/Servidor/" + nombreFichero);
 			dis = new DataInputStream(socket.getInputStream());
-			bis = new BufferedInputStream(new FileInputStream(fichero));
 			bos = new BufferedOutputStream(socket.getOutputStream());
 
 			// Recibimos el nombre del fichero.
 			nombreFichero = dis.readUTF();
-
+			fichero = new File("src/main/java/Peval4/ServidorFtpStmpPop3Maven/Archivos/Servidor/" + nombreFichero);
+			bis = new BufferedInputStream(new FileInputStream(fichero));
+			
 			// Enviamos el contenido del fichero al usuario.
 			datosFichero = new byte[8192];
 			while ((lineas = bis.read(datosFichero)) != -1) {

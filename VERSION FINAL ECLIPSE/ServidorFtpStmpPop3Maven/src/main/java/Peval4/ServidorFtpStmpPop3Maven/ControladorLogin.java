@@ -56,7 +56,7 @@ public class ControladorLogin {
 	 */
 	public ControladorLogin(BrowserContext context) {
 
-		conexion = new Conexion();
+		// conexion = new Conexion();
 		LoggerProvider.setLevel(Level.OFF);
 
 		// Creamos una vista en Java a la cual le añadiremos las vistas en HTML.
@@ -65,7 +65,7 @@ public class ControladorLogin {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.add(view, BorderLayout.CENTER);
-		frame.setSize(800, 500);
+		frame.setSize(600, 450);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
@@ -90,11 +90,11 @@ public class ControladorLogin {
 						// Obtenemos los elementos de la vista para obtener informacion que introduce el
 						// usuario.
 						JSValue value = browser.executeJavaScriptAndReturnValue("window");
-						getUsuarioContraseña uc = new getUsuarioContraseña(browser, conexion);
-						value.asObject().setProperty("Account", uc);
+						// getUsuarioContraseña uc = new getUsuarioContraseña(browser, conexion);
+						// value.asObject().setProperty("Account", uc);
 
 					} else if (url.endsWith("registrar.html")) {
-						
+
 						// Obtenemos los elementos de la vista para obtener informacion que introduce el
 						// usuario.
 						JSValue value = browser.executeJavaScriptAndReturnValue("window");
@@ -102,16 +102,18 @@ public class ControladorLogin {
 						value.asObject().setProperty("Account", dr);
 
 					} else if (url.endsWith("menu.html")) {
+						// Cambiamos el tamaño del JFrame.
+						frame.setSize(750, 400);
 						
 						// Inicializamos variables.
 						DOMDocument document = browser.getDocument();
 						DOMElement botonVisualizarCorreos = document.findElement(By.name("botonVisualizarCorreos"));
-						
+
 						// Aplicamos un evento a un boton de HTML para que cuando sea pulsado cargue la
 						// ventana de visualizar los correos.
 						botonVisualizarCorreos.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
 							public void handleEvent(DOMEvent event) {
-								
+
 								// Sincronizamos un hilo para que pudiera verse la barra de carga al cargar los
 								// correos
 								synchronized (this) {
@@ -124,13 +126,13 @@ public class ControladorLogin {
 
 						// Inicializamos variables
 						DOMElement bajarFichero = document.findElement(By.name("bajarFichero"));
-						
+
 						// Añadimos un evento a un boton de HTML para que cuando sea pulsado muestre los
 						// ficheros que contiene el servidor.
 						bajarFichero.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
 							public void handleEvent(DOMEvent event) {
 								new ControladorMostrarArchivos(browser);
-								
+
 								// Cambiamos a la ventana de descarga de archivos.
 								File file = new File(ControladorLogin.class
 										.getResource("Disenio/Html/descargaArchivo.html").getFile());
@@ -139,9 +141,13 @@ public class ControladorLogin {
 						}, false);
 
 					} else if (url.endsWith("servidorFTP.html")) {
-						ControladorFTP cf = new ControladorFTP(browser, view, event);
+						// Cambiamos el tamaño del JFrame.
+						frame.setSize(750, 600);
+						new ControladorFTP(browser, view, event);
 
 					} else if (url.endsWith("descargaArchivo.html")) {
+						// Cambiamos el tamaño del JFrame.
+						frame.setSize(750, 600);
 						JSValue value = browser.executeJavaScriptAndReturnValue("window");
 						value.asObject().setProperty("Account", new getDireccionFTP());
 

@@ -11,7 +11,8 @@ import java.util.ArrayList;
 
 /**
  * Clase que envia el nombre de fichero que desea descargar el usuario, lo
- * recibe y lo almacena.
+ * recibe y lo almacena. Los fichero de los clientes están almacenados en la
+ * ruta (src\main\java\Peval4\ServidorFtpStmpPop3Maven\Archivos\Usuario)
  * 
  * @author Guillermo Barcia.
  * @version 1.0.
