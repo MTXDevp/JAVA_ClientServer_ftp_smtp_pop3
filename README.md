@@ -3,7 +3,7 @@ Creación de un programa Java cliente/servidor haciendo uso de los protocolos ft
 
 INTRODUCCIÓN
 
-Ante el aumento significativo del uso de tecnologías webs para el desarrollo de aplicaciones de escritorio decidimos adentrarnos en este tipo de tecnologías para descubrir lo que tenían que ofrecernos, la necesidad de usar java para el backend nos limitó bastante al respecto, en un inicio, puesto que teníamos en mente usar javascript para el backend usando frameworks como electrón, el cual brinda la posibilidad de desarrollar el backend con node.js, y el frontend con chromium. Ante est a situación decidimos desarrollar el backend en java y el front con chromium (Específicamente el framework JxBrowser), lo que nos permitiría hacer uso de javascript y html para nuestro frontend y la comunicación con el backend.
+Ante el aumento significativo del uso de tecnologías webs para el desarrollo de aplicaciones de escritorio decidimos adentrarnos en este tipo de tecnologías para descubrir lo que tenían que ofrecernos, la necesidad de usar java para el backend nos limitó bastante al respecto en un inicio, puesto que teníamos en mente usar javascript para el backend usando frameworks como electrón, el cual brinda la posibilidad de desarrollar el backend con node.js, y el frontend con chromium. Ante esta situación decidimos desarrollar el backend en java y el front con chromium (Específicamente el framework JxBrowser), lo que nos permitiría hacer uso de javascript y html para nuestro frontend y la comunicación con el backend.
 
 Requisitos
 
