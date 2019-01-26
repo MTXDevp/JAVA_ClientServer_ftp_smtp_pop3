@@ -33,9 +33,7 @@ De uso libre
 
 ## Manual de Usuario
 
-![Menu](https://github.com/Methox/JAVA-ClienteServidor-ftp-smtp-pop3/img/imgMenu.png)
-
-[Figure 1-1](https://Methox.github.com/username/repo/master/img/imgMenu.png "Figure 1-1")
+EN PROGRESO
 
 ## Expresiones de Gratitud 🎁
 
