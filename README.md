@@ -8,7 +8,7 @@ Aplicación cliente servidor que hace uso de los protocolos FTP para el envio y 
 
 El programa solo es funcional con correos de dominio hotmail y gmail
 
-Para el correcto funcionamiento de los protocolos STMP y POP3 deberas de activar en tu respectivo dominio de correo la opción de habilitar el uso de los mismos. A continuación os dejo unos links en donde se detalla la configuración
+Para el correcto funcionamiento de los protocolos STMP y POP3 deberas de realizar unas mínimas configuraciones, a continuación teneis unos links en donde se detalla el proceso
 
 ```
 GMAIL : https://support.google.com/mail/answer/7126229?hl=es
