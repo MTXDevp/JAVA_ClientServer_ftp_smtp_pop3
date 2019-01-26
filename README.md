@@ -6,6 +6,8 @@ Aplicación cliente servidor que hace uso de los protocolos FTP para el envio y 
 
 ### Pre-requisitos 📋
 
+El programa esta configurado para arrancar el cliente y el servidor en la misma computadora, para ello podemos observar como instanciamos tanto el cliente como el servidor en el Main del proyecto. Para hacerlo funcionar en remoto deberemos de comentar una de las llamadas dependiendo de si quieres actuar como cliente y servidor y cambiar la IP de conexión del cliente, la cual es LOCALHOST o 127.0.0.1 a la correspondiente IP del servidor.
+
 El programa solo es funcional con correos de dominio hotmail y gmail
 
 Para el correcto funcionamiento de los protocolos STMP y POP3 deberas de realizar unas mínimas configuraciones, a continuación teneis unos links en donde se detalla el proceso
