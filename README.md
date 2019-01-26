@@ -10,14 +10,14 @@ Importar el proyecto directamente en Eclipse
 
 ## Construido con 🛠️
 
-* LIBRERIAS BACKEND
+  LIBRERIAS BACKEND
 * [JxBrowser](http://www.dropwizard.io/1.0.2/docs/) - Framework usado para el desarrollo del frontend
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [H2 Database](http://www.h2database.com/html/main.html) -Base de datos usada
-* [JavaMail](https://www.oracle.com/technetwork/java/javamail/index.html) 
-            (https://mvnrepository.com/artifact/com.h2database/h2)
+* [H2 Database]( https://mvnrepository.com/artifact/com.h2database/h2) - Base de datos usada
+* [JavaMail] (https://mvnrepository.com/artifact/com.h2database/h2) - Framework para el manejo de los correos 
+           
 
-* LIBRERIAS FRONTEND
+  LIBRERIAS FRONTEND
 * [Boostrap](https://rometools.github.io/rome/) - Framework web
 
 ## Contribuyendo 🖇️
