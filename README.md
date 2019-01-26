@@ -1,10 +1,10 @@
-# Título del Proyecto
+# App Cliente Servidor
 
-_Acá va un párrafo que describa lo que es el proyecto_
+Aplicación cliente servidor que hace uso de los protocolos FTP para el envio y descarga de archivos y el SMTP/POP3 para el envio y recepción de correos
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+
 
 Mira **Deployment** para conocer como desplegar el proyecto.
 
@@ -77,10 +77,8 @@ Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
+* **Guillermo García Barcias** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
+* **Guillermo Ramos Alberti** - *Documentación* - [fulanitodetal](https://github.com/Mystic-Ervo)
 
 También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
 
