@@ -25,7 +25,7 @@ Importar el proyecto directamente en Eclipse
 ## Autores ✒️
 
 * **Guillermo García Barcias** - *Trabajo Inicial* - [Linkedin](https://www.linkedin.com/in/guillermo-barcia-molina-311b3a167/)
-* **Guillermo Ramos Alberti** - *Desarrollo Web* - [Mystic Ervo](https://github.com/Mystic-Ervo)
+* **Guillermo Ramos Alberti** - *Desarrollo Web* - [Perfil GitHub](https://github.com/Mystic-Ervo)
 
 ## Licencia 📄
 
