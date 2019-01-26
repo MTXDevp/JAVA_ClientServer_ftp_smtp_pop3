@@ -35,6 +35,8 @@ De uso libre
 
 ![Menu](https://github.com/Methox/JAVA-ClienteServidor-ftp-smtp-pop3/img/imgMenu.png)
 
+[Figure 1-1](https://Methox.github.com/username/repo/master/img/imgMenu.png "Figure 1-1")
+
 ## Expresiones de Gratitud 🎁
 
 Gracias a Guillermo Barcias por esas noches de desarrollo, fue bastante satisfactorio superar el reto con una persona tan sumamente   agradable al lado
