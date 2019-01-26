@@ -16,7 +16,7 @@ Importar el proyecto directamente en Eclipse
 * [H2 Database](https://mvnrepository.com/artifact/com.h2database/h2/) - Base de datos usada
 * [JavaMail](https://mvnrepository.com/artifact/javax.mail/mail) - Framework para el manejo de los correos 
 
-  LIBRERIAS FRONTEND
+ LIBRERIAS FRONTEND
 * [Boostrap](https://mvnrepository.com/artifact/org.webjars/bootsrap) - Framework web
 * [JQuery](https://mvnrepository.com/artifact/org.webjars/jquery)
 * [Popper](https://mvnrepository.com/artifact/org.webjars.bower/popper.js)
