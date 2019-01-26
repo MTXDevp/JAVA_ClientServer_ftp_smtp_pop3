@@ -13,9 +13,11 @@ Importar el proyecto directamente en Eclipse
   LIBRERIAS BACKEND
 * [JxBrowser](https://mvnrepository.com/artifact/jxbrowser/jxbrowser-win/) - Framework usado para el desarrollo del frontend
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [H2 Database]( https://mvnrepository.com/artifact/com.h2database/h2/) - Base de datos usada
-* [JavaMail] (https://mvnrepository.com/artifact/javax.mail/mail) - Framework para el manejo de los correos 
-           
+* [H2 Database](https://mvnrepository.com/artifact/com.h2database/h2/) - Base de datos usada
+* [JavaMail] (https://mvnrepository.com/artifact/com.h2database/h2/) - Framework para el manejo de los correos 
+* [JavaMail](https://mvnrepository.com/artifact/javax.mail/mail) - Framework para el manejo de los correos 
+
+        
 
   LIBRERIAS FRONTEND
 * [Boostrap](https://rometools.github.io/rome/) - Framework web
@@ -47,4 +49,4 @@ De uso libre
 
 
 ---
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+⌨️ con ❤️ por [MTX](https://github.com/METHOX) 😊
