@@ -1,12 +1,10 @@
-# App Cliente Servidor
+# App Java Cliente Servidor
 
 Aplicación cliente servidor que hace uso de los protocolos FTP para el envio y descarga de archivos y el SMTP/POP3 para el envio y recepción de correos
 
 ## Comenzando 🚀
 
-
-
-Mira **Deployment** para conocer como desplegar el proyecto.
+La app hace uso de java para la construcción del backend y html/css para el frontend mediante el uso de Chromium, mas concretamente con el jxbrowser
 
 
 ### Pre-requisitos 📋
@@ -78,13 +76,11 @@ Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones
 ## Autores ✒️
 
 * **Guillermo García Barcias** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Guillermo Ramos Alberti** - *Documentación* - [fulanitodetal](https://github.com/Mystic-Ervo)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
+* **Guillermo Ramos Alberti** - *Documentación* - [Mystic Ervo](https://github.com/Mystic-Ervo)
 
 ## Licencia 📄
 
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+De uso libre
 
 ## Expresiones de Gratitud 🎁
 
