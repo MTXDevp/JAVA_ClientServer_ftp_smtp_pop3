@@ -49,7 +49,8 @@ De uso libre
 Para poder Iniciar Sesión deberemos de Registrarnos primero para ello deberemos de clickear en el botón Registrarse
 
 
-![imgmenu](https://user-images.githubusercontent.com/23072249/51787786-7851e000-2176-11e9-8c77-2045bb24f51f.png)
+![imglogin](https://user-images.githubusercontent.com/23072249/51788269-21e7a000-217c-11e9-93cb-5f11e91b3b82.png)
+
 
 ## Registrarse
 
