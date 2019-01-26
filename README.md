@@ -31,6 +31,10 @@ Importar el proyecto directamente en Eclipse
 
 De uso libre
 
+## Manual de Usuario
+
+![My image](Methox.github.com/JAVA-ClienteServidor-ftp-smtp-pop3/img/imgMenu.png)
+
 ## Expresiones de Gratitud 🎁
 
 Gracias a Guillermo Barcias por esas noches de desarrollo, fue bastante satisfactorio superar el reto con una persona tan sumamente   agradable al lado
