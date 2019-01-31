@@ -28,7 +28,7 @@ public class Main {
 
 		// Arrancamos la aplicación y el servidor
 		new ControladorLogin(context1);
-		ServidorFTP.main(args);
+		//ServidorFTP.main(args);
 	}
 
 }
