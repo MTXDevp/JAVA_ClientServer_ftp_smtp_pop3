@@ -28,7 +28,7 @@ public class ObtenerCuerpoDeMensaje {
 		try {
 			if (message.isMimeType("text/plain")) {
 				result = message.getContent().toString();
-			} else if (message.isMimeType("multipart/*")) {
+			} else if (message.getContent() instanceof MimeMultipart) {
 				MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
 				result = getTextFromMimeMultipart(mimeMultipart);
 			}

@@ -2,6 +2,7 @@ package Peval4.ServidorFtpStmpPop3Maven;
 
 import com.teamdev.jxbrowser.chromium.BrowserContext;
 import com.teamdev.jxbrowser.chromium.BrowserContextParams;
+
 import crack.JxBrowserHackUtil;
 import crack.JxVersion;
 import java.util.UUID;
@@ -15,6 +16,10 @@ import java.util.UUID;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		
+		
+		//storage.clear();
 		// Este código es para hackear la licencia de jxBrowser
 		JxBrowserHackUtil.hack(JxVersion.V6_22);
 		String identity = UUID.randomUUID().toString();

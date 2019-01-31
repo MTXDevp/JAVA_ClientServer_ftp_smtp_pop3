@@ -68,6 +68,9 @@ public class ControladorLogin {
 		frame.setSize(600, 450);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		
+		WebStorage webStorage = browser.getLocalWebStorage();
+		webStorage.clear();
 
 		// Cargamos la vista en el JFrame.
 		File file = new File(ControladorLogin.class.getResource("Disenio/Html/login.html").getFile());

@@ -99,7 +99,7 @@ public class HiloBajarArchivo extends Thread {
 			System.out.println("Fichero mandado con exito");
 			bis.close();
 			bos.close();
-			dis.close();
+			//dis.close();
 			socket.close();
 
 		} catch (IOException ex) {
