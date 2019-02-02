@@ -19,7 +19,7 @@ HOTMAIL : https://es.ccm.net/faq/16658-outlook-conectar-dispositivos-y-aplicacio
 
 ## Deployment 📦
 
-Importar el proyecto directamente en Eclipse
+Importar el proyecto directamente en Eclipse, pronto estará listo el ejecutable!
 
 ## Construido con 🛠️
 
