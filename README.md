@@ -38,7 +38,6 @@ Importar el proyecto directamente en Eclipse
 ## Autores ✒️
 
 * **Guillermo García Barcias** - *Trabajo Inicial* - [Linkedin](https://www.linkedin.com/in/guillermo-barcia-molina-311b3a167/)
-* **Guillermo Ramos Alberti** - *Desarrollo Web* - [Perfil GitHub](https://github.com/Mystic-Ervo)
 
 ## Licencia 📄
 
@@ -131,7 +130,7 @@ Una vez cargada la venta deberemos de rellenar los campos y clickear para enviar
 
 ## Expresiones de Gratitud 🎁
 
-Gracias a Guillermo Barcias por esas noches de desarrollo, fue bastante satisfactorio superar el reto con una persona tan sumamente   agradable al lado
+Gracias a Guillermo Barcias por esas noches de desarrollo, fue bastante satisfactorio superar el reto con una persona tan sumamente agradable al lado
 
 ---
 ⌨️ con ❤️ por [MTX](https://github.com/METHOX) 😊
