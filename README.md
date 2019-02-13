@@ -48,7 +48,7 @@ De uso libre
 
 ## Login
 
-Para poder Iniciar Sesión deberemos de Registrarnos primero para ello deberemos de clickear en el botón Registrarse
+Para poder Iniciar Sesión deberemos de Registrarnos, para ello primero debemos de clickear en el botón Registrarse
 
 
 ![imglogin](https://user-images.githubusercontent.com/23072249/51788269-21e7a000-217c-11e9-93cb-5f11e91b3b82.png)
@@ -131,7 +131,7 @@ Una vez cargada la venta deberemos de rellenar los campos y clickear para enviar
 
 ## Expresiones de Gratitud 🎁
 
-Gracias a Guillermo Barcia por esos dias de desarrollo, fue bastante satisfactorio superar el reto con una persona tan sumamente agradable al lado
+Gracias a Guillermo Barcia por acompañarme durante el desarrollo de este proyecto, fue bastante satisfactorio superar el reto con una persona tan sumamente agradable al lado
 
 ---
 ⌨️ con ❤️ por [MTX](https://github.com/Methox) 😊
