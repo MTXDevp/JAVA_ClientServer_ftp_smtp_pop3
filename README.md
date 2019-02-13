@@ -131,7 +131,7 @@ Una vez cargada la venta deberemos de rellenar los campos y clickear para enviar
 
 ## Expresiones de Gratitud 🎁
 
-Gracias a Guillermo Barcias por esas noches de desarrollo, fue bastante satisfactorio superar el reto con una persona tan sumamente agradable al lado
+Gracias a Guillermo Barcia por esos dias de desarrollo, fue bastante satisfactorio superar el reto con una persona tan sumamente agradable al lado
 
 ---
-⌨️ con ❤️ por [MTX](https://github.com/METHOX) 😊
+⌨️ con ❤️ por [MTX](https://github.com/Methox) 😊
