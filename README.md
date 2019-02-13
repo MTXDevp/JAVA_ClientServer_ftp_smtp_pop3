@@ -37,6 +37,7 @@ Importar el proyecto directamente en Eclipse, pronto estará listo el ejecutable
 
 ## Autores ✒️
 
+* **Rafael Valls Sánchez** 
 * **Guillermo García Barcias** - *Trabajo Inicial* - [Linkedin](https://www.linkedin.com/in/guillermo-barcia-molina-311b3a167/)
 
 ## Licencia 📄
