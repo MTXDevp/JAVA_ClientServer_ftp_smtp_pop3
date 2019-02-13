@@ -123,7 +123,7 @@ Para 	ello deberemos de clickear en las barras situadas en la esquina 	superior 
 
 ![imgcorreo3](https://user-images.githubusercontent.com/23072249/51787929-b7ccfc00-2177-11e9-9be9-df6380b427af.png)
 
-Una vez cargada la venta deberemos de rellenar los campos y clickear para enviar el correspondiente mensaje
+Una vez cargada la ventana deberemos de rellenar los campos y clickear para enviar el correspondiente mensaje
 
 
 ![imgcorreo4](https://user-images.githubusercontent.com/23072249/51787935-d3380700-2177-11e9-9a65-792ee0820d18.png)
