@@ -131,7 +131,7 @@ Una vez cargada la ventana deberemos de rellenar los campos y clickear para envi
 
 ## Expresiones de Gratitud 🎁
 
-Gracias a Guillermo Barcia por acompañarme durante el desarrollo de este proyecto, fue bastante satisfactorio superar el reto con una persona tan sumamente agradable al lado
+Gracias a Guillermo Barcia por acompañarme durante el desarrollo de este proyecto
 
 ---
 ⌨️ con ❤️ por [MTX](https://github.com/Methox) 😊
