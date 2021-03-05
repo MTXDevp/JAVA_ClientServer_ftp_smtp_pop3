@@ -128,10 +128,5 @@ Una vez cargada la ventana deberemos de rellenar los campos y clickear para envi
 
 ![imgcorreo4](https://user-images.githubusercontent.com/23072249/51787935-d3380700-2177-11e9-9a65-792ee0820d18.png)
 
-
-## Expresiones de Gratitud 🎁
-
-Gracias a Guillermo Barcia por acompañarme durante el desarrollo de este proyecto
-
 ---
 ⌨️ con ❤️ por [MTX](https://github.com/Methox) 😊
