@@ -2,7 +2,7 @@
 
 ## Comenzando 🚀
 
-Aplicación cliente servidor que hace uso de los protocolos FTP para el envio y descarga de archivos y el SMTP/POP3 para el envio y recepción de correos
+Client server application that makes use of the FTP protocols for sending and downloading files and SMTP / POP3 for sending and receiving emails.
 
 ### Pre-requisitos 📋
 
