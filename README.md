@@ -1,10 +1,10 @@
-# App Java Cliente Servidor
+# Java Client Server
 
-## Comenzando 🚀
+## Starting 🚀
 
 Client server application that makes use of the FTP protocols for sending and downloading files and SMTP / POP3 for sending and receiving emails.
 
-### Pre-requisitos 📋
+### Pre requirements 📋
 
 The program is configured to start the client and the server on the same computer, for this we can see how we instantiate both the client and the server in the Main of the project. To make it work remotely, we must comment on one of the calls depending on whether you want to act as client and server and change the client's connection IP, which is LOCALHOST or 127.0.0.1 to the corresponding server IP.
 
@@ -35,16 +35,16 @@ FRONTEND LIBRARIES
 * [Popper](https://mvnrepository.com/artifact/org.webjars.bower/popper.js)
 * [JSoup](https://mvnrepository.com/artifact/org.jsoup/jsoup)
 
-## Autores ✒️
+## Authors ✒️
 
 * **Rafael Valls Sánchez** 
 * **Guillermo García Barcias** - *Trabajo Inicial* - [Linkedin](https://www.linkedin.com/in/guillermo-barcia-molina-311b3a167/)
 
-## Licencia 📄
+## License 📄
 
 De uso libre
 
-## Manual de Usuario
+## User manual
 
 ## Login
 
@@ -54,21 +54,21 @@ In order to start a session we must Register, for this we must first click on th
 ![imglogin](https://user-images.githubusercontent.com/23072249/51788269-21e7a000-217c-11e9-93cb-5f11e91b3b82.png)
 
 
-## Registrarse
+## Sign in
 
 In the next window we must enter the registration data, which must coincide with the email data
 
 
 ![imgreg](https://user-images.githubusercontent.com/23072249/51787814-bb13b800-2176-11e9-9b41-c89466425bef.png)
 
-## Menú
+## Menu
 
 With the arrows you can select what action to carry out: upload file, download file or access email
 
 
 ![imgmenu](https://user-images.githubusercontent.com/23072249/51787824-dd0d3a80-2176-11e9-83e1-5fafe60f8106.png)
 
-## Subir Archivo
+## Upload file
 
 In this case we will access the option to upload file, for this we look for and click this icon in large. In the next window we must Click on Select file
 
@@ -87,7 +87,7 @@ We select open and send
 
 When the loading bar is complete, it means that our file has been uploaded correctly and we can click on "Exit" to return to the menu.
 
-## Descargar Archivo
+## Download File
 
 Then we will access the option to upload file, for this we look for and click this icon in large
 
@@ -116,7 +116,7 @@ If we click, the following window will be displayed, in which all available emai
 
 ![imgcorreo2](https://user-images.githubusercontent.com/23072249/51787919-9f5ce180-2177-11e9-8022-2786e9142bf2.png)
 
-## Enviar Correo
+## Send mail
 
 For this we must click on the bars located in the upper left corner which will display the following options
 
