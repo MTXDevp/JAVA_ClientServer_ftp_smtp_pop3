@@ -23,13 +23,13 @@ Import the project directly into Eclipse, the executable will be ready soon!
 
 ## Building in 🛠️
 
-  LIBRERIAS BACKEND
-* [JxBrowser](https://mvnrepository.com/artifact/jxbrowser/jxbrowser-win/) - Desarrollo del frontend
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [H2 Database](https://mvnrepository.com/artifact/com.h2database/h2/) - Base de datos usada
-* [JavaMail](https://mvnrepository.com/artifact/javax.mail/mail) - Manejo de los correos 
+BACKEND LIBRARIES
+* [JxBrowser](https://mvnrepository.com/artifact/jxbrowser/jxbrowser-win/) - Frontend development
+* [Maven](https://maven.apache.org/) - Dependency manager
+* [H2 Database](https://mvnrepository.com/artifact/com.h2database/h2/) - Database used
+* [JavaMail](https://mvnrepository.com/artifact/javax.mail/mail) - Mail handling
 
- LIBRERIAS FRONTEND
+FRONTEND LIBRARIES
 * [Boostrap](https://mvnrepository.com/artifact/org.webjars/bootsrap)
 * [JQuery](https://mvnrepository.com/artifact/org.webjars/jquery)
 * [Popper](https://mvnrepository.com/artifact/org.webjars.bower/popper.js)
@@ -128,5 +128,3 @@ Once the window is loaded, we must fill in the fields and click to send the corr
 
 ![imgcorreo4](https://user-images.githubusercontent.com/23072249/51787935-d3380700-2177-11e9-9a65-792ee0820d18.png)
 
----
-⌨️ con ❤️ por [MTX](https://github.com/Methox) 😊
